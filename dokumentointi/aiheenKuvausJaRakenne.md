@@ -16,17 +16,20 @@ Ohjelmaan sisällytetään erilaista opettamisen logiikkaa:
 
 **Käyttäjät:** Opiskelija (mahdollinen laajennus: toinen käyttäjä Opettaja)
 
-**Kaikkien käyttäjien toiminnot:**
-- ...
-- ...
 
-**Koululaisen toiminnot:**
-- ...
-- ...
+**Käyttäjän opiskelija toiminnot:**
+- valitse harjoiteltavat laskutoimitus/-toimitukset
+- valitse vaikeustaso
+- valitse millaisia vastaukset voivat olla
+- aloita harjoittelu
+- lopeta harjoittelu
 
-**Opettajan toiminnot:**
+**Laajennusideoita:**
+- kirjautuminen
+- kirjanpito eri käyttäjien (opiskelijoiden) osaamistasosta tekstitiedostoon
+- toinen käyttäjä opettaja, joka vois esim. säätää kertauksen määrää, vaikeutumisen nopeutta
+- automaattiset vaikeustaso- ym. asetukset eri luokka-asteille
+- eri tasoisten aritmetiikan kokeiden toteutus
+- koetulosten tallentaminen tekstitiedostoiksi
+- käyttäjä Opettaja voi antaa käyttäjille Opiskelija arvosanat perustuen harjoittelun aktiivisuuteen ja tuloksiin sekä koetuloksiin
 - ...
-- ...
-
-Laajennusidea: Ohjelmalla voi toteuttaa eri tasoisia aritmetiikan kokeita. Tulokset voidaan ehkä tallettaa tekstitiedostoiksi... 
-
