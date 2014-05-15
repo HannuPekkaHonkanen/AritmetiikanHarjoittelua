@@ -9,9 +9,10 @@ Ohjelmalla harjoittellaan peruslaskutoimituksia. Ohjelma kysyy toistuvasti kahde
 Ohjelma arpoo kysyttävät luvut. Käyttäjä voi ohjata kysyttävien laskutoimitusten vaikeustasoa: mitä laskutoimituksia harjoitellaan, voiko vastaus olla negatiivinen, ovatko luvut vain kokonaislukuja, ovatko osamäärät vain kokonaislukuja, jne. 
 
 Ohjelmaan sisällytetään erilaista opettamisen logiikkaa:
-- "Repetitio mater studiorum est" eli kertaus on opintojen äiti: toistamaan tehtäviä, joita ei osattu ensimmäisellä kerralla.
+- "Repetitio mater studiorum est" eli kertaus on opintojen äiti: toistetaan tehtäviä, joita ei osattu ensimmäisellä kerralla.
 - Tehtävätyyppejä, jotka ovat opiskelijalle vaikeimpia, harjoitellaan enemmän.
-- Ajan salliessa kehitellään lisää logiikkaa.- Opiskelijaa palkitaan esim. papukaijamerkeillä.
+- Ajan salliessa kehitellään lisää logiikkaa.
+- Opiskelijaa palkitaan esim. papukaijamerkeillä.
 
 **Käyttäjät:** Opiskelija (mahdollinen laajennus: toinen käyttäjä Opettaja)
 
