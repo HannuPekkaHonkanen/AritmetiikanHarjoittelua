@@ -1,6 +1,6 @@
-﻿# Javalabra: Aiheen kuvaus ja rakenne
-## Hannu Honkanen
+﻿## Javalabra / Hannu Honkanen, periodi 5/2014
 
+## Aiheen kuvaus ja rakenne
 **Aihe:** Aritmetiikan harjoittelua
 
 **Kuvaus:**
