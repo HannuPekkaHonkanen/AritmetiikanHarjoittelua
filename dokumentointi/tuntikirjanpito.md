@@ -7,3 +7,5 @@
 | 13.05.2014 | 2               | 0              | git/java-projekti  |
 | 15.05.2014 | 1               | 0              | md-opiskelua/tuntikirjanpidon aloitus |
 | 15.05.2014 | 0               | 2              | alustava aihemäärittely |
+| 18.05.2014 | 1               | 0              | viikon 2 ohjeiden luku |
+| xx.05.2014 | 0               | 0              | uusi rivi |
