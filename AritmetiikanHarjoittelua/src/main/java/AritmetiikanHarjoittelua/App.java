@@ -1,4 +1,4 @@
-package aritmetiikanharjoittelua.aritmetiikanharjoittelua;
+package AritmetiikanHarjoittelua;
 
 /**
  * Hello world!

@@ -1,4 +1,4 @@
-package aritmetiikanharjoittelua.aritmetiikanharjoittelua;
+package AritmetiikanHarjoittelua;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
