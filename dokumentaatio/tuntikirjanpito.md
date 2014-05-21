@@ -1,11 +1,13 @@
 ﻿## Javalabra / Hannu Honkanen, periodi 5/2014
 
 ## Tuntikirjanpito
-| Pvm        | alkuvalmistelut | aihemäärittely | KOMMENTTI |
-| :----------| --------------: | -------------: |:----------|
-| 12.05.2014 | 2               | 0              | aloitusluento  |
-| 13.05.2014 | 2               | 0              | git/java-projekti  |
-| 15.05.2014 | 1               | 0              | md-opiskelua/tuntikirjanpidon aloitus |
-| 15.05.2014 | 0               | 2              | alustava aihemäärittely |
-| 18.05.2014 | 1               | 0              | viikon 2 ohjeiden luku |
-| xx.05.2014 | 0               | 0              | uusi rivi |
+| Pvm        | Opiskelua | alkuvalmistelut | aihemäärittely | KOMMENTTI |
+| :----------| --------: | --------------: | -------------: |:----------|
+| 12.05.2014 |           | 2               |                | aloitusluento  |
+| 13.05.2014 |           | 2               |                | git/java-projekti |
+| 15.05.2014 |           | 1               |                | md-opiskelua/tuntikirjanpidon aloitus |
+| 15.05.2014 |           |                 | 2              | alustava aihemäärittely |
+| 18.05.2014 |           | 1               |                | viikon 2 ohjeiden luku |
+| 21.05.2014 | 5         |                 |                | ohja- ym. kertausta |
+| 22.05.2014 | 2         |                 |                |  git/java-projekti uusiksi |
+| xx.05.2014 |           |                 |                | uusi rivi |
