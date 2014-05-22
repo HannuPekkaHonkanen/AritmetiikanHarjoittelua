@@ -17,6 +17,7 @@ public class Tehtava {
     
     public String oikeaVastaus(){
         return Integer.toString(this.laskutoimitus.laske());
+//        return Double.toString(this.laskutoimitus.laske());
     }
     
 }

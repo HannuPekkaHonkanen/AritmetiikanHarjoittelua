@@ -15,4 +15,5 @@ public class Summa extends Laskutoimitus {
     public String tekstina() {
         return super.luku1 + " + " + super.luku2;
     }
+
 }
