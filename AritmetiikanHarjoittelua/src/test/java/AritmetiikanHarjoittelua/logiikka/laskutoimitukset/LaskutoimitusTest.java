@@ -67,12 +67,26 @@ public class LaskutoimitusTest {
         assertEquals("4 + 7", pluslasku.tekstina());
     }
 
-//    @Test
-//    public void toimiikoErotuksenLaskeminenPosInt() {
-//        pluslasku.setLuku1(7);
-//        pluslasku.setLuku2(4);
-//        assertEquals(3, miinuslasku.laske());
-//    }
+    @Test
+    public void toimiikoErotuksenLaskeminenPosInt() {
+        miinuslasku.setLuku1(7);
+        miinuslasku.setLuku2(4);
+        assertEquals(3, miinuslasku.laske());
+    }
+
+    @Test
+    public void toimiikoErotuksenLaskeminenNegInt() {
+        miinuslasku.setLuku1(-4);
+        miinuslasku.setLuku2(-8);
+        assertEquals(4, miinuslasku.laske());
+    }
+
+    @Test
+    public void toimiikoErotuksenTekstinaPosInt() {
+        miinuslasku.setLuku1(4);
+        miinuslasku.setLuku2(7);
+        assertEquals("4 - 7", miinuslasku.tekstina());
+    }
     
     
 //    @Test

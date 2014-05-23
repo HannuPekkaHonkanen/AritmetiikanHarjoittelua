@@ -14,7 +14,7 @@ public class Arpoja {
     }
     
     public int kokonaisluku(){
-        return this.arpoja.nextInt(11);
+        return this.arpoja.nextInt(21)-10;
     }
     
 }

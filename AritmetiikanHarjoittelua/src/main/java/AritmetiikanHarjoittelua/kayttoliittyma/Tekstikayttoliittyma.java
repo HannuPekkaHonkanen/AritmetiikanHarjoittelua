@@ -38,7 +38,8 @@ public class Tekstikayttoliittyma {
         int luku1 = arpoja.kokonaisluku();
         int luku2 = arpoja.kokonaisluku();
 
-        this.harjoittelu.tehtava.laskutoimitus = new Summa();
+//        this.harjoittelu.tehtava.laskutoimitus = new Summa();
+        this.harjoittelu.tehtava.laskutoimitus = new Erotus();
         this.harjoittelu.tehtava.laskutoimitus.setLuku1(luku1);
         this.harjoittelu.tehtava.laskutoimitus.setLuku2(luku2);
 
