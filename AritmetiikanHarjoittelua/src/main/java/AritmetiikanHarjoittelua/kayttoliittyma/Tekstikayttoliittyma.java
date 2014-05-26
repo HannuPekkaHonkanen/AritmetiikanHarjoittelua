@@ -16,21 +16,14 @@ public class Tekstikayttoliittyma {
     }
 
     public void kaynnista() {
-
-
         ohjeet();
-
-        String laskutoimitustyyppi=kysyLaskutoimitustyyppi();
-        
-        Laskutoimitus laskutoimitus = this.laskutoimitustehdas.uusiLaskutoimitus(laskutoimitustyyppi);
-        
+        String tyyppi=kysyLaskutoimitustyyppi();
+        Laskutoimitus laskutoimitus = this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi);
         this.harjoittelu.luoTehtava(laskutoimitus);
-
-        tehtavananto();
+        System.out.println(this.harjoittelu.getTehtava().tekstina());
         String vastaus = lueVastaus();
         String tulos = tarkistaVastaus(vastaus);
         System.out.println(tulos);
-
     }
 
     public void ohjeet() {
@@ -46,12 +39,8 @@ public class Tekstikayttoliittyma {
         return vastaus;
     }
 
-    public void tehtavananto() {
-        System.out.println(this.harjoittelu.getTehtava().tekstina());
-    }
-
     public String lueVastaus() {
-//        Integer i;
+//        POISTA Integer i;
 //        i.valueOf("22");
 //        Integer.
         System.out.print("Anna vastaus: ");
