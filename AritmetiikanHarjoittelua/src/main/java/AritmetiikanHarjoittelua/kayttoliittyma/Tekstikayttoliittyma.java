@@ -8,7 +8,7 @@ public class Tekstikayttoliittyma {
 
     private Scanner lukija;
     private Harjoittelu harjoittelu;
-    private Laskutoimitustehdas laskutoimitustehdas=new Laskutoimitustehdas();
+    private Laskutoimitustehdas laskutoimitustehdas = new Laskutoimitustehdas();
 
     public Tekstikayttoliittyma(Scanner lukija, Harjoittelu harjoittelu) {
         this.lukija = lukija;
@@ -16,8 +16,9 @@ public class Tekstikayttoliittyma {
     }
 
     public void kaynnista() {
+// POISTA       System.out.println(String.valueOf(-9));
         ohjeet();
-        String tyyppi=kysyLaskutoimitustyyppi();
+        String tyyppi = kysyLaskutoimitustyyppi();
         Laskutoimitus laskutoimitus = this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi);
         this.harjoittelu.luoTehtava(laskutoimitus);
         System.out.println(this.harjoittelu.getTehtava().tekstina());
@@ -32,9 +33,9 @@ public class Tekstikayttoliittyma {
         System.out.println("Ohjeet: ...");
         System.out.println("");
     }
-    
-    public String kysyLaskutoimitustyyppi(){
-        System.out.print("Anna laskutoimitustyyppi (y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku: ");
+
+    public String kysyLaskutoimitustyyppi() {
+        System.out.println("Anna laskutoimitustyyppi (y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku: ");
         String vastaus = lukija.nextLine();
         return vastaus;
     }

@@ -14,12 +14,12 @@ public class Osamaara extends Laskutoimitus {
         if (super.luku2 == 0) {
             return false;
         }
+        asetaJaettavaJaJakaja();
         return true;
     }
 
     @Override
     public String tekstina() {
-        asetaJaettavaJaJakaja();
         return this.jaettava + " / " + this.jakaja;
     }
 
