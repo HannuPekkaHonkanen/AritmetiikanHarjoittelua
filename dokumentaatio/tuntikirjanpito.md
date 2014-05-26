@@ -11,5 +11,5 @@
 | 21.05.2014 | 5         |                 |                |         |         |     | ohja- ym. kertausta |
 | 22.05.2014 | 2         |                 |                |         |         |     | git/java-projekti uusiksi |
 | 22.05.2014 |           |                 |                | 4       |         |     | ensimmäisiä toiminnallisuuksia |
-| xx.05.2014 |           |                 |                |         | 1       |     | ensimmäisiä unit-testejä |
-| xx.05.2014 |           |                 |                |         |         | 1   | skannerin kanssa sähläämistä |
+| 22.05.2014 |           |                 |                |         | 1       |     | ensimmäisiä unit-testejä |
+| 22.05.2014 |           |                 |                |         |         | 1   | skannerin kanssa sähläämistä |
