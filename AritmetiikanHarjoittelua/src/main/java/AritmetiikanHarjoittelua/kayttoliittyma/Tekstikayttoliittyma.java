@@ -7,12 +7,12 @@ import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.*;
 public class Tekstikayttoliittyma {
 
     private Scanner lukija;
-    private Aritmetiikkakone harjoittelu;
+    private Aritmetiikkakone kone;
 //    private Laskutoimitustehdas laskutoimitustehdas = new Laskutoimitustehdas();
 
-    public Tekstikayttoliittyma(Scanner lukija, Aritmetiikkakone harjoittelu) {
+    public Tekstikayttoliittyma(Scanner lukija, Aritmetiikkakone kone) {
         this.lukija = lukija;
-        this.harjoittelu = harjoittelu;
+        this.kone = kone;
     }
 
     public void kaynnista() {
@@ -20,10 +20,10 @@ public class Tekstikayttoliittyma {
         ohjeet();
         String tyyppi = kysyLaskutoimitustyyppi();
 // POISTA       Laskutoimitus laskutoimitus = this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi);
-//        this.harjoittelu.luoTehtava(laskutoimitus);
-        this.harjoittelu.luoTehtava(tyyppi);
-//        this.harjoittelu.luoTehtava(laskutoimitustehdas,tyyppi);
-        System.out.println(this.harjoittelu.getTehtava().tekstina());
+//        this.kone.luoTehtava(laskutoimitus);
+        this.kone.luoTehtava(tyyppi);
+//        this.kone.luoTehtava(laskutoimitustehdas,tyyppi);
+        System.out.println(this.kone.getTehtava().tekstina());
         String vastaus = lueVastaus();
         String tulos = tarkistaVastaus(vastaus);
         System.out.println(tulos);
@@ -53,7 +53,7 @@ public class Tekstikayttoliittyma {
     }
 
     public String tarkistaVastaus(String vastaus) {
-        if (vastaus.equals(this.harjoittelu.getTehtava().oikeaVastaus())) {
+        if (vastaus.equals(this.kone.getTehtava().oikeaVastaus())) {
             return "Vastaus on oikein.";
         } else {
             return "Vastaus on väärin.";
