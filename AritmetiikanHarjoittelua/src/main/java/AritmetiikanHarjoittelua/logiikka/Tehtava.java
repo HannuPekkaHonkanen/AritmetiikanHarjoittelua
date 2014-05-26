@@ -7,17 +7,19 @@ import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.Laskutoimitus;
  * @author Hannu
  */
 public class Tehtava {
-    
-    public Laskutoimitus laskutoimitus;
-//    public int oikeaVastaus;
-    
-    public Tehtava(){
-//        laskutoimitus=new Laskutoimitus();
+
+    private Laskutoimitus laskutoimitus;
+
+    public Tehtava(Laskutoimitus laskutoimitus) {
+        this.laskutoimitus = laskutoimitus;
     }
     
-    public String oikeaVastaus(){
+    public String tekstina(){
+        return "Laske: " + this.laskutoimitus.tekstina();
+    }
+
+    public String oikeaVastaus() {
         return Integer.toString(this.laskutoimitus.laske());
 //        return Double.toString(this.laskutoimitus.laske());
     }
-    
 }

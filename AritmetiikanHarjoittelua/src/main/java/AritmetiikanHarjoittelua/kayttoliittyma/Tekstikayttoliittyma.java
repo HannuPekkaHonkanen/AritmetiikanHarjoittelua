@@ -8,6 +8,7 @@ public class Tekstikayttoliittyma {
 
     private Scanner lukija;
     private Harjoittelu harjoittelu;
+    private Laskutoimitustehdas laskutoimitustehdas=new Laskutoimitustehdas();
 
     public Tekstikayttoliittyma(Scanner lukija, Harjoittelu harjoittelu) {
         this.lukija = lukija;
@@ -16,20 +17,14 @@ public class Tekstikayttoliittyma {
 
     public void kaynnista() {
 
+
         ohjeet();
 
-//        this.harjoittelu.tehtava.laskutoimitus = new Summa();
-//        this.harjoittelu.tehtava.laskutoimitus = new Erotus();
-        this.harjoittelu.tehtava.laskutoimitus = new Tulo();
-//        this.harjoittelu.tehtava.laskutoimitus = new Osamaara();
-
-        arvoLuvut();
-//        arvoLuvutTestNolla();
-        while (!this.harjoittelu.tehtava.laskutoimitus.luvutOvatKelvolliset()) {
-            System.out.println("luvut eivät kelvolliset -> luvut arvotaan uudestaan");
-            arvoLuvut();
-        }
-//        tarkistaLuvut();
+        String laskutoimitustyyppi=kysyLaskutoimitustyyppi();
+        
+        Laskutoimitus laskutoimitus = this.laskutoimitustehdas.uusiLaskutoimitus(laskutoimitustyyppi);
+        
+        this.harjoittelu.luoTehtava(laskutoimitus);
 
         tehtavananto();
         String vastaus = lueVastaus();
@@ -44,38 +39,15 @@ public class Tekstikayttoliittyma {
         System.out.println("Ohjeet: ...");
         System.out.println("");
     }
-
-    public void arvoLuvut() {
-        Arpoja arpoja = new Arpoja();
-
-        int luku1 = arpoja.kokonaisluku();
-        int luku2 = arpoja.kokonaisluku();
-
-        this.harjoittelu.tehtava.laskutoimitus.setLuku1(luku1);
-        this.harjoittelu.tehtava.laskutoimitus.setLuku2(luku2);
-
+    
+    public String kysyLaskutoimitustyyppi(){
+        System.out.print("Anna laskutoimitustyyppi (y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku: ");
+        String vastaus = lukija.nextLine();
+        return vastaus;
     }
 
-    public void arvoLuvutTestNolla() {
-        Arpoja arpoja = new Arpoja();
-
-        int luku1 = arpoja.kokonaisluku();
-//        int luku2 = arpoja.kokonaisluku();
-        int luku2 = 0;
-
-        this.harjoittelu.tehtava.laskutoimitus.setLuku1(luku1);
-        this.harjoittelu.tehtava.laskutoimitus.setLuku2(luku2);
-
-    }
-
-//    public void tarkistaLuvut() {
-//
-//        if (this.harjoittelu.tehtava.laskutoimitus.luvutOvatKelvolliset()) {
-//        }
-//    }
     public void tehtavananto() {
-
-        System.out.println("Laske: " + this.harjoittelu.tehtava.laskutoimitus.tekstina());
+        System.out.println(this.harjoittelu.getTehtava().tekstina());
     }
 
     public String lueVastaus() {
@@ -89,7 +61,7 @@ public class Tekstikayttoliittyma {
     }
 
     public String tarkistaVastaus(String vastaus) {
-        if (vastaus.equals(this.harjoittelu.tehtava.oikeaVastaus())) {
+        if (vastaus.equals(this.harjoittelu.getTehtava().oikeaVastaus())) {
             return "Vastaus on oikein.";
         } else {
             return "Vastaus on väärin.";

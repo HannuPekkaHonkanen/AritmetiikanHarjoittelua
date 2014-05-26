@@ -1,5 +1,8 @@
 package AritmetiikanHarjoittelua.logiikka;
 
+import AritmetiikanHarjoittelua.logiikka.*;
+import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.Laskutoimitus;
+
 /**
  *
  * @author Hannu
@@ -7,9 +10,16 @@ package AritmetiikanHarjoittelua.logiikka;
 public class Harjoittelu {
 
 //    Tehtava ekaYhteenlaskuTehtava;
-    public Tehtava tehtava;
+    private Tehtava tehtava;
 
     public Harjoittelu() {
-        this.tehtava = new Tehtava();
+    }
+
+    public void luoTehtava(Laskutoimitus laskutoimitus) {
+        this.tehtava = new Tehtava(laskutoimitus);
+    }
+    
+    public Tehtava getTehtava(){
+        return this.tehtava;
     }
 }
