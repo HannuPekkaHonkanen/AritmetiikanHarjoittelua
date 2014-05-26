@@ -7,10 +7,10 @@ import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.*;
 public class Tekstikayttoliittyma {
 
     private Scanner lukija;
-    private Harjoittelu harjoittelu;
-    private Laskutoimitustehdas laskutoimitustehdas = new Laskutoimitustehdas();
+    private Aritmetiikkakone harjoittelu;
+//    private Laskutoimitustehdas laskutoimitustehdas = new Laskutoimitustehdas();
 
-    public Tekstikayttoliittyma(Scanner lukija, Harjoittelu harjoittelu) {
+    public Tekstikayttoliittyma(Scanner lukija, Aritmetiikkakone harjoittelu) {
         this.lukija = lukija;
         this.harjoittelu = harjoittelu;
     }
@@ -19,8 +19,10 @@ public class Tekstikayttoliittyma {
 // POISTA       System.out.println(String.valueOf(-9));
         ohjeet();
         String tyyppi = kysyLaskutoimitustyyppi();
-        Laskutoimitus laskutoimitus = this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi);
-        this.harjoittelu.luoTehtava(laskutoimitus);
+// POISTA       Laskutoimitus laskutoimitus = this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi);
+//        this.harjoittelu.luoTehtava(laskutoimitus);
+        this.harjoittelu.luoTehtava(tyyppi);
+//        this.harjoittelu.luoTehtava(laskutoimitustehdas,tyyppi);
         System.out.println(this.harjoittelu.getTehtava().tekstina());
         String vastaus = lueVastaus();
         String tulos = tarkistaVastaus(vastaus);

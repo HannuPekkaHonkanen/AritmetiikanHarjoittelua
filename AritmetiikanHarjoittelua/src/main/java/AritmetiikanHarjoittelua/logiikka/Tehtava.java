@@ -1,6 +1,7 @@
 package AritmetiikanHarjoittelua.logiikka;
 
 import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.Laskutoimitus;
+import AritmetiikanHarjoittelua.logiikka.Laskutoimitustehdas;
 
 /**
  *
@@ -13,6 +14,10 @@ public class Tehtava {
     public Tehtava(Laskutoimitus laskutoimitus) {
         this.laskutoimitus = laskutoimitus;
     }
+    
+//    POISTA public Tehtava() {
+//        this.laskutoimitus = new Laskutoimitus();
+//    }
     
     public String tekstina(){
         return "Laske: " + this.laskutoimitus.tekstina();
