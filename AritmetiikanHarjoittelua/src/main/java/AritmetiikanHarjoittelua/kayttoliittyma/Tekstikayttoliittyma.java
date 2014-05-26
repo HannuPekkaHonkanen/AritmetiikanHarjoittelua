@@ -17,9 +17,23 @@ public class Tekstikayttoliittyma {
     public void kaynnista() {
 
         ohjeet();
+
+//        this.harjoittelu.tehtava.laskutoimitus = new Summa();
+//        this.harjoittelu.tehtava.laskutoimitus = new Erotus();
+        this.harjoittelu.tehtava.laskutoimitus = new Tulo();
+//        this.harjoittelu.tehtava.laskutoimitus = new Osamaara();
+
+        arvoLuvut();
+//        arvoLuvutTestNolla();
+        while (!this.harjoittelu.tehtava.laskutoimitus.luvutOvatKelvolliset()) {
+            System.out.println("luvut eivät kelvolliset -> luvut arvotaan uudestaan");
+            arvoLuvut();
+        }
+//        tarkistaLuvut();
+
         tehtavananto();
         String vastaus = lueVastaus();
-        String tulos=tarkistaVastaus(vastaus);
+        String tulos = tarkistaVastaus(vastaus);
         System.out.println(tulos);
 
     }
@@ -31,17 +45,35 @@ public class Tekstikayttoliittyma {
         System.out.println("");
     }
 
-    public void tehtavananto() {
-        
+    public void arvoLuvut() {
         Arpoja arpoja = new Arpoja();
-        
+
         int luku1 = arpoja.kokonaisluku();
         int luku2 = arpoja.kokonaisluku();
 
-//        this.harjoittelu.tehtava.laskutoimitus = new Summa();
-        this.harjoittelu.tehtava.laskutoimitus = new Erotus();
         this.harjoittelu.tehtava.laskutoimitus.setLuku1(luku1);
         this.harjoittelu.tehtava.laskutoimitus.setLuku2(luku2);
+
+    }
+
+    public void arvoLuvutTestNolla() {
+        Arpoja arpoja = new Arpoja();
+
+        int luku1 = arpoja.kokonaisluku();
+//        int luku2 = arpoja.kokonaisluku();
+        int luku2 = 0;
+
+        this.harjoittelu.tehtava.laskutoimitus.setLuku1(luku1);
+        this.harjoittelu.tehtava.laskutoimitus.setLuku2(luku2);
+
+    }
+
+//    public void tarkistaLuvut() {
+//
+//        if (this.harjoittelu.tehtava.laskutoimitus.luvutOvatKelvolliset()) {
+//        }
+//    }
+    public void tehtavananto() {
 
         System.out.println("Laske: " + this.harjoittelu.tehtava.laskutoimitus.tekstina());
     }

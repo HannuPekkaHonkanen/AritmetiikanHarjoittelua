@@ -17,12 +17,15 @@ public class Laskutoimitus {
         this.luku2=luku2;
     }
     
-
-    public int laske() {
-        return 0;
+    public boolean luvutOvatKelvolliset(){
+        return true;
     }
 
     public String tekstina() {
         return "laskutoimitus tekstinä";
+    }
+
+    public int laske() {
+        return 999999;
     }
 }
