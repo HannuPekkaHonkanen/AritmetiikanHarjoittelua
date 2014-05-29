@@ -2,10 +2,6 @@ package AritmetiikanHarjoittelua.logiikka;
 
 import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.*;
 
-/**
- *
- * @author Hannu
- */
 public class Laskutoimitustehdas {
 
     private Laskutoimitus laskutoimitus;
@@ -21,6 +17,7 @@ public class Laskutoimitustehdas {
         } else if (tyyppi.equalsIgnoreCase("j") || tyyppi.equalsIgnoreCase("J")) {
             this.laskutoimitus = new Osamaara();
         } else {
+//            LISAA virheenkäsittely
             System.out.println("VIRHE laskutoimistustehdas 1");
         }
 
@@ -44,6 +41,8 @@ public class Laskutoimitustehdas {
         this.laskutoimitus.setLuku1(luku1);
         this.laskutoimitus.setLuku2(luku2);
     }
+    
+//    POISTA
 //    public void arvoLuvutTestNolla() {
 ////        TESTI
 //        Arpoja arpoja = new Arpoja();
@@ -55,4 +54,5 @@ public class Laskutoimitustehdas {
 //        this.laskutoimitus.setLuku1(luku1);
 //        this.laskutoimitus.setLuku2(luku2);
 //    }
+    
 }

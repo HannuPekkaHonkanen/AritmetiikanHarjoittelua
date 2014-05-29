@@ -8,7 +8,6 @@ public class Tekstikayttoliittyma {
 
     private Scanner lukija;
     private Aritmetiikkakone kone;
-//    private Laskutoimitustehdas laskutoimitustehdas = new Laskutoimitustehdas();
 
     public Tekstikayttoliittyma(Scanner lukija, Aritmetiikkakone kone) {
         this.lukija = lukija;
@@ -19,10 +18,7 @@ public class Tekstikayttoliittyma {
 // POISTA       System.out.println(String.valueOf(-9));
         ohjeet();
         String tyyppi = kysyLaskutoimitustyyppi();
-// POISTA       Laskutoimitus laskutoimitus = this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi);
-//        this.kone.luoTehtava(laskutoimitus);
         this.kone.luoTehtava(tyyppi);
-//        this.kone.luoTehtava(laskutoimitustehdas,tyyppi);
         System.out.println(this.kone.getTehtava().tekstina());
         String vastaus = lueVastaus();
         String tulos = tarkistaVastaus(vastaus);
@@ -33,6 +29,10 @@ public class Tekstikayttoliittyma {
         System.out.println("Aritmetiikan harjoittelua");
         System.out.println("");
         System.out.println("Ohjeet: ...");
+        System.out.println("");
+        System.out.println("HUOM! CODE REVIEW ja OHJAAJAT. Ks. README.md repositoriossa.");
+        System.out.println("HUOM! CODE REVIEW ja OHJAAJAT. Ks. README.md repositoriossa.");
+        System.out.println("HUOM! CODE REVIEW ja OHJAAJAT. Ks. README.md repositoriossa.");
         System.out.println("");
     }
 

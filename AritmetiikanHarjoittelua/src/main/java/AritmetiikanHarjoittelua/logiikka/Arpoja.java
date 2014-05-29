@@ -1,10 +1,7 @@
 package AritmetiikanHarjoittelua.logiikka;
 
 import java.util.Random;
-/**
- *
- * @author Hannu
- */
+
 public class Arpoja {
     
     private Random arpoja;

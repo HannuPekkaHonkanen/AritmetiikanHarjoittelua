@@ -3,10 +3,6 @@ package AritmetiikanHarjoittelua.logiikka;
 import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.Laskutoimitus;
 import AritmetiikanHarjoittelua.logiikka.Laskutoimitustehdas;
 
-/**
- *
- * @author Hannu
- */
 public class Tehtava {
 
     private Laskutoimitus laskutoimitus;
@@ -15,16 +11,13 @@ public class Tehtava {
         this.laskutoimitus = laskutoimitus;
     }
     
-//    POISTA public Tehtava() {
-//        this.laskutoimitus = new Laskutoimitus();
-//    }
-    
     public String tekstina(){
         return "Laske: " + this.laskutoimitus.tekstina();
     }
 
     public String oikeaVastaus() {
         return Integer.toString(this.laskutoimitus.laske());
+//        POISTA (<- tägi) mahdollinen laajennus
 //        return Double.toString(this.laskutoimitus.laske());
     }
 }
