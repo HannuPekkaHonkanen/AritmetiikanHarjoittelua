@@ -60,19 +60,19 @@ public class LaskutoimitusTest {
         assertEquals(-12, pluslasku.laske());
     }
 
-    @Test
-    public void toimiikoSummaTekstinaPosInt() {
-        pluslasku.setLuku1(4);
-        pluslasku.setLuku2(7);
-        assertEquals("4 + 7", pluslasku.tekstina());
-    }
+//    @Test
+//    public void toimiikoSummaTekstinaPosInt() {
+//        pluslasku.setLuku1(4);
+//        pluslasku.setLuku2(7);
+//        assertEquals("4 + 7", pluslasku.tekstina());
+//    }
 
-    @Test
-    public void toimiikoSummaTekstinaNegInt() {
-        pluslasku.setLuku1(-4);
-        pluslasku.setLuku2(-7);
-        assertEquals("-4 + (-7)", pluslasku.tekstina());
-    }
+//    @Test
+//    public void toimiikoSummaTekstinaNegInt() {
+//        pluslasku.setLuku1(-4);
+//        pluslasku.setLuku2(-7);
+//        assertEquals("-4 + (-7)", pluslasku.tekstina());
+//    }
 
     @Test
     public void toimiikoErotuksenLaskeminenPosInt() {
@@ -151,14 +151,16 @@ public class LaskutoimitusTest {
         assertEquals("-4 x (-7)", kertolasku.tekstina());
     }
 
-//    @Test
-//    public void toimiikoOsamaaranLaskeminenPosInt() {
-//        jakolasku.setLuku1(4);
-//        jakolasku.setLuku2(7);
-//        if (jakolasku.luvutOvatKelvolliset()) {
-//            assertEquals(4, jakolasku.laske());
-//        }
-//    }
+    @Test
+    public void toimiikoOsamaaranLaskeminenPosInt() {
+        jakolasku.setLuku1(4);
+        jakolasku.setLuku2(7);
+        //jakolasku.luvutOvatKelvolliset();
+        //if (jakolasku.luvutOvatKelvolliset()) {
+            assertEquals(4, jakolasku.laske());
+        //}
+    }
+    
 //    @Test
 //    public void toimiikoOsamaaranLaskeminenPosIntJaNollaInt() {
 //        jakolasku.setLuku1(4);

@@ -10,11 +10,17 @@ public class Osamaara extends Laskutoimitus {
     private int jakaja;
 
     @Override
+        public void setLuku2(int luku2) {
+        this.luku2 = luku2;
+        asetaJaettavaJaJakaja();
+    }
+
+        
+    @Override
     public boolean luvutOvatKelvolliset() {
         if (super.luku2 == 0) {
             return false;
         }
-        asetaJaettavaJaJakaja();
         return true;
     }
 
