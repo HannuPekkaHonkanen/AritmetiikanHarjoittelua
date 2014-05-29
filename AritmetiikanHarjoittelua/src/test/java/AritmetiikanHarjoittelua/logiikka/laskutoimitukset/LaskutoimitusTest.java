@@ -13,8 +13,6 @@ import static org.junit.Assert.*;
  */
 public class LaskutoimitusTest {
 
-    Summa asd;
-//    Lasku
     Laskutoimitus pluslasku;
     Laskutoimitus miinuslasku;
     Laskutoimitus kertolasku;
@@ -42,9 +40,6 @@ public class LaskutoimitusTest {
     @After
     public void tearDown() {
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
 
     @Test
     public void toimiikoSummanLaskeminenPosInt() {
@@ -95,12 +90,12 @@ public class LaskutoimitusTest {
         assertEquals("4 - 7", miinuslasku.tekstina());
     }
 
-    @Test
-    public void toimiikoErotusTekstinaInt2() {
-        miinuslasku.setLuku1(-4);
-        miinuslasku.setLuku2(-7);
-        assertEquals("-4 - (-7)", miinuslasku.tekstina());
-    }
+//    @Test
+//    public void toimiikoErotusTekstinaInt2() {
+//        miinuslasku.setLuku1(-4);
+//        miinuslasku.setLuku2(-7);
+//        assertEquals("-4 - (-7)", miinuslasku.tekstina());
+//    }
 
     @Test
     public void toimiikoErotusTekstinaInt3() {
@@ -144,47 +139,25 @@ public class LaskutoimitusTest {
         assertEquals("4 x 7", kertolasku.tekstina());
     }
 
-    @Test
-    public void toimiikoTuloTekstinaNegInt() {
-        kertolasku.setLuku1(-4);
-        kertolasku.setLuku2(-7);
-        assertEquals("-4 x (-7)", kertolasku.tekstina());
-    }
+//    @Test
+//    public void toimiikoTuloTekstinaNegInt() {
+//        kertolasku.setLuku1(-4);
+//        kertolasku.setLuku2(-7);
+//        assertEquals("-4 x (-7)", kertolasku.tekstina());
+//    }
 
     @Test
     public void toimiikoOsamaaranLaskeminenPosInt() {
         jakolasku.setLuku1(4);
         jakolasku.setLuku2(7);
-        //jakolasku.luvutOvatKelvolliset();
-        //if (jakolasku.luvutOvatKelvolliset()) {
             assertEquals(4, jakolasku.laske());
-        //}
     }
     
-//    @Test
-//    public void toimiikoOsamaaranLaskeminenPosIntJaNollaInt() {
-//        jakolasku.setLuku1(4);
-//        jakolasku.setLuku2(0);
-//        assertEquals(0, jakolasku.laske());
-//    }
-//
-//    @Test
-//    public void toimiikoOsamaaranLaskeminenNegInt1() {
-//        jakolasku.setLuku1(-4);
-//        jakolasku.setLuku2(-8);
-//        assertEquals(32, jakolasku.laske());
-//    }
-//
-//    @Test
-//    public void toimiikoOsamaaranLaskeminenNegInt2() {
-//        jakolasku.setLuku1(4);
-//        jakolasku.setLuku2(-8);
-//        assertEquals(-32, jakolasku.laske());
-//    }
-//    @Test
-//    public void toimiikoSummanLaskeminenPosDouble() {
-//        pluslasku.setLuku1(4.25);
-//        pluslasku.setLuku2(6.9);
-//        assertEquals(11.15, pluslasku.laske(), 0.0001);
-//    }
+    @Test
+    public void toimiikoOsamaaranLaskeminenNegInt() {
+        jakolasku.setLuku1(-8);
+        jakolasku.setLuku2(7);
+            assertEquals(-8, jakolasku.laske());
+    }
+    
 }

@@ -8,13 +8,13 @@ public class Laskutoimitustehdas {
 
     public Laskutoimitus uusiLaskutoimitus(String tyyppi) {
 //        y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku
-        if (tyyppi.equalsIgnoreCase("y") || tyyppi.equalsIgnoreCase("Y")) {
+        if (tyyppi.equalsIgnoreCase("y")) {
             this.laskutoimitus = new Summa();
-        } else if (tyyppi.equalsIgnoreCase("v") || tyyppi.equalsIgnoreCase("V")) {
+        } else if (tyyppi.equalsIgnoreCase("v")) {
             this.laskutoimitus = new Erotus();
-        } else if (tyyppi.equalsIgnoreCase("k") || tyyppi.equalsIgnoreCase("K")) {
+        } else if (tyyppi.equalsIgnoreCase("k")) {
             this.laskutoimitus = new Tulo();
-        } else if (tyyppi.equalsIgnoreCase("j") || tyyppi.equalsIgnoreCase("J")) {
+        } else if (tyyppi.equalsIgnoreCase("j")) {
             this.laskutoimitus = new Osamaara();
         } else {
 //            LISAA virheenkäsittely

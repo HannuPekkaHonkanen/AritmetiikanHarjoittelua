@@ -16,10 +16,7 @@ public class Summa extends Laskutoimitus {
 //        }
 //        return super.luku1 + " + " + super.luku2;
         
-        String l1 = this.luku1Tekstina();
-        String l2 = this.luku2Tekstina();
-        
-        return l1 + " + " + l2;
+        return this.luku1Tekstina() + " + " + this.luku2Tekstina(); //ei toimi unit-testeissä
     }
 
 

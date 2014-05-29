@@ -5,6 +5,9 @@ import AritmetiikanHarjoittelua.logiikka.*;
 import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.*;
 
 public class Tekstikayttoliittyma {
+    
+//    POISTA enum ? laskutoimitustyyppi piti muuttaa enum:iksi mutta ei vielä onnisstunut
+//    private Laskutoimitustyyppi laskutoimitustyyppi;
 
     private Scanner lukija;
     private Aritmetiikkakone kone;
@@ -15,9 +18,10 @@ public class Tekstikayttoliittyma {
     }
 
     public void kaynnista() {
-// POISTA       System.out.println(String.valueOf(-9));
         ohjeet();
         String tyyppi = kysyLaskutoimitustyyppi();
+//    POISTA enum ????
+//        this.laskutoimitustyyppi  = kysyLaskutoimitustyyppi();
         this.kone.luoTehtava(tyyppi);
         System.out.println(this.kone.getTehtava().tekstina());
         String vastaus = lueVastaus();
@@ -46,6 +50,7 @@ public class Tekstikayttoliittyma {
 //        POISTA Integer i;
 //        i.valueOf("22");
 //        Integer.
+// POISTA       System.out.println(String.valueOf(-9));
         System.out.print("Anna vastaus: ");
         String vastaus = lukija.nextLine();
         return vastaus;
