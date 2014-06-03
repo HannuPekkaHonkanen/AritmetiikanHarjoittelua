@@ -139,12 +139,12 @@ public class LaskutoimitusTest {
         assertEquals("4 x 7", kertolasku.tekstina());
     }
 
-//    @Test
-//    public void toimiikoTuloTekstinaNegInt() {
-//        kertolasku.setLuku1(-4);
-//        kertolasku.setLuku2(-7);
-//        assertEquals("-4 x (-7)", kertolasku.tekstina());
-//    }
+    @Test
+    public void toimiikoTuloTekstinaNegInt() {
+        kertolasku.setLuku1(-4);
+        kertolasku.setLuku2(-7);
+        assertEquals("-4 x (-7)", kertolasku.tekstina());
+    }
 
     @Test
     public void toimiikoOsamaaranLaskeminenPosInt() {
@@ -158,6 +158,20 @@ public class LaskutoimitusTest {
         jakolasku.setLuku1(-8);
         jakolasku.setLuku2(7);
             assertEquals(-8, jakolasku.laske());
+    }
+    
+    @Test
+    public void toimiikoOsamaarassaNollaTarkistus() {
+        jakolasku.setLuku1(-8);
+        jakolasku.setLuku2(0);
+            assertEquals(false, jakolasku.luvutOvatKelvolliset());
+    }
+    
+    @Test
+    public void toimiikoOsamaaraTekstinaNegInt() {
+        jakolasku.setLuku1(8);
+        jakolasku.setLuku2(-7);
+            assertEquals("-56 / (-7)", jakolasku.tekstina());
     }
     
 }

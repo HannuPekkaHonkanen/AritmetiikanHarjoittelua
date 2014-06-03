@@ -8,7 +8,7 @@ public class Tulo extends Laskutoimitus {
 
     @Override
     public String tekstina() {
-        return super.getLuku1() + " x " + super.getLuku2();
+        return super.luku1Tekstina() + " x " + super.luku2Tekstina();
     }
 
     @Override

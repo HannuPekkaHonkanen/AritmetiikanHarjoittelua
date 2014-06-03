@@ -67,10 +67,11 @@ public class LaskutoimitustehdasTest {
         assertEquals(-28, kertolasku.laske());
     }
 
-//    @Test
-//    public void toimiikoOsamaaranLuominen() {
-//        jakolasku.setLuku1(4);
-//        jakolasku.setLuku2(7);
-//        assertEquals("28 / 7", jakolasku.tekstina());
-//    }
+    @Test
+    public void toimiikoOsamaaranLuominen() {
+        jakolasku.setLuku1(4);
+        jakolasku.setLuku2(7);
+        assertEquals("28 / 7", jakolasku.tekstina());
+    }
+    
 }

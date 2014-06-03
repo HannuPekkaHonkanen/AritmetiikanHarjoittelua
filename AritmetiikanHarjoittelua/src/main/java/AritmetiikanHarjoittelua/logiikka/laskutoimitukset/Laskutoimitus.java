@@ -41,6 +41,7 @@ public class Laskutoimitus {
     }
 
     public boolean luvutOvatKelvolliset() {
+//        luokassa Osamaara tälle tehdään override
         return true;
     }
 
