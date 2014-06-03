@@ -55,19 +55,19 @@ public class LaskutoimitusTest {
         assertEquals(-12, pluslasku.laske());
     }
 
-//    @Test
-//    public void toimiikoSummaTekstinaPosInt() {
-//        pluslasku.setLuku1(4);
-//        pluslasku.setLuku2(7);
-//        assertEquals("4 + 7", pluslasku.tekstina());
-//    }
+    @Test
+    public void toimiikoSummaTekstinaPosInt() {
+        pluslasku.setLuku1(4);
+        pluslasku.setLuku2(7);
+        assertEquals("4 + 7", pluslasku.tekstina());
+    }
 
-//    @Test
-//    public void toimiikoSummaTekstinaNegInt() {
-//        pluslasku.setLuku1(-4);
-//        pluslasku.setLuku2(-7);
-//        assertEquals("-4 + (-7)", pluslasku.tekstina());
-//    }
+    @Test
+    public void toimiikoSummaTekstinaNegInt() {
+        pluslasku.setLuku1(-4);
+        pluslasku.setLuku2(-7);
+        assertEquals("-4 + (-7)", pluslasku.tekstina());
+    }
 
     @Test
     public void toimiikoErotuksenLaskeminenPosInt() {
@@ -90,12 +90,12 @@ public class LaskutoimitusTest {
         assertEquals("4 - 7", miinuslasku.tekstina());
     }
 
-//    @Test
-//    public void toimiikoErotusTekstinaInt2() {
-//        miinuslasku.setLuku1(-4);
-//        miinuslasku.setLuku2(-7);
-//        assertEquals("-4 - (-7)", miinuslasku.tekstina());
-//    }
+    @Test
+    public void toimiikoErotusTekstinaInt2() {
+        miinuslasku.setLuku1(-4);
+        miinuslasku.setLuku2(-7);
+        assertEquals("-4 - (-7)", miinuslasku.tekstina());
+    }
 
     @Test
     public void toimiikoErotusTekstinaInt3() {

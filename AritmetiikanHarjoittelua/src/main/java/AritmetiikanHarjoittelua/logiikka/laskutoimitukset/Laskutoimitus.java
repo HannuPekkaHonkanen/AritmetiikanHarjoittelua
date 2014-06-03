@@ -8,8 +8,8 @@ import java.util.*;
  */
 public class Laskutoimitus {
 
-    public int luku1;
-    public int luku2;
+    private int luku1;
+    private int luku2;
 
     public void setLuku1(int luku1) {
         this.luku1 = luku1;
@@ -19,15 +19,20 @@ public class Laskutoimitus {
         this.luku2 = luku2;
     }
 
+    public int getLuku1() {
+        return this.luku1;
+    }
+
+    public int getLuku2() {
+        return this.luku2;
+    }
+
     public String luku1Tekstina() {
-//        POISTA vaihtoehtoinen tapa muuttaa int stringiksi
-//        String merkkijono = "" + this.luku1;
         String merkkijono = Integer.toString(this.luku1);
         return merkkijono;
     }
 
     public String luku2Tekstina() {
-//        String merkkijono = "" + this.luku2;
         String merkkijono=Integer.toString(this.luku2);
         if (this.luku2 < 0) {
             merkkijono = "(" + merkkijono + ")";
@@ -49,15 +54,4 @@ public class Laskutoimitus {
         return 999999;
     }
 
-//    POISTA
-//    public void vainTesti(){
-//    Integer k=0;
-//    k.intValue();
-//    
-//    
-//    String s="";
-//    char m=s.charAt(3);
-//        
-//    }
-    
 }

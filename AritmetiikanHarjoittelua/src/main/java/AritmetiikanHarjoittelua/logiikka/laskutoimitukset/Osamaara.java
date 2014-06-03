@@ -11,14 +11,14 @@ public class Osamaara extends Laskutoimitus {
 
     @Override
         public void setLuku2(int luku2) {
-        this.luku2 = luku2;
+        super.setLuku2(luku2);
         asetaJaettavaJaJakaja();
     }
 
         
     @Override
     public boolean luvutOvatKelvolliset() {
-        if (super.luku2 == 0) {
+        if (super.getLuku2() == 0) {
             return false;
         }
         return true;
@@ -30,8 +30,8 @@ public class Osamaara extends Laskutoimitus {
     }
 
     private void asetaJaettavaJaJakaja() {
-        this.jaettava = super.luku1 * super.luku2;
-        this.jakaja = super.luku2;
+        this.jaettava = super.getLuku1() * super.getLuku2();
+        this.jakaja = super.getLuku2();
     }
 
     @Override
