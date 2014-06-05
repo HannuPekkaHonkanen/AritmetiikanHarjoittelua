@@ -18,5 +18,8 @@
 | 29.05.2014 |          |         |            | 2       |         |               |     | koodin siistimistä |
 | 29.05.2014 |          |         |            |         |         | 1             |     | luokkakaavio.dia |
 | 29.05.2014 |          |         |            |         | 2       |               |     | unit-test pähkäilyä, ks. README.md |
-| xx.05.2014 |          |         |            |         |         |               | 1   | tuntikirjanpito |
-| xx.05.2014 |          |         |            |         |         |               |     | uusi rivi |
+| 29.05.2014 |          |         |            |         |         |               | 1   | tuntikirjanpito |
+| 02.06.2014 |          |         |            |         | 2       |               |     | mystinen testiongelma katosi |
+| 02.06.2014 |          |         |            | 2       |         |               |     | koodin refaktorointia |
+| 03.06.2014 |          |         |            | 2       |         |               |     | graafinen käyttöliittymä alulle |
+| xx.06.2014 |          |         |            |         |         |               |     |  |
