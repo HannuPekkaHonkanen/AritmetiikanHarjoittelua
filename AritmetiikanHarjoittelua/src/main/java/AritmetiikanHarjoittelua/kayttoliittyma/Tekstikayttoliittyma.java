@@ -5,10 +5,9 @@ import AritmetiikanHarjoittelua.logiikka.*;
 import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.*;
 
 public class Tekstikayttoliittyma {
-    
+
 //    POISTA enum ? laskutoimitustyyppi piti muuttaa enum:iksi mutta ei vielä onnisstunut
 //    private Laskutoimitustyyppi laskutoimitustyyppi;
-
     private Scanner lukija;
     private Aritmetiikkakone kone;
 
@@ -19,10 +18,17 @@ public class Tekstikayttoliittyma {
 
     public void kaynnista() {
         ohjeet();
-        String tyyppi = kysyLaskutoimitustyyppi();
+// EXCEPTION        while (true) {
+            String tyyppi = kysyLaskutoimitustyyppi();
 //    POISTA enum ????
 //        this.laskutoimitustyyppi  = kysyLaskutoimitustyyppi();
-        this.kone.luoTehtava(tyyppi);
+// EXCEPTION            try {
+                this.kone.luoTehtava(tyyppi);
+// EXCEPTION                break;
+// EXCEPTION            } catch (Exception exception) {
+// EXCEPTION                System.out.println("Väärä Anna laskutoimitustyyppi");
+// EXCEPTION            }
+// EXCEPTION        }
         System.out.println(this.kone.getTehtava().tekstina());
         String vastaus = lueVastaus();
         String tulos = tarkistaVastaus(vastaus);
@@ -58,7 +64,7 @@ public class Tekstikayttoliittyma {
     }
 
     public String tarkistaVastaus(String vastaus) {
-        if (vastaus.equals(this.kone.getTehtava().oikeaVastaus())) {
+        if (vastaus.equals(this.kone.getTehtava().oikeaVastaus())) { //VIRHE vie tämä logiikan puolelle
             return "Vastaus on oikein.";
         } else {
             return "Vastaus on väärin.";

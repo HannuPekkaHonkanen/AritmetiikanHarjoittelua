@@ -15,8 +15,10 @@ public class Aritmetiikkakone {
         this.laskutoimitustehdas = new Laskutoimitustehdas();
     }
     
-    public void luoTehtava(String tyyppi) {
+// EXCEPTION    public void luoTehtava(String tyyppi) throws LaskToimTyypEiLoydyException {
+    public void luoTehtava(String tyyppi){
         this.tehtava = new Tehtava(this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi));
+// EXCEPTION    }
     }
     
     public Tehtava getTehtava(){

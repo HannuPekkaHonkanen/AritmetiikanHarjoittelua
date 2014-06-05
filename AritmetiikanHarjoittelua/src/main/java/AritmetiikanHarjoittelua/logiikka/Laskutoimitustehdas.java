@@ -7,8 +7,9 @@ public class Laskutoimitustehdas {
     private Laskutoimitus laskutoimitus;
 
     public Laskutoimitus uusiLaskutoimitus(String tyyppi) {
+// EXCEPTION     public Laskutoimitus uusiLaskutoimitus(String tyyppi) throws LaskToimTyypEiLoydyException {
 //        y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku
-        if (tyyppi.equalsIgnoreCase("y")) {
+        if (tyyppi.equalsIgnoreCase("")) {
             this.laskutoimitus = new Summa();
         } else if (tyyppi.equalsIgnoreCase("v")) {
             this.laskutoimitus = new Erotus();
@@ -17,8 +18,7 @@ public class Laskutoimitustehdas {
         } else if (tyyppi.equalsIgnoreCase("j")) {
             this.laskutoimitus = new Osamaara();
         } else {
-//            LISAA virheenkäsittely
-            System.out.println("VIRHE laskutoimistustehdas 1");
+// EXCEPTION throw new LaskToimTyypEiLoydyException();
         }
 
         arvoLuvut();
