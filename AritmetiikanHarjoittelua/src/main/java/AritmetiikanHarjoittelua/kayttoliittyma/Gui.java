@@ -3,8 +3,7 @@ package AritmetiikanHarjoittelua.kayttoliittyma;
 import AritmetiikanHarjoittelua.logiikka.Aritmetiikkakone;
 
 /**
- *
- * @author Hannu
+ * Luokka sisältää graafisen käyttöliittymän, joka käynnistetään metodilla run().
  */
 public class Gui extends javax.swing.JFrame {
 
@@ -18,21 +17,16 @@ public class Gui extends javax.swing.JFrame {
     public Gui(Aritmetiikkakone kone) {
         initComponents();
         this.kone = kone;
-        this.tehtavaTyyppi=(String)tehtavatyyppiAlasvetovalikko.getSelectedItem();
-
+//        ks. kommentit metodissa tehtavatyyppiAlasvetovalikkoActionPerformed
+        String tyyppiString=(String)tehtavatyyppiAlasvetovalikko.getSelectedItem();
+        char tyyppiMerkki=tyyppiString.charAt(0);
+        this.tehtavaTyyppi=String.valueOf(tyyppiMerkki);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
-        buttonGroup4 = new javax.swing.ButtonGroup();
-        buttonGroup5 = new javax.swing.ButtonGroup();
-        buttonGroup6 = new javax.swing.ButtonGroup();
-        buttonGroup7 = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
         uusiTehtavaNappi = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -43,10 +37,11 @@ public class Gui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Testinappi");
+        jButton1.setActionCommand("Testinappi");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                TestinappiActionPerformed(evt);
             }
         });
 
@@ -64,7 +59,7 @@ public class Gui extends javax.swing.JFrame {
         tehtavaKentta.setRows(1);
         jScrollPane1.setViewportView(tehtavaKentta);
 
-        vastaaNappi.setText("Vastaa");
+        vastaaNappi.setText("Vastaa (ei toimi vielä)");
         vastaaNappi.setActionCommand("annaVastaus");
         vastaaNappi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +69,7 @@ public class Gui extends javax.swing.JFrame {
 
         jTextField1.setToolTipText("anna vastaus, esim 4 tai -2");
 
-        tehtavatyyppiAlasvetovalikko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "y", "v", "kertolasku", "jakolasku", "kaikki" }));
+        tehtavatyyppiAlasvetovalikko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "yhteenlasku", "vähennyslasku", "kertolasku", "jakolasku" }));
         tehtavatyyppiAlasvetovalikko.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tehtavatyyppiAlasvetovalikkoActionPerformed(evt);
@@ -86,9 +81,9 @@ public class Gui extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1)
@@ -97,10 +92,8 @@ public class Gui extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(vastaaNappi)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 58, Short.MAX_VALUE))
+                    .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,21 +106,23 @@ public class Gui extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(uusiTehtavaNappi)
                     .addComponent(vastaaNappi))
-                .addGap(53, 53, 53)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(21, 21, 21))
         );
 
+        jButton1.getAccessibleContext().setAccessibleName("Testinappi");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void TestinappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestinappiActionPerformed
         // TODO add your handling code here:
         System.out.println("Nappia painettu");
         tehtavaKentta.setText("nappia painettu");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_TestinappiActionPerformed
 
     private void uusiTehtavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uusiTehtavaActionPerformed
 //        this.tehtavaTyyppi = "k";
@@ -141,15 +136,11 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_vastaaNappiActionPerformed
 
     private void tehtavatyyppiAlasvetovalikkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tehtavatyyppiAlasvetovalikkoActionPerformed
-//        String k;
-//        tehtavatyyppiAlasvetovalikko.setSelectedItem(this.tehtavaT);
-        this.tehtavaTyyppi=(String)tehtavatyyppiAlasvetovalikko.getSelectedItem();
-//        tehtavaKentta.setText(this.tehtavaTyyppi);
-//        this.tehtavaTyyppi="v";
-//        this.tehtavaTyyppi=(String)tehtavatyyppiAlasvetovalikko[selectedItem];
-//////        uusiTehtavaNappiaPainettu(evt);
-//        Enum aaa = ${selectedItem};
-//        uusiTehtavaNappi.setText("yhteenlasku");
+//        hieman hankalan nakoista koodia mutta nain txt kayttoliittyman voi
+//        pitaa ennallaan ja alasvetovalikossa puolestaan voi kayttaa skandinaavisia merkkeja
+        String tyyppiString=(String)tehtavatyyppiAlasvetovalikko.getSelectedItem();
+        char tyyppiMerkki=tyyppiString.charAt(0);
+        this.tehtavaTyyppi=String.valueOf(tyyppiMerkki);
     }//GEN-LAST:event_tehtavatyyppiAlasvetovalikkoActionPerformed
 
     /**
@@ -192,13 +183,6 @@ public class Gui extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.ButtonGroup buttonGroup5;
-    private javax.swing.ButtonGroup buttonGroup6;
-    private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;

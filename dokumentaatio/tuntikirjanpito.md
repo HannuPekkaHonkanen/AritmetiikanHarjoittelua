@@ -19,7 +19,12 @@
 | 29.05.2014 |          |         |            |         |         | 1             |     | luokkakaavio.dia |
 | 29.05.2014 |          |         |            |         | 2       |               |     | unit-test pähkäilyä, ks. README.md |
 | 29.05.2014 |          |         |            |         |         |               | 1   | tuntikirjanpito |
-| 02.06.2014 |          |         |            |         | 2       |               |     | mystinen testiongelma katosi |
+| 02.06.2014 |          |         |            |         | 2       |               |     | mystinen testiongelma katosi: vika oli mahdollisesti this.- ja super.-etuliitteiden käytössä |
 | 02.06.2014 |          |         |            | 2       |         |               |     | koodin refaktorointia |
 | 03.06.2014 |          |         |            | 2       |         |               |     | graafinen käyttöliittymä alulle |
+| 05.06.2014 |          |         |            | 1       |         |               |     | graafista käyttöliittymää ohjauksessa |
+| 05.06.2014 |          |         |            | 1       |         |               |     | eka "try catch etc." ohjauksessa |
+| 05.06.2014 |          |         |            | 2       |         |               |     | graafinen käyttöliittymä: laskutoimitustyyppien valitsemisen hieromista |
+| 05.06.2014 |          |         |            |         |         |               |     |  |
+| xx.06.2014 |          |         |            |         |         |               |     |  |
 | xx.06.2014 |          |         |            |         |         |               |     |  |

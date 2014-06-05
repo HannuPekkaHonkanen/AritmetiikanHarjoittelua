@@ -4,6 +4,9 @@ import java.util.*;
 import AritmetiikanHarjoittelua.logiikka.*;
 import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.*;
 
+/**
+ * Luokka sisältää tekstikäyttöliittymän, jossa hoidetaan tietojen syöttö ja tulostus.
+ */
 public class Tekstikayttoliittyma {
 
 //    POISTA enum ? laskutoimitustyyppi piti muuttaa enum:iksi mutta ei vielä onnisstunut
@@ -16,6 +19,10 @@ public class Tekstikayttoliittyma {
         this.kone = kone;
     }
 
+/**
+ * Metodi käynnistää tekstikäyttöliittymän ja kutsuu saman luokan
+ * muita metodeja saattaakseen ohjelman suorituksen päätökseen.
+ */
     public void kaynnista() {
         ohjeet();
 // EXCEPTION        while (true) {
@@ -46,6 +53,10 @@ public class Tekstikayttoliittyma {
         System.out.println("");
     }
 
+/**
+ * Metodi pyytää käyttäjää syöttämään laskutoimistustyypin,
+ * ja palauttaa sen String-tyyppisenä.
+ */
     public String kysyLaskutoimitustyyppi() {
         System.out.println("Anna laskutoimitustyyppi (y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku: ");
         String vastaus = lukija.nextLine();

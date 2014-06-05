@@ -3,8 +3,7 @@ package AritmetiikanHarjoittelua.logiikka.laskutoimitukset;
 import java.util.*;
 
 /**
- *
- * @author Hannu
+ * Luokka on yläluokka, jonka aliluokat Summa, Erotus, Tulo ja Osamaara perivät.
  */
 public class Laskutoimitus {
 

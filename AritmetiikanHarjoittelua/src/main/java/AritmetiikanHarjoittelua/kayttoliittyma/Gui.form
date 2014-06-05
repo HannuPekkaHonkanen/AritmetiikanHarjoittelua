@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
-    </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
-    </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup3">
-    </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup4">
-    </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup5">
-    </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup6">
-    </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup7">
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -39,9 +23,9 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -53,12 +37,9 @@
                           <Component id="jTextField1" min="-2" pref="160" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                      <Component id="tehtavatyyppiAlasvetovalikko" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="tehtavatyyppiAlasvetovalikko" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,9 +56,9 @@
                   <Component id="uusiTehtavaNappi" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="vastaaNappi" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="tehtavatyyppiAlasvetovalikko" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="136" max="32767" attributes="0"/>
+              <EmptySpace pref="183" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
@@ -87,10 +68,10 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Testinappi"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TestinappiActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="uusiTehtavaNappi">
@@ -123,7 +104,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="vastaaNappi">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Vastaa"/>
+        <Property name="text" type="java.lang.String" value="Vastaa (ei toimi viel&#xe4;)"/>
         <Property name="actionCommand" type="java.lang.String" value="annaVastaus"/>
       </Properties>
       <Events>
@@ -138,12 +119,11 @@
     <Component class="javax.swing.JComboBox" name="tehtavatyyppiAlasvetovalikko">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
-            <StringItem index="0" value="y"/>
-            <StringItem index="1" value="v"/>
+          <StringArray count="4">
+            <StringItem index="0" value="yhteenlasku"/>
+            <StringItem index="1" value="v&#xe4;hennyslasku"/>
             <StringItem index="2" value="kertolasku"/>
             <StringItem index="3" value="jakolasku"/>
-            <StringItem index="4" value="kaikki"/>
           </StringArray>
         </Property>
       </Properties>

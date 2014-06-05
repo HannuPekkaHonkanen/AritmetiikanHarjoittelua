@@ -4,6 +4,9 @@ import java.util.Scanner;
 import AritmetiikanHarjoittelua.logiikka.Aritmetiikkakone;
 import AritmetiikanHarjoittelua.kayttoliittyma.Tekstikayttoliittyma;
 
+/**
+ * Luokka sisältää tekstikäyttöliittymän käynnistävän main-metodin.
+ */
 public class App {
 
     public static void main(String[] args) {

@@ -3,6 +3,9 @@ package AritmetiikanHarjoittelua.logiikka;
 import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.Laskutoimitus;
 import AritmetiikanHarjoittelua.logiikka.Laskutoimitustehdas;
 
+/**
+ * Luokkassa luodaan tehtävänanto tekstinä.
+ */
 public class Tehtava {
 
     private Laskutoimitus laskutoimitus;
@@ -10,8 +13,11 @@ public class Tehtava {
     public Tehtava(Laskutoimitus laskutoimitus) {
         this.laskutoimitus = laskutoimitus;
     }
-    
-    public String tekstina(){
+
+    /**
+     * Metodi palauttaa sanallisen tehtävänannon String-tyyppisenä.
+     */
+    public String tekstina() {
         return "Laske: " + this.laskutoimitus.tekstina();
     }
 

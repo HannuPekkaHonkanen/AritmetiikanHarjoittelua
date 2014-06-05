@@ -2,6 +2,9 @@ package AritmetiikanHarjoittelua.logiikka;
 
 import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.*;
 
+/**
+ * Luokka luo uuden Laskutoimitus-luokan ilmentymän.
+ */
 public class Laskutoimitustehdas {
 
     private Laskutoimitus laskutoimitus;

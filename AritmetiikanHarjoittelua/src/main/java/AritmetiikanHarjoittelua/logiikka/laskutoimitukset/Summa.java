@@ -1,8 +1,7 @@
 package AritmetiikanHarjoittelua.logiikka.laskutoimitukset;
 
 /**
- *
- * @author Hannu
+ * Luokka on aliluokka, joka perii yläluokan Laskutoimitus.
  */
 public class Summa extends Laskutoimitus {
 
