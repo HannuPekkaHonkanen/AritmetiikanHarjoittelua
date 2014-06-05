@@ -9,7 +9,7 @@ public class Laskutoimitustehdas {
     public Laskutoimitus uusiLaskutoimitus(String tyyppi) {
 // EXCEPTION     public Laskutoimitus uusiLaskutoimitus(String tyyppi) throws LaskToimTyypEiLoydyException {
 //        y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku
-        if (tyyppi.equalsIgnoreCase("")) {
+        if (tyyppi.equalsIgnoreCase("y")) {
             this.laskutoimitus = new Summa();
         } else if (tyyppi.equalsIgnoreCase("v")) {
             this.laskutoimitus = new Erotus();
