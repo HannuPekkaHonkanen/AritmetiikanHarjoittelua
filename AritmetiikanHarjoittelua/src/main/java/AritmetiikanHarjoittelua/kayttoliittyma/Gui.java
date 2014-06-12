@@ -148,7 +148,7 @@ public class Gui extends javax.swing.JFrame {
         vastausTextField.setText("");
 //               break;// EXCEPTION 
             } catch (Exception exception) {// EXCEPTION 
-               System.out.println("Väärä laskutoimitustyyppi");// EXCEPTION
+//               System.out.println("Väärä laskutoimitustyyppi");// EXCEPTION
                JOptionPane.showMessageDialog(rootPane, "Valitsit laskutoimitustyypin huonosti. Yritä uudelleen!");
            }// EXCEPTION 
 //       }// EXCEPTION 
