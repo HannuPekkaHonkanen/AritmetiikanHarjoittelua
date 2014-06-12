@@ -1,8 +1,8 @@
 package AritmetiikanHarjoittelua.kayttoliittyma;
 
 import AritmetiikanHarjoittelua.logiikka.Aritmetiikkakone;
+import javax.swing.JOptionPane;
 
-import javax.swing.JComponent.AccessibleJComponent;
 
 /**
  * Luokka sisältää graafisen käyttöliittymän, joka käynnistetään metodilla
@@ -16,7 +16,7 @@ public class Gui extends javax.swing.JFrame {
     private Aritmetiikkakone kone;
     private String tehtavaTyyppi;
     private String tehtavaT;
-
+    
     public Gui(Aritmetiikkakone kone) {
         initComponents();
         this.kone = kone;
@@ -38,7 +38,6 @@ public class Gui extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         tulosTextField = new javax.swing.JTextField();
         tehtavaTextField = new javax.swing.JTextField();
-        vaaraLaskuTyyppijOptionPane = new javax.swing.JOptionPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,9 +85,6 @@ public class Gui extends javax.swing.JFrame {
         tehtavaTextField.setEditable(false);
         tehtavaTextField.setBackground(new java.awt.Color(240, 240, 240));
 
-        vaaraLaskuTyyppijOptionPane.setMessage("Virheilmoituksia..."
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,9 +105,7 @@ public class Gui extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(vastausTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(vaaraLaskuTyyppijOptionPane, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tulosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(tulosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -127,16 +121,11 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(uusiTehtavaNappi)
                     .addComponent(tarkistaVastausNappi))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(vaaraLaskuTyyppijOptionPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
                 .addGap(21, 21, 21))
         );
 
@@ -160,9 +149,7 @@ public class Gui extends javax.swing.JFrame {
 //               break;// EXCEPTION 
             } catch (Exception exception) {// EXCEPTION 
                System.out.println("Väärä laskutoimitustyyppi");// EXCEPTION
-               vaaraLaskuTyyppijOptionPane.setMessage("Väärä laskutoimitustyyppi");
-               vaaraLaskuTyyppijOptionPane.setVisible(true);
-//               JOptionPane.showMessageDialog(frame, "Eggs are not supposed to be green.");
+               JOptionPane.showMessageDialog(rootPane, "Valitsit laskutoimitustyypin huonosti. Yritä uudelleen!");
            }// EXCEPTION 
 //       }// EXCEPTION 
 //        String a=String(tehtavatyyppiAlasvetovalikko[${selectedItem}]);
@@ -272,7 +259,6 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JComboBox tehtavatyyppiAlasvetovalikko;
     private javax.swing.JTextField tulosTextField;
     private javax.swing.JButton uusiTehtavaNappi;
-    private javax.swing.JOptionPane vaaraLaskuTyyppijOptionPane;
     private javax.swing.JTextField vastausTextField;
     // End of variables declaration//GEN-END:variables
 }
