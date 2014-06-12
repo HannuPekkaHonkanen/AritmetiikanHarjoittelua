@@ -75,7 +75,7 @@ public class Tekstikayttoliittyma {
     }
 
     public String tarkistaVastaus(String vastaus) {
-        if (vastaus.equals(this.kone.getTehtava().oikeaVastaus())) { //VIRHE vie tämä logiikan puolelle
+        if (this.kone.getTehtava().onOikein(vastaus)) {
             return "Vastaus on oikein.";
         } else {
             return "Vastaus on väärin.";

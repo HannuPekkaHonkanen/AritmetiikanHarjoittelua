@@ -10,9 +10,10 @@ public class Laskutoimitustehdas {
     private Laskutoimitus laskutoimitus;
     private Arpoja arpoja;
 
-    public Laskutoimitus uusiLaskutoimitus(String tyyppi, Arpoja arpoja) {
+//    public Laskutoimitus uusiLaskutoimitus(String tyyppi, Arpoja arpoja) {
+// EXCEPTION    
+        public Laskutoimitus uusiLaskutoimitus(String tyyppi, Arpoja arpoja) throws LaskToimTyypEiLoydyException {
         this.arpoja = arpoja;
-// EXCEPTION     public Laskutoimitus uusiLaskutoimitus(String tyyppi) throws LaskToimTyypEiLoydyException {
 //        y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku
         if (tyyppi.equalsIgnoreCase("y")) {
             this.laskutoimitus = new Summa();
@@ -23,7 +24,8 @@ public class Laskutoimitustehdas {
         } else if (tyyppi.equalsIgnoreCase("j")) {
             this.laskutoimitus = new Osamaara();
         } else {
-// EXCEPTION throw new LaskToimTyypEiLoydyException();
+// EXCEPTION 
+            throw new LaskToimTyypEiLoydyException();
         }
 
         arvoLuvut();

@@ -25,10 +25,11 @@ public class Aritmetiikkakone {
      * Metodi palauttaa uuden Tehtava luokan ilmentymän, jonka se pyytää
      * Laskutoimitustehdas-oliolta.
      */
-// EXCEPTION    public void luoTehtava(String tyyppi) throws LaskToimTyypEiLoydyException {
-    public void luoTehtava(String tyyppi) {
+// EXCEPTION
+    public void luoTehtava(String tyyppi) throws LaskToimTyypEiLoydyException {
+//    public void luoTehtava(String tyyppi) {
         this.tehtava = new Tehtava(this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi,this.arpoja));
-// EXCEPTION    }
+// EXCEPTION
     }
 
     public Tehtava getTehtava() {

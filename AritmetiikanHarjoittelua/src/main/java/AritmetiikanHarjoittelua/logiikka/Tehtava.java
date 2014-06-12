@@ -21,9 +21,16 @@ public class Tehtava {
         return "Laske: " + this.laskutoimitus.tekstina();
     }
 
-    public String oikeaVastaus() {
+    private String oikeaVastaus() {
         return Integer.toString(this.laskutoimitus.laske());
 //        POISTA (<- tägi) mahdollinen laajennus
 //        return Double.toString(this.laskutoimitus.laske());
+    }
+
+    public boolean onOikein(String vastaus) {
+        if (this.oikeaVastaus().equals(vastaus)) {
+            return true;
+        }
+        return false;
     }
 }
