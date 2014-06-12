@@ -25,17 +25,19 @@ public class Tekstikayttoliittyma {
  */
     public void kaynnista() {
         ohjeet();
-// EXCEPTION        while (true) {
+// EXCEPTION        
+        while (true) {
             String tyyppi = kysyLaskutoimitustyyppi();
 //    POISTA enum ????
 //        this.laskutoimitustyyppi  = kysyLaskutoimitustyyppi();
-// EXCEPTION            try {
+// EXCEPTION 
+            try {
                 this.kone.luoTehtava(tyyppi);
-// EXCEPTION                break;
-// EXCEPTION            } catch (Exception exception) {
-// EXCEPTION                System.out.println("Väärä Anna laskutoimitustyyppi");
-// EXCEPTION            }
-// EXCEPTION        }
+               break;// EXCEPTION 
+            } catch (Exception exception) {// EXCEPTION 
+               System.out.println("Väärä laskutoimitustyyppi");// EXCEPTION 
+           }// EXCEPTION 
+       }// EXCEPTION 
         System.out.println(this.kone.getTehtava().tekstina());
         String vastaus = lueVastaus();
         String tulos = tarkistaVastaus(vastaus);

@@ -2,6 +2,8 @@ package AritmetiikanHarjoittelua.kayttoliittyma;
 
 import AritmetiikanHarjoittelua.logiikka.Aritmetiikkakone;
 
+import javax.swing.JComponent.AccessibleJComponent;
+
 /**
  * Luokka sisältää graafisen käyttöliittymän, joka käynnistetään metodilla
  * run().
@@ -30,12 +32,13 @@ public class Gui extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         uusiTehtavaNappi = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tehtavaKentta = new javax.swing.JTextArea();
-        vastaaNappi = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        tarkistaVastausNappi = new javax.swing.JButton();
+        vastausTextField = new javax.swing.JTextField();
         tehtavatyyppiAlasvetovalikko = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
+        tulosTextField = new javax.swing.JTextField();
+        tehtavaTextField = new javax.swing.JTextField();
+        vaaraLaskuTyyppijOptionPane = new javax.swing.JOptionPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,22 +57,17 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
-        tehtavaKentta.setEditable(false);
-        tehtavaKentta.setColumns(20);
-        tehtavaKentta.setRows(1);
-        jScrollPane1.setViewportView(tehtavaKentta);
-
-        vastaaNappi.setText("Vastaa (ei toimi vielä)");
-        vastaaNappi.setActionCommand("annaVastaus");
-        vastaaNappi.addActionListener(new java.awt.event.ActionListener() {
+        tarkistaVastausNappi.setText("Tarkista vastaus");
+        tarkistaVastausNappi.setActionCommand("Tarkista vastaus");
+        tarkistaVastausNappi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vastaaNappiActionPerformed(evt);
+                tarkistaVastausNappiActionPerformed(evt);
             }
         });
 
-        jTextField1.setToolTipText("anna vastaus, esim 4 tai -2");
+        vastausTextField.setToolTipText("anna vastaus, esim 4 tai -2");
 
-        tehtavatyyppiAlasvetovalikko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "yhteenlasku", "vähennyslasku", "kertolasku", "jakolasku" }));
+        tehtavatyyppiAlasvetovalikko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "yhteenlasku", "vähennyslasku", "kertolasku", "jakolasku", "huono valinta" }));
         tehtavatyyppiAlasvetovalikko.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tehtavatyyppiAlasvetovalikkoActionPerformed(evt);
@@ -83,6 +81,14 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
+        tulosTextField.setEditable(false);
+
+        tehtavaTextField.setEditable(false);
+        tehtavaTextField.setBackground(new java.awt.Color(240, 240, 240));
+
+        vaaraLaskuTyyppijOptionPane.setMessage("Virheilmoituksia..."
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,36 +96,47 @@ public class Gui extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1)
-                            .addComponent(uusiTehtavaNappi))
+                            .addComponent(uusiTehtavaNappi)
+                            .addComponent(tehtavaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(vastaaNappi)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(tarkistaVastausNappi)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(vastausTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(vaaraLaskuTyyppijOptionPane, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tulosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jTextField1))
+                    .addComponent(tulosTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                    .addComponent(vastausTextField)
+                    .addComponent(tehtavaTextField))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(uusiTehtavaNappi)
-                    .addComponent(vastaaNappi))
+                    .addComponent(tarkistaVastausNappi))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(vaaraLaskuTyyppijOptionPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(21, 21, 21))
         );
 
@@ -129,19 +146,35 @@ public class Gui extends javax.swing.JFrame {
     private void TestinappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestinappiActionPerformed
         // TODO add your handling code here:
         System.out.println("Nappia painettu");
-        tehtavaKentta.setText("nappia painettu");
+        tehtavaTextField.setText("nappia painettu");
     }//GEN-LAST:event_TestinappiActionPerformed
 
     private void uusiTehtavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uusiTehtavaActionPerformed
 //        this.tehtavaTyyppi = "k";
+//        while (true) {
+            try {
         this.kone.luoTehtava(this.tehtavaTyyppi); // EXCEPTION 
+        tehtavaTextField.setText(this.kone.getTehtava().tekstina());
+        tulosTextField.setText("");
+        vastausTextField.setText("");
+//               break;// EXCEPTION 
+            } catch (Exception exception) {// EXCEPTION 
+               System.out.println("Väärä laskutoimitustyyppi");// EXCEPTION
+               vaaraLaskuTyyppijOptionPane.setMessage("Väärä laskutoimitustyyppi");
+               vaaraLaskuTyyppijOptionPane.setVisible(true);
+//               JOptionPane.showMessageDialog(frame, "Eggs are not supposed to be green.");
+           }// EXCEPTION 
+//       }// EXCEPTION 
 //        String a=String(tehtavatyyppiAlasvetovalikko[${selectedItem}]);
-        tehtavaKentta.setText(this.kone.getTehtava().tekstina());
     }//GEN-LAST:event_uusiTehtavaActionPerformed
 
-    private void vastaaNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vastaaNappiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vastaaNappiActionPerformed
+    private void tarkistaVastausNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarkistaVastausNappiActionPerformed
+        if (this.kone.getTehtava().onOikein(vastausTextField.getText())) {
+        tulosTextField.setText("Vastaus on oikein.");
+        } else {
+        tulosTextField.setText("Vastaus on väärin.");
+        }
+    }//GEN-LAST:event_tarkistaVastausNappiActionPerformed
 
     private void tehtavatyyppiAlasvetovalikkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tehtavatyyppiAlasvetovalikkoActionPerformed
 //        hieman hankalan nakoista koodia mutta nain txt kayttoliittyman voi
@@ -234,11 +267,12 @@ public class Gui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextArea tehtavaKentta;
+    private javax.swing.JButton tarkistaVastausNappi;
+    private javax.swing.JTextField tehtavaTextField;
     private javax.swing.JComboBox tehtavatyyppiAlasvetovalikko;
+    private javax.swing.JTextField tulosTextField;
     private javax.swing.JButton uusiTehtavaNappi;
-    private javax.swing.JButton vastaaNappi;
+    private javax.swing.JOptionPane vaaraLaskuTyyppijOptionPane;
+    private javax.swing.JTextField vastausTextField;
     // End of variables declaration//GEN-END:variables
 }
