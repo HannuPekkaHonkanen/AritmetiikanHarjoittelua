@@ -8,8 +8,10 @@ import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.*;
 public class Laskutoimitustehdas {
 
     private Laskutoimitus laskutoimitus;
+    private Arpoja arpoja;
 
-    public Laskutoimitus uusiLaskutoimitus(String tyyppi) {
+    public Laskutoimitus uusiLaskutoimitus(String tyyppi, Arpoja arpoja) {
+        this.arpoja = arpoja;
 // EXCEPTION     public Laskutoimitus uusiLaskutoimitus(String tyyppi) throws LaskToimTyypEiLoydyException {
 //        y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku
         if (tyyppi.equalsIgnoreCase("y")) {
@@ -36,10 +38,9 @@ public class Laskutoimitustehdas {
     }
 
     private void arvoLuvut() {
-        Arpoja arpoja = new Arpoja();
 
-        int luku1 = arpoja.kokonaisluku();
-        int luku2 = arpoja.kokonaisluku();
+        int luku1 = this.arpoja.kokonaisluku(-10,10);
+        int luku2 = this.arpoja.kokonaisluku(-10,10);
 
         this.laskutoimitus.setLuku1(luku1);
         this.laskutoimitus.setLuku2(luku2);

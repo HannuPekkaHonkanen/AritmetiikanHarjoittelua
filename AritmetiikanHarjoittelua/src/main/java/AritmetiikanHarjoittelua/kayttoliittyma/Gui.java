@@ -3,7 +3,8 @@ package AritmetiikanHarjoittelua.kayttoliittyma;
 import AritmetiikanHarjoittelua.logiikka.Aritmetiikkakone;
 
 /**
- * Luokka sisältää graafisen käyttöliittymän, joka käynnistetään metodilla run().
+ * Luokka sisältää graafisen käyttöliittymän, joka käynnistetään metodilla
+ * run().
  */
 public class Gui extends javax.swing.JFrame {
 
@@ -18,9 +19,9 @@ public class Gui extends javax.swing.JFrame {
         initComponents();
         this.kone = kone;
 //        ks. kommentit metodissa tehtavatyyppiAlasvetovalikkoActionPerformed
-        String tyyppiString=(String)tehtavatyyppiAlasvetovalikko.getSelectedItem();
-        char tyyppiMerkki=tyyppiString.charAt(0);
-        this.tehtavaTyyppi=String.valueOf(tyyppiMerkki);
+        String tyyppiString = (String) tehtavatyyppiAlasvetovalikko.getSelectedItem();
+        char tyyppiMerkki = tyyppiString.charAt(0);
+        this.tehtavaTyyppi = String.valueOf(tyyppiMerkki);
     }
 
     @SuppressWarnings("unchecked")
@@ -34,11 +35,11 @@ public class Gui extends javax.swing.JFrame {
         vastaaNappi = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         tehtavatyyppiAlasvetovalikko = new javax.swing.JComboBox();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Testinappi");
-        jButton1.setActionCommand("Testinappi");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TestinappiActionPerformed(evt);
@@ -54,7 +55,6 @@ public class Gui extends javax.swing.JFrame {
         });
 
         tehtavaKentta.setEditable(false);
-        tehtavaKentta.setBackground(new java.awt.Color(255, 255, 204));
         tehtavaKentta.setColumns(20);
         tehtavaKentta.setRows(1);
         jScrollPane1.setViewportView(tehtavaKentta);
@@ -76,6 +76,13 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Ikkunatesti");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,7 +99,8 @@ public class Gui extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(vastaaNappi)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -108,12 +116,12 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(vastaaNappi))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(21, 21, 21))
         );
-
-        jButton1.getAccessibleContext().setAccessibleName("Testinappi");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,10 +146,14 @@ public class Gui extends javax.swing.JFrame {
     private void tehtavatyyppiAlasvetovalikkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tehtavatyyppiAlasvetovalikkoActionPerformed
 //        hieman hankalan nakoista koodia mutta nain txt kayttoliittyman voi
 //        pitaa ennallaan ja alasvetovalikossa puolestaan voi kayttaa skandinaavisia merkkeja
-        String tyyppiString=(String)tehtavatyyppiAlasvetovalikko.getSelectedItem();
-        char tyyppiMerkki=tyyppiString.charAt(0);
-        this.tehtavaTyyppi=String.valueOf(tyyppiMerkki);
+        String tyyppiString = (String) tehtavatyyppiAlasvetovalikko.getSelectedItem();
+        char tyyppiMerkki = tyyppiString.charAt(0);
+        this.tehtavaTyyppi = String.valueOf(tyyppiMerkki);
     }//GEN-LAST:event_tehtavatyyppiAlasvetovalikkoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        ikkunaTesti();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,8 +194,46 @@ public class Gui extends javax.swing.JFrame {
             }
         });
     }
+
+    public static void ikkunaTesti() {
+
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+//                Gui gui;
+                new NewJFrame().setVisible(true);
+
+
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextArea tehtavaKentta;

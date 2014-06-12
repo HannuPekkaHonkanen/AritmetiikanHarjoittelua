@@ -15,11 +15,13 @@ import static org.junit.Assert.*;
  */
 public class LaskutoimitustehdasTest {
 
+    KokonaislukuArpoja arpoja;
     Laskutoimitustehdas laskutoimitustehdas;
     Laskutoimitus pluslasku;
     Laskutoimitus miinuslasku;
     Laskutoimitus kertolasku;
     Laskutoimitus jakolasku;
+    Laskutoimitus miinuslaskuVakioArpojalla;
 
     public LaskutoimitustehdasTest() {
     }
@@ -35,11 +37,15 @@ public class LaskutoimitustehdasTest {
     @Before
     public void setUp() {
         laskutoimitustehdas = new Laskutoimitustehdas();
-        
-        pluslasku = laskutoimitustehdas.uusiLaskutoimitus("Y");
-        miinuslasku = laskutoimitustehdas.uusiLaskutoimitus("v");
-        kertolasku = laskutoimitustehdas.uusiLaskutoimitus("k");
-        jakolasku = laskutoimitustehdas.uusiLaskutoimitus("J");
+        arpoja = new KokonaislukuArpoja();
+
+        pluslasku = laskutoimitustehdas.uusiLaskutoimitus("Y", arpoja);
+        miinuslasku = laskutoimitustehdas.uusiLaskutoimitus("v", arpoja);
+        kertolasku = laskutoimitustehdas.uusiLaskutoimitus("k", arpoja);
+        jakolasku = laskutoimitustehdas.uusiLaskutoimitus("J", arpoja);
+
+        miinuslaskuVakioArpojalla = laskutoimitustehdas.uusiLaskutoimitus("V", new TestiArpojaVakioilla(0, -7));
+
     }
 
     @After
@@ -61,6 +67,11 @@ public class LaskutoimitustehdasTest {
     }
 
     @Test
+    public void toimiikoErotuksenLuominen2() {
+        assertEquals("0 - (-7)", miinuslaskuVakioArpojalla.tekstina());
+    }
+
+    @Test
     public void toimiikoTulonLuominen() {
         kertolasku.setLuku1(4);
         kertolasku.setLuku2(-7);
@@ -73,5 +84,4 @@ public class LaskutoimitustehdasTest {
         jakolasku.setLuku2(7);
         assertEquals("28 / 7", jakolasku.tekstina());
     }
-    
 }

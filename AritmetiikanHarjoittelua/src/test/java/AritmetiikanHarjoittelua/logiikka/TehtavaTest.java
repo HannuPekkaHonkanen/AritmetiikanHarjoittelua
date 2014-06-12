@@ -15,8 +15,10 @@ import static org.junit.Assert.*;
  */
 public class TehtavaTest {
 
+    KokonaislukuArpoja arpoja;
     Laskutoimitustehdas laskutoimitustehdas;
     Laskutoimitus jakolasku;
+    Laskutoimitus jakolaskuVakioArpojalla;
 
     public TehtavaTest() {
     }
@@ -32,7 +34,11 @@ public class TehtavaTest {
     @Before
     public void setUp() {
         laskutoimitustehdas = new Laskutoimitustehdas();
-        jakolasku = laskutoimitustehdas.uusiLaskutoimitus("j");
+        arpoja = new KokonaislukuArpoja();
+
+        jakolasku = laskutoimitustehdas.uusiLaskutoimitus("j", arpoja);
+        
+        jakolaskuVakioArpojalla = laskutoimitustehdas.uusiLaskutoimitus("j", new TestiArpojaVakioilla(4, 7));
     }
 
     @After
@@ -44,6 +50,12 @@ public class TehtavaTest {
         jakolasku.setLuku1(4);
         jakolasku.setLuku2(7);
         Tehtava jakolaskuTehtava = new Tehtava(jakolasku);
+        assertEquals("Laske: 28 / 7", jakolaskuTehtava.tekstina());
+    }
+
+    @Test
+    public void toimiikoJakolaskuTehtavanLuominen2() {
+        Tehtava jakolaskuTehtava = new Tehtava(jakolaskuVakioArpojalla);
         assertEquals("Laske: 28 / 7", jakolaskuTehtava.tekstina());
     }
 }

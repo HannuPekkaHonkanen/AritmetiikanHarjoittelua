@@ -26,5 +26,9 @@
 | 05.06.2014 |          |         |            | 1       |         |               |     | eka "try catch etc." ohjauksessa |
 | 05.06.2014 |          |         |            | 2       |         |               |     | graafinen käyttöliittymä: laskutoimitustyyppien valitsemisen hieromista |
 | 05.06.2014 |          |         |            |         |         |               |     |  |
+| 05.06.2014 |          |         |            |         |         |               |     |  |
+| 05.06.2014 |          |         |            |         |         |               |     |  |
+| 05.06.2014 |          |         |            |         |         |               |     |  |
+| 05.06.2014 |          |         |            |         |         |               |     |  |
 | xx.06.2014 |          |         |            |         |         |               |     |  |
 | xx.06.2014 |          |         |            |         |         |               |     |  |
