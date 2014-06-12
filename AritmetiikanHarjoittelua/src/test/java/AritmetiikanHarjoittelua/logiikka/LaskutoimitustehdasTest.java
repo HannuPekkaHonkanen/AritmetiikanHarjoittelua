@@ -39,12 +39,16 @@ public class LaskutoimitustehdasTest {
         laskutoimitustehdas = new Laskutoimitustehdas();
         arpoja = new KokonaislukuArpoja();
 
-        pluslasku = laskutoimitustehdas.uusiLaskutoimitus("Y", arpoja);
-        miinuslasku = laskutoimitustehdas.uusiLaskutoimitus("v", arpoja);
-        kertolasku = laskutoimitustehdas.uusiLaskutoimitus("k", arpoja);
-        jakolasku = laskutoimitustehdas.uusiLaskutoimitus("J", arpoja);
+        try {
+            pluslasku = laskutoimitustehdas.uusiLaskutoimitus("Y", arpoja);
+            miinuslasku = laskutoimitustehdas.uusiLaskutoimitus("v", arpoja);
+            kertolasku = laskutoimitustehdas.uusiLaskutoimitus("k", arpoja);
+            jakolasku = laskutoimitustehdas.uusiLaskutoimitus("J", arpoja);
 
-        miinuslaskuVakioArpojalla = laskutoimitustehdas.uusiLaskutoimitus("V", new TestiArpojaVakioilla(0, -7));
+            miinuslaskuVakioArpojalla = laskutoimitustehdas.uusiLaskutoimitus("V", new TestiArpojaVakioilla(0, -7));
+        } catch (Exception exception) {// EXCEPTION 
+            System.out.println("Väärä laskutoimitustyyppi");// EXCEPTION
+        }
 
     }
 

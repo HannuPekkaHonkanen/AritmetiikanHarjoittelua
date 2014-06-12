@@ -36,9 +36,13 @@ public class TehtavaTest {
         laskutoimitustehdas = new Laskutoimitustehdas();
         arpoja = new KokonaislukuArpoja();
 
+        try {
         jakolasku = laskutoimitustehdas.uusiLaskutoimitus("j", arpoja);
         
         jakolaskuVakioArpojalla = laskutoimitustehdas.uusiLaskutoimitus("j", new TestiArpojaVakioilla(4, 7));
+        } catch (Exception exception) {// EXCEPTION 
+            System.out.println("Väärä laskutoimitustyyppi");// EXCEPTION
+        }
     }
 
     @After
