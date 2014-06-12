@@ -24,11 +24,12 @@
 | 03.06.2014 |          |         |            | 2       |         |               |     | graafinen käyttöliittymä alulle |
 | 05.06.2014 |          |         |            | 1       |         |               |     | graafista käyttöliittymää ohjauksessa |
 | 05.06.2014 |          |         |            | 1       |         |               |     | eka "try catch etc." ohjauksessa |
-| 05.06.2014 |          |         |            | 2       |         |               |     | graafinen käyttöliittymä: laskutoimitustyyppien valitsemisen hieromista |
-| 05.06.2014 |          |         |            |         |         |               |     |  |
-| 05.06.2014 |          |         |            |         |         |               |     |  |
-| 05.06.2014 |          |         |            |         |         |               |     |  |
-| 05.06.2014 |          |         |            |         |         |               |     |  |
-| 05.06.2014 |          |         |            |         |         |               |     |  |
-| xx.06.2014 |          |         |            |         |         |               |     |  |
+| 05.06.2014 |          |         |            | 2       |         |               |     | graafinen käyttöliittymä Gui: laskutoimitustyyppien valitsemisen hieromista |
+| 07.06.2014 |          |         |            | 4       |         |               |     | Gui |
+| 07.06.2014 |          |         |            |         | 2       |               |     | Unit-testit kuntoon ja muutama lisää |
+| 07.06.2014 |          |         |            |         |         | 3             |     | Vko 4 dokumentointi |
+| 11.06.2014 |          |         | 3          |         |         |               |     | luokkakaavion suunnittelua ohjelman laajentamiseksi |
+| 12.06.2014 |          |         |            | 3       |         |               |     | Gui: vastauksen tarkistus |
+| 12.06.2014 |          |         |            | 2       |         |               |     | Väärä laskutoimitustyyppi -exception toimii nyt txtkayttoliittymassa, Gui:ssa ja testeissä |
+| 12.06.2014 |          |         |            |         |         |               | 1   | tuntikirjanpito ym. |
 | xx.06.2014 |          |         |            |         |         |               |     |  |
