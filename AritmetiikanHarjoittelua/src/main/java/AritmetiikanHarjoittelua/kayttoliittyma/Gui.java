@@ -1,8 +1,8 @@
 package AritmetiikanHarjoittelua.kayttoliittyma;
 
 import AritmetiikanHarjoittelua.logiikka.Aritmetiikkakone;
+import AritmetiikanHarjoittelua.logiikka.Tehtava;
 import javax.swing.JOptionPane;
-
 
 /**
  * Luokka sisältää graafisen käyttöliittymän, joka käynnistetään metodilla
@@ -15,8 +15,10 @@ public class Gui extends javax.swing.JFrame {
      */
     private Aritmetiikkakone kone;
     private String tehtavaTyyppi;
-    private String tehtavaT;
-    
+//    private Tehtava[] tehtavat;
+    private final int tehtavaLkm = 10;
+    private String[] vastaukset;
+
     public Gui(Aritmetiikkakone kone) {
         initComponents();
         this.kone = kone;
@@ -24,6 +26,8 @@ public class Gui extends javax.swing.JFrame {
         String tyyppiString = (String) tehtavatyyppiAlasvetovalikko.getSelectedItem();
         char tyyppiMerkki = tyyppiString.charAt(0);
         this.tehtavaTyyppi = String.valueOf(tyyppiMerkki);
+//        this.tehtavat = new Tehtava[tehtavaLkm];
+        this.vastaukset = new String[tehtavaLkm];
     }
 
     @SuppressWarnings("unchecked")
@@ -38,6 +42,8 @@ public class Gui extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         tulosTextField = new javax.swing.JTextField();
         tehtavaTextField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tehtavaTaulukko = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,7 +63,6 @@ public class Gui extends javax.swing.JFrame {
         });
 
         tarkistaVastausNappi.setText("Tarkista vastaus");
-        tarkistaVastausNappi.setActionCommand("Tarkista vastaus");
         tarkistaVastausNappi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tarkistaVastausNappiActionPerformed(evt);
@@ -83,30 +88,56 @@ public class Gui extends javax.swing.JFrame {
         tulosTextField.setEditable(false);
 
         tehtavaTextField.setEditable(false);
-        tehtavaTextField.setBackground(new java.awt.Color(240, 240, 240));
+
+        tehtavaTaulukko.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Tehtävä", "Vastaus", "Tulos"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tehtavaTaulukko);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
                             .addComponent(uusiTehtavaNappi)
                             .addComponent(tehtavaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))
+                            .addComponent(jButton2)
+                            .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tarkistaVastausNappi)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(vastausTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tulosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                                .addComponent(tulosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,12 +148,14 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(vastausTextField)
                     .addComponent(tehtavaTextField))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(300, 300, 300)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(uusiTehtavaNappi)
                     .addComponent(tarkistaVastausNappi))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
@@ -139,28 +172,57 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_TestinappiActionPerformed
 
     private void uusiTehtavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uusiTehtavaActionPerformed
-//        this.tehtavaTyyppi = "k";
+//        this.tehtavaTyyppi = "huono";
 //        while (true) {
-            try {
-        this.kone.luoTehtava(this.tehtavaTyyppi); // EXCEPTION 
-        tehtavaTextField.setText(this.kone.getTehtava().tekstina());
-        tulosTextField.setText("");
-        vastausTextField.setText("");
+        try {
+            this.kone.luoTehtavat(this.tehtavaTyyppi, tehtavaLkm);
+            this.kone.luoTehtava(this.tehtavaTyyppi);
+//            for (int i = 0; i < tehtavaLkm; i++) {
+//                this.kone.luoTehtava(this.tehtavaTyyppi);
+//                tehtavaTaulukko.setValueAt(this.kone.getTehtava().tekstina(), i, 0);
+//            } // EXCEPTION 
+            for (int i = 0; i < tehtavaLkm; i++) {
+                tehtavaTaulukko.setValueAt(this.kone.getTehtavat()[i].tekstina(), i, 0);
+                tehtavaTaulukko.setValueAt("", i, 1);
+                tehtavaTaulukko.setValueAt("", i, 2);
+            }
+            tehtavaTextField.setText(this.kone.getTehtava().tekstina());
+            tulosTextField.setText("");
+            vastausTextField.setText("");
 //               break;// EXCEPTION 
-            } catch (Exception exception) {// EXCEPTION 
+        } catch (Exception exception) {// EXCEPTION 
 //               System.out.println("Väärä laskutoimitustyyppi");// EXCEPTION
-               JOptionPane.showMessageDialog(rootPane, "Valitsit laskutoimitustyypin huonosti. Yritä uudelleen!");
-           }// EXCEPTION 
+            JOptionPane.showMessageDialog(rootPane, "Valitsit laskutoimitustyypin huonosti. Yritä uudelleen!");
+        }// EXCEPTION 
 //       }// EXCEPTION 
 //        String a=String(tehtavatyyppiAlasvetovalikko[${selectedItem}]);
     }//GEN-LAST:event_uusiTehtavaActionPerformed
 
     private void tarkistaVastausNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarkistaVastausNappiActionPerformed
-        if (this.kone.getTehtava().onOikein(vastausTextField.getText())) {
-        tulosTextField.setText("Vastaus on oikein.");
+        if (this.kone.getTehtava() != null) {
+            if (this.kone.getTehtava().onOikein(vastausTextField.getText())) {
+                tulosTextField.setText("Vastaus on oikein.");
+            } else {
+                tulosTextField.setText("Vastaus on väärin.");
+            }
+            for (int i = 0; i < tehtavaLkm; i++) {
+                this.vastaukset[i] = tehtavaTaulukko.getValueAt(i, 1).toString();
+            }
+            this.kone.tarkistaTehtavat(vastaukset, tehtavaLkm);
+            for (int i = 0; i < tehtavaLkm; i++) {
+                tehtavaTaulukko.setValueAt(this.kone.getTulokset()[i], i, 2);
+            }
+//            for (int i = 0; i < tehtavaLkm; i++) {
+//                if (this.kone.getTehtavat()[i].onOikein(tehtavaTaulukko.getValueAt(i, 1).toString())) {
+//                    tehtavaTaulukko.setValueAt("Vastaus on oikein.", i, 2);
+//                } else {
+//                    tehtavaTaulukko.setValueAt("Vastaus on väärin.", i, 2);
+//                }
+//            }
         } else {
-        tulosTextField.setText("Vastaus on väärin.");
+            JOptionPane.showMessageDialog(rootPane, "Luo ensin tehtävä!");
         }
+
     }//GEN-LAST:event_tarkistaVastausNappiActionPerformed
 
     private void tehtavatyyppiAlasvetovalikkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tehtavatyyppiAlasvetovalikkoActionPerformed
@@ -254,7 +316,9 @@ public class Gui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton tarkistaVastausNappi;
+    private javax.swing.JTable tehtavaTaulukko;
     private javax.swing.JTextField tehtavaTextField;
     private javax.swing.JComboBox tehtavatyyppiAlasvetovalikko;
     private javax.swing.JTextField tulosTextField;

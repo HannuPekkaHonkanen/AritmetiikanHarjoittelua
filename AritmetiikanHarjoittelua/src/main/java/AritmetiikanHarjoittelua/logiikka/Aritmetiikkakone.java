@@ -13,6 +13,8 @@ public class Aritmetiikkakone {
 //    29.5.2014 tämä luokka vain käyttää luokkaa tehtävä mutta
 //    on tarpeen jos/kun ohjelmaa laajennetaan luokilla Harjoittelu ja Koe
     private Tehtava tehtava;
+    private Tehtava[] tehtavat;
+    private String[] tulokset;
     private Laskutoimitustehdas laskutoimitustehdas;
     private KokonaislukuArpoja arpoja;
 
@@ -28,11 +30,37 @@ public class Aritmetiikkakone {
 // EXCEPTION
     public void luoTehtava(String tyyppi) throws LaskToimTyypEiLoydyException {
 //    public void luoTehtava(String tyyppi) {
-        this.tehtava = new Tehtava(this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi,this.arpoja));
+        this.tehtava = new Tehtava(this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi, this.arpoja));
 // EXCEPTION
+    }
+
+    public void luoTehtavat(String tyyppi, int lkm) throws LaskToimTyypEiLoydyException {
+        this.tehtavat=new Tehtava[lkm];
+        for (int i = 0; i < lkm; i++) {
+            this.tehtavat[i] = new Tehtava(this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi, this.arpoja));
+        }
+    }
+
+    public void tarkistaTehtavat(String[] vastaukset, int lkm)  {
+        this.tulokset=new String[lkm];
+        for (int i = 0; i < lkm; i++) {
+            if (this.tehtavat[i].onOikein(vastaukset[i])){
+                this.tulokset[i]="Oikein!";
+            }else{
+                this.tulokset[i]="Väärin!";
+            }
+        }
     }
 
     public Tehtava getTehtava() {
         return this.tehtava;
+    }
+
+    public Tehtava[] getTehtavat() {
+        return this.tehtavat;
+    }
+
+    public String[] getTulokset() {
+        return this.tulokset;
     }
 }
