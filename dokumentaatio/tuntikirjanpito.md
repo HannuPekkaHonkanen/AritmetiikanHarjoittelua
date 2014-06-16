@@ -1,3 +1,4 @@
+.setFontScaling();
 ## Javalabra / Hannu Honkanen, periodi 5/2014
 
 ## Tuntikirjanpito
