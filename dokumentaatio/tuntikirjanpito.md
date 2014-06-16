@@ -32,4 +32,5 @@
 | 12.06.2014 |          |         |            | 3       |         |               |     | Gui: vastauksen tarkistus |
 | 12.06.2014 |          |         |            | 2       |         |               |     | Väärä laskutoimitustyyppi -exception toimii nyt txtkayttoliittymassa, Gui:ssa ja testeissä |
 | 12.06.2014 |          |         |            |         |         |               | 1   | tuntikirjanpito ym. |
+| 17.06.2014 |          |         |            | 4       |         |               |     | 10 tehtävän taulukko toteutettu |
 | xx.06.2014 |          |         |            |         |         |               |     |  |
