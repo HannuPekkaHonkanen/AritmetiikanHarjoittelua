@@ -15,7 +15,6 @@ public class Gui extends javax.swing.JFrame {
      */
     private Aritmetiikkakone kone;
     private String tehtavaTyyppi;
-//    private Tehtava[] tehtavat;
     private final int tehtavaLkm = 10;
     private String[] vastaukset;
 
@@ -26,7 +25,6 @@ public class Gui extends javax.swing.JFrame {
         String tyyppiString = (String) tehtavatyyppiAlasvetovalikko.getSelectedItem();
         char tyyppiMerkki = tyyppiString.charAt(0);
         this.tehtavaTyyppi = String.valueOf(tyyppiMerkki);
-//        this.tehtavat = new Tehtava[tehtavaLkm];
         this.vastaukset = new String[tehtavaLkm];
     }
 
@@ -34,25 +32,16 @@ public class Gui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         uusiTehtavaNappi = new javax.swing.JButton();
         tarkistaVastausNappi = new javax.swing.JButton();
         vastausTextField = new javax.swing.JTextField();
         tehtavatyyppiAlasvetovalikko = new javax.swing.JComboBox();
-        jButton2 = new javax.swing.JButton();
         tulosTextField = new javax.swing.JTextField();
         tehtavaTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tehtavaTaulukko = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jButton1.setText("Testinappi");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TestinappiActionPerformed(evt);
-            }
-        });
 
         uusiTehtavaNappi.setText("Uusi tehtävä");
         uusiTehtavaNappi.setToolTipText("");
@@ -75,13 +64,6 @@ public class Gui extends javax.swing.JFrame {
         tehtavatyyppiAlasvetovalikko.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tehtavatyyppiAlasvetovalikkoActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Ikkunatesti");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
             }
         });
 
@@ -121,14 +103,13 @@ public class Gui extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
                             .addComponent(uusiTehtavaNappi)
                             .addComponent(tehtavaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2)
                             .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,8 +117,9 @@ public class Gui extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(vastausTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tulosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tulosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,32 +137,17 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(tarkistaVastausNappi))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(21, 21, 21))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TestinappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestinappiActionPerformed
-        // TODO add your handling code here:
-        System.out.println("Nappia painettu");
-        tehtavaTextField.setText("nappia painettu");
-    }//GEN-LAST:event_TestinappiActionPerformed
-
     private void uusiTehtavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uusiTehtavaActionPerformed
 //        this.tehtavaTyyppi = "huono";
-//        while (true) {
         try {
             this.kone.luoTehtavat(this.tehtavaTyyppi, tehtavaLkm);
             this.kone.luoTehtava(this.tehtavaTyyppi);
-//            for (int i = 0; i < tehtavaLkm; i++) {
-//                this.kone.luoTehtava(this.tehtavaTyyppi);
-//                tehtavaTaulukko.setValueAt(this.kone.getTehtava().tekstina(), i, 0);
-//            } // EXCEPTION 
             for (int i = 0; i < tehtavaLkm; i++) {
                 tehtavaTaulukko.setValueAt(this.kone.getTehtavat()[i].tekstina(), i, 0);
                 tehtavaTaulukko.setValueAt("", i, 1);
@@ -189,13 +156,10 @@ public class Gui extends javax.swing.JFrame {
             tehtavaTextField.setText(this.kone.getTehtava().tekstina());
             tulosTextField.setText("");
             vastausTextField.setText("");
-//               break;// EXCEPTION 
         } catch (Exception exception) {// EXCEPTION 
 //               System.out.println("Väärä laskutoimitustyyppi");// EXCEPTION
             JOptionPane.showMessageDialog(rootPane, "Valitsit laskutoimitustyypin huonosti. Yritä uudelleen!");
-        }// EXCEPTION 
-//       }// EXCEPTION 
-//        String a=String(tehtavatyyppiAlasvetovalikko[${selectedItem}]);
+        }
     }//GEN-LAST:event_uusiTehtavaActionPerformed
 
     private void tarkistaVastausNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarkistaVastausNappiActionPerformed
@@ -212,13 +176,6 @@ public class Gui extends javax.swing.JFrame {
             for (int i = 0; i < tehtavaLkm; i++) {
                 tehtavaTaulukko.setValueAt(this.kone.getTulokset()[i], i, 2);
             }
-//            for (int i = 0; i < tehtavaLkm; i++) {
-//                if (this.kone.getTehtavat()[i].onOikein(tehtavaTaulukko.getValueAt(i, 1).toString())) {
-//                    tehtavaTaulukko.setValueAt("Vastaus on oikein.", i, 2);
-//                } else {
-//                    tehtavaTaulukko.setValueAt("Vastaus on väärin.", i, 2);
-//                }
-//            }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Luo ensin tehtävä!");
         }
@@ -232,10 +189,6 @@ public class Gui extends javax.swing.JFrame {
         char tyyppiMerkki = tyyppiString.charAt(0);
         this.tehtavaTyyppi = String.valueOf(tyyppiMerkki);
     }//GEN-LAST:event_tehtavatyyppiAlasvetovalikkoActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ikkunaTesti();
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,45 +230,8 @@ public class Gui extends javax.swing.JFrame {
         });
     }
 
-    public static void ikkunaTesti() {
 
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-//                Gui gui;
-                new NewJFrame().setVisible(true);
-
-
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton tarkistaVastausNappi;
     private javax.swing.JTable tehtavaTaulukko;
