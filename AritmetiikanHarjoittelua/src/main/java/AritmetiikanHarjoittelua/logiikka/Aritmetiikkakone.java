@@ -47,7 +47,7 @@ public class Aritmetiikkakone {
             if (this.tehtavat[i].onOikein(vastaukset[i])){
                 this.tulokset[i]="Oikein!";
             }else{
-                this.tulokset[i]="Väärin!";
+                this.tulokset[i]="Väärin. Muuta vastausta!";
             }
         }
     }

@@ -26,33 +26,18 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="tehtavaTextField" min="-2" pref="181" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="vastausTextField" min="-2" pref="160" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tulosTextField" min="-2" pref="170" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="jScrollPane1" pref="523" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="tehtavatyyppiAlasvetovalikko" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="uusiTehtavaNappi" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="tarkistaVastausNappi" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          </Group>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="tehtavatyyppiAlasvetovalikko" min="-2" max="-2" attributes="0"/>
+                          <Component id="uusiTehtavaNappi" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="tarkistaVastausNappi" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -62,17 +47,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="tulosTextField" pref="23" max="32767" attributes="0"/>
-                  <Component id="vastausTextField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="tehtavaTextField" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="188" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="tarkistaVastausNappi" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="uusiTehtavaNappi" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tarkistaVastausNappi" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="tehtavatyyppiAlasvetovalikko" min="-2" max="-2" attributes="0"/>
@@ -85,7 +64,7 @@
     <Component class="javax.swing.JButton" name="uusiTehtavaNappi">
       <Properties>
         <Property name="text" type="java.lang.String" value="Luo uudet teht&#xe4;v&#xe4;t"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="toolTipText" type="java.lang.String" value="Valitse teht&#xe4;v&#xe4;tyyppi alta ja paina t&#xe4;st&#xe4;!"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="uusiTehtavaActionPerformed"/>
@@ -98,11 +77,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tarkistaVastausNappiActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="vastausTextField">
-      <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="anna vastaus, esim 4 tai -2"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="tehtavatyyppiAlasvetovalikko">
       <Properties>
@@ -120,16 +94,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tehtavatyyppiAlasvetovalikkoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tulosTextField">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="tehtavaTextField">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -146,6 +110,7 @@
                 <Column editable="false" title="Tulos" type="java.lang.Object"/>
               </Table>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Klikkaa Vastaus-kent&#xe4;&#xe4;, anna vastaus esim. 2 tai -4 ja paina enter. Tuplaklikkaamalla p&#xe4;&#xe4;set muuttamaan vastausta."/>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
