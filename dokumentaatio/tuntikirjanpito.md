@@ -1,7 +1,7 @@
 ## Javalabra / Hannu Honkanen, periodi 5/2014
 
 ## Tuntikirjanpito
-| Pvm        | Opiskelu | Aloitus | Määrit-tely | Koodaus | Testaus | Dokumen-tointi | Muu | KOMMENTTI |
+| Pvm        | Opiskelu | Aloi-tus | Määrit-tely | Koodaus | Testaus | Dokumen-tointi | Muu | KOMMENTTI |
 | :----------| -------: | ------: | ---------: | :------ | :------ | :------------ | :-- | :-------- |
 | 12.05.2014 |          | 2       |            |         |         |               |     | aloitusluento  |
 | 13.05.2014 |          | 2       |            |         |         |               |     | git/java-projekti |
