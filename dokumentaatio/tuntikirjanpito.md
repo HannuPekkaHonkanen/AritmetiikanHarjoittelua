@@ -5,7 +5,7 @@
 | :----------| -------: | ------: | ---------: | :------ | :------ | :------------ | :-- | :-------- |
 | 12.05.2014 |          | 2       |            |         |         |               |     | aloitusluento  |
 | 13.05.2014 |          | 2       |            |         |         |               |     | git/java-projekti |
-| 15.05.2014 |          | 1       |            |         |         |               |     | md-opiskelua/tuntikirjanpidon aloitus |
+| 15.05.2014 |          | 1       |            |         |         |               |     | md-opiskelua ja tuntikirjanpidon aloitus |
 | 15.05.2014 |          |         | 2          |         |         |               |     | alustava aihemäärittely |
 | 18.05.2014 |          | 1       |            |         |         |               |     | viikon 2 ohjeiden luku |
 | 21.05.2014 | 5        |         |            |         |         |               |     | ohja- ym. kertausta |
