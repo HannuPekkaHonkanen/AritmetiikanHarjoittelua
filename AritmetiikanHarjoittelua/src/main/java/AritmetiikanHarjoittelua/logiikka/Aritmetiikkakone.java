@@ -24,7 +24,7 @@ public class Aritmetiikkakone {
     }
 
     /**
-     * Metodi palauttaa uuden Tehtava luokan ilmentymän, jonka se pyytää
+     * Metodi luo uuden Tehtava luokan ilmentymän, jonka se pyytää
      * Laskutoimitustehdas-oliolta.
      */
 // EXCEPTION

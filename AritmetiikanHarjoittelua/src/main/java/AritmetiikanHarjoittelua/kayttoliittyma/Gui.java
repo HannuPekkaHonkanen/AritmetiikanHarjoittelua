@@ -87,7 +87,7 @@ public class Gui extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tehtavaTaulukko.setToolTipText("Klikkaa Vastaus-kentää, anna vastaus esim. 2 tai -4 ja paina enter. Tuplaklikkaamalla pääset muuttamaan vastausta.");
+        tehtavaTaulukko.setToolTipText("Klikkaa Vastaus-kenttää, anna vastaus esim. 2 tai -4 ja paina enter. Tuplaklikkaamalla pääset muuttamaan vastausta.");
         jScrollPane1.setViewportView(tehtavaTaulukko);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,7 +129,6 @@ public class Gui extends javax.swing.JFrame {
     private void uusiTehtavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uusiTehtavaActionPerformed
         try {
             this.kone.luoTehtavat(this.tehtavaTyyppi, tehtavaLkm);
-            this.kone.luoTehtava(this.tehtavaTyyppi);
             for (int i = 0; i < tehtavaLkm; i++) {
                 tehtavaTaulukko.setValueAt(this.kone.getTehtavat()[i].tekstina(), i, 0);
                 tehtavaTaulukko.setValueAt("", i, 1);
@@ -141,7 +140,7 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_uusiTehtavaActionPerformed
 
     private void tarkistaVastausNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarkistaVastausNappiActionPerformed
-        if (this.kone.getTehtava() != null) {
+        if (this.kone.getTehtavat() != null) {
             for (int i = 0; i < tehtavaLkm; i++) {
                 this.vastaukset[i] = tehtavaTaulukko.getValueAt(i, 1).toString();
             }
