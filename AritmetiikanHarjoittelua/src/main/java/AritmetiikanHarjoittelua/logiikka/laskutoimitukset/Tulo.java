@@ -7,11 +7,11 @@ public class Tulo extends Laskutoimitus {
 
     @Override
     public String tekstina() {
-        return super.luku1Tekstina() + " x " + super.luku2Tekstina();
+        return super.operandi1Tekstina() + " x " + super.operandi2Tekstina();
     }
 
     @Override
     public int laske() {
-        return super.getLuku1() * super.getLuku2();
+        return super.getOperandi1() * super.getOperandi2();
     }
 }

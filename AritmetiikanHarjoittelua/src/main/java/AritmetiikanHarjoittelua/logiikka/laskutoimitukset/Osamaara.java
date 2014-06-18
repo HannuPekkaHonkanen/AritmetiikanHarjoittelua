@@ -9,14 +9,14 @@ public class Osamaara extends Laskutoimitus {
     private int jakaja;
 
     @Override
-    public void setLuku2(int luku2) {
-        super.setLuku2(luku2);
+    public void setOperandi2(int luku2) {
+        super.setOperandi2(luku2);
         asetaJaettavaJaJakaja();
     }
 
     @Override
-    public boolean luvutOvatKelvolliset() {
-        if (super.getLuku2() == 0) {
+    public boolean operanditOvatKelvolliset() {
+        if (super.getOperandi2() == 0) {
             return false;
         }
         return true;
@@ -28,8 +28,8 @@ public class Osamaara extends Laskutoimitus {
     }
 
     private void asetaJaettavaJaJakaja() {
-        this.jaettava = super.getLuku1() * super.getLuku2();
-        this.jakaja = super.getLuku2();
+        this.jaettava = super.getOperandi1() * super.getOperandi2();
+        this.jakaja = super.getOperandi2();
     }
 
     private String jaettavaTekstina() {
@@ -38,7 +38,7 @@ public class Osamaara extends Laskutoimitus {
     }
 
     private String jakajaTekstina() {
-        String merkkijono = super.luku2Tekstina();
+        String merkkijono = super.operandi2Tekstina();
         return merkkijono;
     }
 

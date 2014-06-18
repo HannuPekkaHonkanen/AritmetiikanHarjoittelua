@@ -9,29 +9,78 @@ public class Laskutoimitustehdas {
 
     private Laskutoimitus laskutoimitus;
     private Arpoja arpoja;
+    private int arvottuLuku = 0;
 
 //    public Laskutoimitus uusiLaskutoimitus(String tyyppi, Arpoja arpoja) {
 // EXCEPTION    
-        public Laskutoimitus uusiLaskutoimitus(String tyyppi, Arpoja arpoja) throws LaskToimTyypEiLoydyException {
+    public Laskutoimitus uusiLaskutoimitus(String tyyppi, Arpoja arpoja) throws LaskToimTyypEiLoydyException {
         this.arpoja = arpoja;
-//        y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku
-        if (tyyppi.equalsIgnoreCase("y")) {
-            this.laskutoimitus = new Summa();
-        } else if (tyyppi.equalsIgnoreCase("v")) {
-            this.laskutoimitus = new Erotus();
-        } else if (tyyppi.equalsIgnoreCase("k")) {
-            this.laskutoimitus = new Tulo();
-        } else if (tyyppi.equalsIgnoreCase("j")) {
-            this.laskutoimitus = new Osamaara();
-        } else {
-// EXCEPTION 
-            throw new LaskToimTyypEiLoydyException();
+//        y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku/a=arvo tyyppi/m=moniosainen tehtävä
+        switch (tyyppi) {
+            case "y":
+                this.laskutoimitus = new Summa();
+                this.laskutoimitus.setPeruslaskutoimitus(true);
+                break;
+            case "v":
+                this.laskutoimitus = new Erotus();
+                this.laskutoimitus.setPeruslaskutoimitus(true);
+                break;
+            case "k":
+                this.laskutoimitus = new Tulo();
+                this.laskutoimitus.setPeruslaskutoimitus(true);
+                break;
+            case "j":
+                this.laskutoimitus = new Osamaara();
+                this.laskutoimitus.setPeruslaskutoimitus(true);
+                break;
+            case "a":
+                arvottuLuku = this.arpoja.kokonaisluku(1, 4);
+                switch (arvottuLuku) {
+                    case 1:
+                        this.laskutoimitus = new Summa();
+                        break;
+                    case 2:
+                        this.laskutoimitus = new Erotus();
+                        break;
+                    case 3:
+                        this.laskutoimitus = new Tulo();
+                        break;
+                    case 4:
+                        this.laskutoimitus = new Osamaara();
+                        break;
+                    default:
+                        throw new LaskToimTyypEiLoydyException();
+                }
+                this.laskutoimitus.setPeruslaskutoimitus(true);
+                break;
+            case "m":
+                arvottuLuku = this.arpoja.kokonaisluku(1, 4);
+                switch (arvottuLuku) {
+                    case 1:
+                        this.laskutoimitus = new Summa();
+                        break;
+                    case 2:
+                        this.laskutoimitus = new Erotus();
+                        break;
+                    case 3:
+                        this.laskutoimitus = new Tulo();
+                        break;
+                    case 4:
+                        this.laskutoimitus = new Osamaara();
+                        break;
+                    default:
+                        throw new LaskToimTyypEiLoydyException();
+                }
+                this.laskutoimitus.setPeruslaskutoimitus(false);
+                break;
+            default:
+                throw new LaskToimTyypEiLoydyException();
         }
 
         arvoLuvut();
 //        arvoLuvutTestNolla();
 
-        while (!this.laskutoimitus.luvutOvatKelvolliset()) {
+        while (!this.laskutoimitus.operanditOvatKelvolliset()) {
             arvoLuvut();
         }
 
@@ -40,13 +89,9 @@ public class Laskutoimitustehdas {
 
     private void arvoLuvut() {
 
-        int luku1 = this.arpoja.kokonaisluku(-10,10);
-        int luku2 = this.arpoja.kokonaisluku(-10,10);
-
-        this.laskutoimitus.setLuku1(luku1);
-        this.laskutoimitus.setLuku2(luku2);
+        this.laskutoimitus.setOperandi1(this.arpoja.kokonaisluku(-10, 10));
+        this.laskutoimitus.setOperandi2(this.arpoja.kokonaisluku(-10, 10));
     }
-    
 //    POISTA
 //    public void arvoLuvutTestNolla() {
 ////        TESTI
@@ -59,5 +104,4 @@ public class Laskutoimitustehdas {
 //        this.laskutoimitus.setLuku1(luku1);
 //        this.laskutoimitus.setLuku2(luku2);
 //    }
-    
 }

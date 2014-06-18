@@ -7,39 +7,48 @@ import java.util.*;
  */
 public class Laskutoimitus {
 
-    private int luku1;
-    private int luku2;
+    private int operandi1;
+    private int operandi2;
+    private boolean peruslaskutoimitus;
 
-    public void setLuku1(int luku1) {
-        this.luku1 = luku1;
+    public void setOperandi1(int luku1) {
+        this.operandi1 = luku1;
     }
 
-    public void setLuku2(int luku2) {
-        this.luku2 = luku2;
+    public void setOperandi2(int luku2) {
+        this.operandi2 = luku2;
+    }
+    
+    public void setPeruslaskutoimitus(boolean totuusarvo){
+        this.peruslaskutoimitus=totuusarvo;
     }
 
-    public int getLuku1() {
-        return this.luku1;
+    public int getOperandi1() {
+        return this.operandi1;
     }
 
-    public int getLuku2() {
-        return this.luku2;
+    public int getOperandi2() {
+        return this.operandi2;
     }
 
-    public String luku1Tekstina() {
-        String merkkijono = Integer.toString(this.luku1);
+    public String operandi1Tekstina() {
+        String merkkijono = Integer.toString(this.operandi1);
         return merkkijono;
     }
 
-    public String luku2Tekstina() {
-        String merkkijono=Integer.toString(this.luku2);
-        if (this.luku2 < 0) {
+    public String operandi2Tekstina() {
+        String merkkijono=Integer.toString(this.operandi2);
+        if (this.operandi2 < 0) {
             merkkijono = "(" + merkkijono + ")";
         }
         return merkkijono;
     }
 
-    public boolean luvutOvatKelvolliset() {
+    public boolean onPeruslaskutoimitus() {
+        return this.peruslaskutoimitus;
+    }
+
+    public boolean operanditOvatKelvolliset() {
 //        luokassa Osamaara tälle tehdään override
         return true;
     }
