@@ -1,5 +1,6 @@
 package AritmetiikanHarjoittelua.logiikka;
 
+import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil;
 import java.util.ArrayList;
 
 /**
@@ -44,4 +45,9 @@ public class AritmetiikanHarjoitus {
     public String[] getVastaukset() {
         return this.vastaukset;
     }
+    
+//    public String toString(){
+//        return "";
+//    }
+    
 }

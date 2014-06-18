@@ -39,6 +39,11 @@ public class Gui extends javax.swing.JFrame {
         tehtavaTaulukko = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         uusiTehtavaNappi.setText("Uusi harjoitus");
         uusiTehtavaNappi.setToolTipText("Valitse tehtävätyyppi alta ja paina tästä!");
@@ -162,6 +167,10 @@ public class Gui extends javax.swing.JFrame {
         this.tehtavaTyyppi = String.valueOf(tyyppiMerkki);
     }//GEN-LAST:event_tehtavatyyppiAlasvetovalikkoActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.kone.lopetus();
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -198,8 +207,6 @@ public class Gui extends javax.swing.JFrame {
             }
         });
     }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton tarkistaVastausNappi;

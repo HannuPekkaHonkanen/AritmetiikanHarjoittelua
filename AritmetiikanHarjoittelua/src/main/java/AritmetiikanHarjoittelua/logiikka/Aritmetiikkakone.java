@@ -21,13 +21,12 @@ public class Aritmetiikkakone {
 //    private String[] tulokset;
     private Laskutoimitustehdas laskutoimitustehdas;
     private KokonaislukuArpoja arpoja;
-    
     private boolean test;
 
     public Aritmetiikkakone() {
         this.laskutoimitustehdas = new Laskutoimitustehdas();
         this.arpoja = new KokonaislukuArpoja();
-        this.harjoitukset=new ArrayList<AritmetiikanHarjoitus>();
+        this.harjoitukset = new ArrayList<AritmetiikanHarjoitus>();
     }
 
     /**
@@ -40,8 +39,9 @@ public class Aritmetiikkakone {
 
     public void luoHarjoitus(String tyyppi, int lkm) throws LaskToimTyypEiLoydyException {
         if (this.aktiivinenHarjoitus != null) {
+            AritmetiikanHarjoitus uusiHarjoitus = new AritmetiikanHarjoitus(tyyppi, lkm, this.laskutoimitustehdas, this.arpoja);
             this.harjoitukset.add(this.aktiivinenHarjoitus);
-            this.aktiivinenHarjoitus = new AritmetiikanHarjoitus(tyyppi, lkm, this.laskutoimitustehdas, this.arpoja);
+            this.aktiivinenHarjoitus = uusiHarjoitus;
         } else {
             this.aktiivinenHarjoitus = new AritmetiikanHarjoitus(tyyppi, lkm, this.laskutoimitustehdas, this.arpoja);
         }
@@ -59,6 +59,20 @@ public class Aritmetiikkakone {
 //    }
     public AritmetiikanHarjoitus getAktiivinenHarjoitus() {
         return this.aktiivinenHarjoitus;
+    }
+
+    public ArrayList<AritmetiikanHarjoitus> getHarjoitukset() {
+        return this.harjoitukset;
+    }
+
+    public void lopetus() {
+        if (this.aktiivinenHarjoitus != null) {
+            this.harjoitukset.add(this.aktiivinenHarjoitus);
+        }
+        for (AritmetiikanHarjoitus harjoitus:this.harjoitukset){
+            for (Tehtava tehtava:harjoitus.getTehtavat())
+            System.out.println(tehtava.tekstina());
+        }
     }
 
     //    tekstikayttoliittymaa varten
