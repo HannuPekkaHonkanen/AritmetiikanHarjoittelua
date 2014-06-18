@@ -40,18 +40,18 @@ public class Gui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        uusiTehtavaNappi.setText("Luo uudet tehtävät");
+        uusiTehtavaNappi.setText("Uusi harjoitus");
         uusiTehtavaNappi.setToolTipText("Valitse tehtävätyyppi alta ja paina tästä!");
         uusiTehtavaNappi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                uusiTehtavaActionPerformed(evt);
+                uusiHarjoitusActionPerformed(evt);
             }
         });
 
         tarkistaVastausNappi.setText("Tarkista vastaukset");
         tarkistaVastausNappi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tarkistaVastausNappiActionPerformed(evt);
+                tarkistaVastauksetNappiActionPerformed(evt);
             }
         });
 
@@ -126,33 +126,33 @@ public class Gui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void uusiTehtavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uusiTehtavaActionPerformed
+    private void uusiHarjoitusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uusiHarjoitusActionPerformed
         try {
-            this.kone.luoTehtavat(this.tehtavaTyyppi, tehtavaLkm);
+            this.kone.luoHarjoitus(this.tehtavaTyyppi, tehtavaLkm);
             for (int i = 0; i < tehtavaLkm; i++) {
-                tehtavaTaulukko.setValueAt(this.kone.getTehtavat()[i].tekstina(), i, 0);
+                tehtavaTaulukko.setValueAt(this.kone.getAktiivinenHarjoitus().getTehtavat()[i].tekstina(), i, 0);
                 tehtavaTaulukko.setValueAt("", i, 1);
                 tehtavaTaulukko.setValueAt("", i, 2);
             }
         } catch (Exception exception) {// EXCEPTION 
             JOptionPane.showMessageDialog(rootPane, "Laskutoimitusten luonti ei onnistunut. Ehkä valitsit laskutoimitustyypin huonosti. Yritä uudelleen!");
         }
-    }//GEN-LAST:event_uusiTehtavaActionPerformed
+    }//GEN-LAST:event_uusiHarjoitusActionPerformed
 
-    private void tarkistaVastausNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarkistaVastausNappiActionPerformed
-        if (this.kone.getTehtavat() != null) {
+    private void tarkistaVastauksetNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarkistaVastauksetNappiActionPerformed
+        if (this.kone.getAktiivinenHarjoitus() != null) {
             for (int i = 0; i < tehtavaLkm; i++) {
                 this.vastaukset[i] = tehtavaTaulukko.getValueAt(i, 1).toString();
             }
-            this.kone.tarkistaTehtavat(vastaukset, tehtavaLkm);
+            this.kone.getAktiivinenHarjoitus().tarkistaTehtavat(this.vastaukset, tehtavaLkm);
             for (int i = 0; i < tehtavaLkm; i++) {
-                tehtavaTaulukko.setValueAt(this.kone.getTulokset()[i], i, 2);
+                tehtavaTaulukko.setValueAt(this.kone.getAktiivinenHarjoitus().getTulokset()[i], i, 2);
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Luo ensin tehtävät!");
+            JOptionPane.showMessageDialog(rootPane, "Luo ensin harjoitus!");
         }
 
-    }//GEN-LAST:event_tarkistaVastausNappiActionPerformed
+    }//GEN-LAST:event_tarkistaVastauksetNappiActionPerformed
 
     private void tehtavatyyppiAlasvetovalikkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tehtavatyyppiAlasvetovalikkoActionPerformed
 //        hieman hankalan nakoista koodia mutta nain txt kayttoliittyman voi

@@ -32,7 +32,6 @@ public class Laskutoimitustehdas {
 //        arvoLuvutTestNolla();
 
         while (!this.laskutoimitus.luvutOvatKelvolliset()) {
-            System.out.println("VIRHE TEST luvut eivät kelvolliset -> luvut arvotaan uudestaan");
             arvoLuvut();
         }
 
