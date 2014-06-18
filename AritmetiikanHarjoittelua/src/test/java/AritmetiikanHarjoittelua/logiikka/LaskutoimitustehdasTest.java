@@ -40,12 +40,12 @@ public class LaskutoimitustehdasTest {
         arpoja = new KokonaislukuArpoja();
 
         try {
-            pluslasku = laskutoimitustehdas.uusiLaskutoimitus("Y", arpoja);
+            pluslasku = laskutoimitustehdas.uusiLaskutoimitus("y", arpoja);
             miinuslasku = laskutoimitustehdas.uusiLaskutoimitus("v", arpoja);
             kertolasku = laskutoimitustehdas.uusiLaskutoimitus("k", arpoja);
-            jakolasku = laskutoimitustehdas.uusiLaskutoimitus("J", arpoja);
+            jakolasku = laskutoimitustehdas.uusiLaskutoimitus("j", arpoja);
 
-            miinuslaskuVakioArpojalla = laskutoimitustehdas.uusiLaskutoimitus("V", new TestiArpojaVakioilla(0, -7));
+            miinuslaskuVakioArpojalla = laskutoimitustehdas.uusiLaskutoimitus("v", new TestiArpojaVakioilla(0, -7));
         } catch (Exception exception) {// EXCEPTION 
             System.out.println("Väärä laskutoimitustyyppi");// EXCEPTION
         }
@@ -58,15 +58,15 @@ public class LaskutoimitustehdasTest {
 
     @Test
     public void toimiikoSummanLuominen() {
-        pluslasku.setLuku1(4);
-        pluslasku.setLuku2(7);
+        pluslasku.setOperandi1(4);
+        pluslasku.setOperandi2(7);
         assertEquals(11, pluslasku.laske());
     }
 
     @Test
     public void toimiikoErotuksenLuominen() {
-        miinuslasku.setLuku1(4);
-        miinuslasku.setLuku2(7);
+        miinuslasku.setOperandi1(4);
+        miinuslasku.setOperandi2(7);
         assertEquals("4 - 7", miinuslasku.tekstina());
     }
 
@@ -77,15 +77,15 @@ public class LaskutoimitustehdasTest {
 
     @Test
     public void toimiikoTulonLuominen() {
-        kertolasku.setLuku1(4);
-        kertolasku.setLuku2(-7);
+        kertolasku.setOperandi1(4);
+        kertolasku.setOperandi2(-7);
         assertEquals(-28, kertolasku.laske());
     }
 
     @Test
     public void toimiikoOsamaaranLuominen() {
-        jakolasku.setLuku1(4);
-        jakolasku.setLuku2(7);
+        jakolasku.setOperandi1(4);
+        jakolasku.setOperandi2(7);
         assertEquals("28 / 7", jakolasku.tekstina());
     }
 }

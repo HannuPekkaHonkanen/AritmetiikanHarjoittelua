@@ -84,12 +84,13 @@
     <Component class="javax.swing.JComboBox" name="tehtavatyyppiAlasvetovalikko">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
+          <StringArray count="6">
             <StringItem index="0" value="yhteenlasku"/>
             <StringItem index="1" value="v&#xe4;hennyslasku"/>
             <StringItem index="2" value="kertolasku"/>
             <StringItem index="3" value="jakolasku"/>
-            <StringItem index="4" value="huono valinta"/>
+            <StringItem index="4" value="arvo laskutyyppi"/>
+            <StringItem index="5" value="huono valinta"/>
           </StringArray>
         </Property>
       </Properties>

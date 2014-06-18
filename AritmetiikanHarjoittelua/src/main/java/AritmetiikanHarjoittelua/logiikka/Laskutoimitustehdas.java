@@ -92,6 +92,7 @@ public class Laskutoimitustehdas {
         this.laskutoimitus.setOperandi1(this.arpoja.kokonaisluku(-10, 10));
         this.laskutoimitus.setOperandi2(this.arpoja.kokonaisluku(-10, 10));
     }
+    
 //    POISTA
 //    public void arvoLuvutTestNolla() {
 ////        TESTI

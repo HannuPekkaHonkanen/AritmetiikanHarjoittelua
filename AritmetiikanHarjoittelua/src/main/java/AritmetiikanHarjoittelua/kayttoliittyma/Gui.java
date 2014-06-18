@@ -60,7 +60,7 @@ public class Gui extends javax.swing.JFrame {
             }
         });
 
-        tehtavatyyppiAlasvetovalikko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "yhteenlasku", "vähennyslasku", "kertolasku", "jakolasku", "huono valinta" }));
+        tehtavatyyppiAlasvetovalikko.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "yhteenlasku", "vähennyslasku", "kertolasku", "jakolasku", "arvo laskutyyppi", "huono valinta" }));
         tehtavatyyppiAlasvetovalikko.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tehtavatyyppiAlasvetovalikkoActionPerformed(evt);
