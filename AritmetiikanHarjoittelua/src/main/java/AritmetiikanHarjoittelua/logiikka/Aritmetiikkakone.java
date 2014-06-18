@@ -65,13 +65,17 @@ public class Aritmetiikkakone {
         return this.harjoitukset;
     }
 
-    public void lopetus() {
+    public void lopetus(int lkm) {
         if (this.aktiivinenHarjoitus != null) {
             this.harjoitukset.add(this.aktiivinenHarjoitus);
         }
-        for (AritmetiikanHarjoitus harjoitus:this.harjoitukset){
-            for (Tehtava tehtava:harjoitus.getTehtavat())
-            System.out.println(tehtava.tekstina());
+        for (AritmetiikanHarjoitus harjoitus : this.harjoitukset) {
+            for (int i = 0; i < lkm; i++) {
+//            System.out.println(tehtava.tekstina());
+                System.out.print(harjoitus.getTehtavat()[i].tekstina());
+                System.out.print(" Vastaus: " + harjoitus.getVastaukset()[i]);
+                System.out.println(" Tulos: " + harjoitus.getTulokset()[i]);
+            }
         }
     }
 

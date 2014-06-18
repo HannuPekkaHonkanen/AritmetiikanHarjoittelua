@@ -168,7 +168,7 @@ public class Gui extends javax.swing.JFrame {
     }//GEN-LAST:event_tehtavatyyppiAlasvetovalikkoActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        this.kone.lopetus();
+        this.kone.lopetus(tehtavaLkm);
     }//GEN-LAST:event_formWindowClosing
 
     /**

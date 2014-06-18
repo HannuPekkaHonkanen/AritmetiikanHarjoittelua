@@ -19,12 +19,14 @@ public class AritmetiikanHarjoitus {
         for (int i = 0; i < lkm; i++) {
             this.tehtavat[i] = new Tehtava(tehdas.uusiLaskutoimitus(tyyppi, arpoja));
         }
+        
+        this.vastaukset = new String[lkm];
+        this.tulokset = new String[lkm];
 
     }
 
     public void tarkistaTehtavat(String[] vastaukset, int lkm) {
-        this.vastaukset=vastaukset;
-        this.tulokset = new String[lkm];
+        this.vastaukset = vastaukset;
         for (int i = 0; i < lkm; i++) {
             if (this.tehtavat[i].onOikein(this.vastaukset[i])) {
                 this.tulokset[i] = "Oikein!";
@@ -45,9 +47,7 @@ public class AritmetiikanHarjoitus {
     public String[] getVastaukset() {
         return this.vastaukset;
     }
-    
 //    public String toString(){
 //        return "";
 //    }
-    
 }
