@@ -63,9 +63,9 @@ public class Aritmetiikkakone {
         if (this.aktiivinenHarjoitus != null) {
             this.harjoitukset.add(this.aktiivinenHarjoitus);
         }
+//        (POISTA TEST) LAAJENNUSIDEA tietoja voisi tallentaa tekstitiedostoon tai jopa tietokantaan
         for (AritmetiikanHarjoitus harjoitus : this.harjoitukset) {
             for (int i = 0; i < lkm; i++) {
-//            System.out.println(tehtava.tekstina());
                 System.out.print(harjoitus.getTehtavat()[i].tekstina());
                 System.out.print(" Vastaus: " + harjoitus.getVastaukset()[i]);
                 System.out.println(" Tulos: " + harjoitus.getTulokset()[i]);

@@ -8,14 +8,14 @@ public class KokonaisLukuOperandi implements Operandi {
 
     private int arvo;
     private String merkkijono;
-    private boolean onkoLukuoperandi;
+    private boolean onKokonaisLukuoperandi;
     private boolean ensimmainenOperandi;
     private String laskutoimitustyyppi;
 
     public KokonaisLukuOperandi(int luku, boolean ensimmainenOperandi) {
         this.arvo = luku;
         this.merkkijono = Integer.toString(luku);
-        this.onkoLukuoperandi = true;
+        this.onKokonaisLukuoperandi = true;
         this.ensimmainenOperandi = ensimmainenOperandi;
         this.laskutoimitustyyppi = "eiLaskutoimitus";
     }
@@ -35,7 +35,7 @@ public class KokonaisLukuOperandi implements Operandi {
 
     @Override
     public boolean onLuku() {
-        return this.onkoLukuoperandi;
+        return this.onKokonaisLukuoperandi;
     }
 
     @Override

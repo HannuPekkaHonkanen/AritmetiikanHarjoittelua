@@ -19,6 +19,7 @@ public class Laskutoimitustehdas {
     public Laskutoimitus uusiLaskutoimitus(String tyyppi) throws LaskToimTyypEiLoydyException {
         Laskutoimitus laskutoimitus;
 //        y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku/a=arvo tyyppi/m=moniosainen tehtävä
+//        konstruktori asettaa uudelle Laskutoimitukselle this.peruslaskutoimitus = true;
         laskutoimitus = new Laskutoimitus();
         switch (tyyppi) {
             case "y":
@@ -66,28 +67,6 @@ public class Laskutoimitustehdas {
         return laskutoimitus;
     }
 
-//    public Laskutoimitus uusiAlilaskutoimitus() throws LaskToimTyypEiLoydyException {
-//                switch (this.arpoja.kokonaisluku(1, 4)) {
-//                    case 1:
-//                        this.paaLaskutoimitus = new Summa();
-//                        break;
-//                    case 2:
-//                        this.paaLaskutoimitus = new Erotus();
-//                        break;
-//                    case 3:
-//                        this.paaLaskutoimitus = new Tulo();
-//                        break;
-//                    case 4:
-//                        this.paaLaskutoimitus = new Osamaara();
-//                        break;
-//                    default:
-//                        throw new LaskToimTyypEiLoydyException();
-//                }
-//
-//        asetaOperandit();
-//
-//        return this.paaLaskutoimitus;
-//    }
     private void asetaOperandit(Laskutoimitus laskutoimitus) throws LaskToimTyypEiLoydyException {
 
         int arvottuLuku1 = this.arpoja.kokonaisluku(-10, 10);
