@@ -9,23 +9,25 @@ public class AritmetiikanHarjoitus {
     private Tehtava[] tehtavat;
     private String[] vastaukset;
     private String[] tulokset;
+    private int lkm;
 
 //EXCEPTION vai ei???
     public AritmetiikanHarjoitus(String tyyppi, int lkm, Laskutoimitustehdas tehdas, KokonaislukuArpoja arpoja) throws LaskToimTyypEiLoydyException {
-        this.tehtavat = new Tehtava[lkm];
-        for (int i = 0; i < lkm; i++) {
+        this.lkm=lkm;
+        this.tehtavat = new Tehtava[this.lkm];
+        for (int i = 0; i < this.lkm; i++) {
             this.tehtavat[i] = new Tehtava(tehdas.uusiLaskutoimitus(tyyppi));
         }
 
-        this.vastaukset = new String[lkm];
-        this.tulokset = new String[lkm];
+        this.vastaukset = new String[this.lkm];
+        this.tulokset = new String[this.lkm];
 
     }
 
-    public void tarkistaTehtavat(String[] vastaukset, int lkm) {
+    public void tarkistaTehtavat() {
 //        this.vastaukset = vastaukset;
-        for (int i = 0; i < lkm; i++) {
-            this.vastaukset[i] = vastaukset[i];
+        for (int i = 0; i < this.lkm; i++) {
+//            this.vastaukset[i] = vastaukset[i];
             if (this.tehtavat[i].onOikein(this.vastaukset[i])) {
                 this.tulokset[i] = "Oikein!";
             } else {
@@ -44,6 +46,10 @@ public class AritmetiikanHarjoitus {
 
     public String[] getVastaukset() {
         return this.vastaukset;
+    }
+    
+    public void setVastaus (int i, String vastaus){
+        this.vastaukset[i]=vastaus;
     }
 //    public String toString(){
 //        return "";

@@ -16,7 +16,6 @@ public class Gui extends javax.swing.JFrame {
     private Aritmetiikkakone kone;
     private String tehtavaTyyppi;
     private final int tehtavaLkm = 10;
-    private String[] vastaukset;
 
     public Gui(Aritmetiikkakone kone) {
         initComponents();
@@ -25,7 +24,6 @@ public class Gui extends javax.swing.JFrame {
         String tyyppiString = (String) tehtavatyyppiAlasvetovalikko.getSelectedItem();
         char tyyppiMerkki = tyyppiString.charAt(0);
         this.tehtavaTyyppi = String.valueOf(tyyppiMerkki);
-        this.vastaukset = new String[tehtavaLkm];
     }
 
     @SuppressWarnings("unchecked")
@@ -149,9 +147,9 @@ public class Gui extends javax.swing.JFrame {
     private void tarkistaVastauksetNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarkistaVastauksetNappiActionPerformed
         if (this.kone.getAktiivinenHarjoitus() != null) {
             for (int i = 0; i < tehtavaLkm; i++) {
-                this.vastaukset[i] = tehtavaTaulukko.getValueAt(i, 1).toString();
+                this.kone.getAktiivinenHarjoitus().setVastaus(i, tehtavaTaulukko.getValueAt(i, 1).toString());
             }
-            this.kone.getAktiivinenHarjoitus().tarkistaTehtavat(this.vastaukset, tehtavaLkm);
+            this.kone.getAktiivinenHarjoitus().tarkistaTehtavat();
             for (int i = 0; i < tehtavaLkm; i++) {
                 tehtavaTaulukko.setValueAt(this.kone.getAktiivinenHarjoitus().getTulokset()[i], i, 2);
             }
