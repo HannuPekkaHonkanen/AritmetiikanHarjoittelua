@@ -7,52 +7,67 @@ import java.util.*;
  */
 public class Laskutoimitus {
 
-    private int operandi1;
-    private int operandi2;
+    private Operandi operandi1;
+    private Operandi operandi2;
     private boolean peruslaskutoimitus;
+    private String tyyppi;
 
-    public void setOperandi1(int luku1) {
-        this.operandi1 = luku1;
+    public Laskutoimitus() {
+        this.peruslaskutoimitus = true;
     }
 
-    public void setOperandi2(int luku2) {
-        this.operandi2 = luku2;
-    }
-    
-    public void setPeruslaskutoimitus(boolean totuusarvo){
-        this.peruslaskutoimitus=totuusarvo;
+    public String getTyyppi() {
+        return this.tyyppi;
     }
 
-    public int getOperandi1() {
+    public void setTyyppi(String tyyppi) {
+        this.tyyppi = tyyppi;
+    }
+
+    public void setOperandi1(Operandi operandi) {
+        this.operandi1 = operandi;
+    }
+
+    public void setOperandi2(Operandi operandi) {
+        this.operandi2 = operandi;
+    }
+
+    public void setPeruslaskutoimitus(boolean totuusarvo) {
+        this.peruslaskutoimitus = totuusarvo;
+    }
+
+    public Operandi getOperandi1() {
         return this.operandi1;
     }
 
-    public int getOperandi2() {
+    public Operandi getOperandi2() {
         return this.operandi2;
     }
 
+    public int getOperandi1Arvo() {
+        return this.operandi1.getArvo();
+    }
+
+    public int getOperandi2Arvo() {
+        return this.operandi2.getArvo();
+    }
+
     public String operandi1Tekstina() {
-        String merkkijono = Integer.toString(this.operandi1);
-        return merkkijono;
+        return this.operandi1.getMerkkijono();
     }
 
     public String operandi2Tekstina() {
-        String merkkijono=Integer.toString(this.operandi2);
-        if (this.operandi2 < 0) {
-            merkkijono = "(" + merkkijono + ")";
-        }
-        return merkkijono;
+        return this.operandi2.getMerkkijono();
     }
 
     public boolean onPeruslaskutoimitus() {
         return this.peruslaskutoimitus;
     }
 
-    public boolean operanditOvatKelvolliset() {
-//        luokassa Osamaara tälle tehdään override
-        return true;
-    }
-
+//    public boolean operanditOvatKelvolliset() {
+////        luokassa Osamaara tälle tehdään override
+//        return true;
+//    }
     public String tekstina() {
 //       tälle tehdään override eri laskutoimituksissa summa/erotus/tulo/osamaara
         return "laskutoimitus tekstinä";
@@ -62,5 +77,4 @@ public class Laskutoimitus {
 //       tälle tehdään override eri laskutoimituksissa summa/erotus/tulo/osamaara
         return 999999;
     }
-
 }

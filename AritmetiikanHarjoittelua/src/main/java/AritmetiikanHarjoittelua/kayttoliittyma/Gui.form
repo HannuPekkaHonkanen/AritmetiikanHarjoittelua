@@ -90,7 +90,7 @@
             <StringItem index="2" value="kertolasku"/>
             <StringItem index="3" value="jakolasku"/>
             <StringItem index="4" value="arvo laskutyyppi"/>
-            <StringItem index="5" value="huono valinta"/>
+            <StringItem index="5" value="moniosaisia teht&#xe4;vi&#xe4;"/>
           </StringArray>
         </Property>
       </Properties>

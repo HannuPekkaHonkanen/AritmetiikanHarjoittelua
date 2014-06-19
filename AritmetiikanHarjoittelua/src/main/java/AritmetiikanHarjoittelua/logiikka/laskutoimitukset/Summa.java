@@ -5,6 +5,11 @@ package AritmetiikanHarjoittelua.logiikka.laskutoimitukset;
  */
 public class Summa extends Laskutoimitus {
 
+    public Summa(){
+        super();
+        this.setTyyppi("y");
+    }
+    
     @Override
     public String tekstina() {
         return super.operandi1Tekstina() + " + " + super.operandi2Tekstina();
@@ -12,6 +17,6 @@ public class Summa extends Laskutoimitus {
 
     @Override
     public int laske() {
-        return super.getOperandi1() + super.getOperandi2();
+        return super.getOperandi1Arvo() + super.getOperandi2Arvo();
     }
 }
