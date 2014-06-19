@@ -99,9 +99,9 @@ public class Laskutoimitustehdas {
             if (laskutoimitus.getTyyppi().equals("j") && arvottuLuku2 == 0) {
                 arvottuLuku2 = 1;
             }
-            laskutoimitus.setOperandi2(new LukuOperandi(arvottuLuku2));
+            laskutoimitus.setOperandi2(new KokonaisLukuOperandi(arvottuLuku2, false));
 
-            laskutoimitus.setOperandi1(new LukuOperandi(arvottuLuku1 * arvottuLuku2));
+            laskutoimitus.setOperandi1(new KokonaisLukuOperandi(arvottuLuku1 * arvottuLuku2,true));
 
         } else if (!laskutoimitus.onPeruslaskutoimitus()) {
 
@@ -114,7 +114,7 @@ public class Laskutoimitustehdas {
                     operandi2 = new LaskutoimitusOperandi(this.uusiLaskutoimitus("a"), laskutoimitus.getTyyppi());
                 }
                 // yksinkertaistetaan hieman: jakolaskussa operandi1 on aina LukuOperandi
-                operandi1 = new LukuOperandi(operandi2.getArvo() * arvottuLuku1);
+                operandi1 = new KokonaisLukuOperandi(operandi2.getArvo() * arvottuLuku1, true);
             }
 
             laskutoimitus.setOperandi1(operandi1);

@@ -43,134 +43,127 @@ public class LaskutoimitusTest {
 
     @Test
     public void toimiikoSummanLaskeminenPosInt() {
-        pluslasku.setOperandi1(4);
-        pluslasku.setOperandi2(7);
+        pluslasku.setOperandi1(new KokonaisLukuOperandi(4,true));
+        pluslasku.setOperandi2(new KokonaisLukuOperandi(7,false));
         assertEquals(11, pluslasku.laske());
     }
 
     @Test
     public void toimiikoSummanLaskeminenNegInt() {
-        pluslasku.setOperandi1(-4);
-        pluslasku.setOperandi2(-8);
+        pluslasku.setOperandi1(new KokonaisLukuOperandi(-4,true));
+        pluslasku.setOperandi2(new KokonaisLukuOperandi(-8,false));
         assertEquals(-12, pluslasku.laske());
     }
 
     @Test
     public void toimiikoSummaTekstinaPosInt() {
-        pluslasku.setOperandi1(4);
-        pluslasku.setOperandi2(7);
+        pluslasku.setOperandi1(new KokonaisLukuOperandi(4,true));
+        pluslasku.setOperandi2(new KokonaisLukuOperandi(7,false));
         assertEquals("4 + 7", pluslasku.tekstina());
     }
 
     @Test
     public void toimiikoSummaTekstinaNegInt() {
-        pluslasku.setOperandi1(-4);
-        pluslasku.setOperandi2(-7);
+        pluslasku.setOperandi1(new KokonaisLukuOperandi(-4,true));
+        pluslasku.setOperandi2(new KokonaisLukuOperandi(-7,false));
         assertEquals("-4 + (-7)", pluslasku.tekstina());
     }
 
     @Test
     public void toimiikoErotuksenLaskeminenPosInt() {
-        miinuslasku.setOperandi1(7);
-        miinuslasku.setOperandi2(4);
-        assertEquals(3, miinuslasku.laske());
+        miinuslasku.setOperandi1(new KokonaisLukuOperandi(4,true));
+        miinuslasku.setOperandi2(new KokonaisLukuOperandi(7,false));
+        assertEquals(-3, miinuslasku.laske());
     }
 
     @Test
     public void toimiikoErotuksenLaskeminenNegInt() {
-        miinuslasku.setOperandi1(-4);
-        miinuslasku.setOperandi2(-8);
+        miinuslasku.setOperandi1(new KokonaisLukuOperandi(-4,true));
+        miinuslasku.setOperandi2(new KokonaisLukuOperandi(-8,false));
         assertEquals(4, miinuslasku.laske());
     }
 
     @Test
     public void toimiikoErotusTekstinaInt1() {
-        miinuslasku.setOperandi1(4);
-        miinuslasku.setOperandi2(7);
+        miinuslasku.setOperandi1(new KokonaisLukuOperandi(4,true));
+        miinuslasku.setOperandi2(new KokonaisLukuOperandi(7,false));
         assertEquals("4 - 7", miinuslasku.tekstina());
     }
 
     @Test
     public void toimiikoErotusTekstinaInt2() {
-        miinuslasku.setOperandi1(-4);
-        miinuslasku.setOperandi2(-7);
+        miinuslasku.setOperandi1(new KokonaisLukuOperandi(-4,true));
+        miinuslasku.setOperandi2(new KokonaisLukuOperandi(-7,false));
         assertEquals("-4 - (-7)", miinuslasku.tekstina());
     }
 
     @Test
     public void toimiikoErotusTekstinaInt3() {
-        miinuslasku.setOperandi1(-4);
-        miinuslasku.setOperandi2(-0);
+        miinuslasku.setOperandi1(new KokonaisLukuOperandi(-4,true));
+        miinuslasku.setOperandi2(new KokonaisLukuOperandi(-0,false));
         assertEquals("-4 - 0", miinuslasku.tekstina());
     }
 
     @Test
     public void toimiikoTulonLaskeminenPosInt() {
-        kertolasku.setOperandi1(4);
-        kertolasku.setOperandi2(7);
+        kertolasku.setOperandi1(new KokonaisLukuOperandi(4,true));
+        kertolasku.setOperandi2(new KokonaisLukuOperandi(7,false));
         assertEquals(28, kertolasku.laske());
     }
 
     @Test
     public void toimiikoTulonLaskeminenPosIntJaNollaInt() {
-        kertolasku.setOperandi1(4);
-        kertolasku.setOperandi2(0);
+        kertolasku.setOperandi1(new KokonaisLukuOperandi(4,true));
+        kertolasku.setOperandi2(new KokonaisLukuOperandi(0,false));
         assertEquals(0, kertolasku.laske());
     }
 
     @Test
     public void toimiikoTulonLaskeminenNegInt1() {
-        kertolasku.setOperandi1(-4);
-        kertolasku.setOperandi2(-8);
+        kertolasku.setOperandi1(new KokonaisLukuOperandi(-4,true));
+        kertolasku.setOperandi2(new KokonaisLukuOperandi(-8,false));
         assertEquals(32, kertolasku.laske());
     }
 
     @Test
     public void toimiikoTulonLaskeminenNegInt2() {
-        kertolasku.setOperandi1(4);
-        kertolasku.setOperandi2(-8);
+        kertolasku.setOperandi1(new KokonaisLukuOperandi(4,true));
+        kertolasku.setOperandi2(new KokonaisLukuOperandi(-8,false));
         assertEquals(-32, kertolasku.laske());
     }
 
     @Test
     public void toimiikoTuloTekstinaPosInt() {
-        kertolasku.setOperandi1(4);
-        kertolasku.setOperandi2(7);
+        kertolasku.setOperandi1(new KokonaisLukuOperandi(4,true));
+        kertolasku.setOperandi2(new KokonaisLukuOperandi(7,false));
         assertEquals("4 x 7", kertolasku.tekstina());
     }
 
     @Test
     public void toimiikoTuloTekstinaNegInt() {
-        kertolasku.setOperandi1(-4);
-        kertolasku.setOperandi2(-7);
+        kertolasku.setOperandi1(new KokonaisLukuOperandi(-4,true));
+        kertolasku.setOperandi2(new KokonaisLukuOperandi(-7,false));
         assertEquals("-4 x (-7)", kertolasku.tekstina());
     }
 
     @Test
     public void toimiikoOsamaaranLaskeminenPosInt() {
-        jakolasku.setOperandi1(4);
-        jakolasku.setOperandi2(7);
+        jakolasku.setOperandi1(new KokonaisLukuOperandi(28,true));
+        jakolasku.setOperandi2(new KokonaisLukuOperandi(7,false));
             assertEquals(4, jakolasku.laske());
     }
     
     @Test
     public void toimiikoOsamaaranLaskeminenNegInt() {
-        jakolasku.setOperandi1(-8);
-        jakolasku.setOperandi2(7);
+        jakolasku.setOperandi1(new KokonaisLukuOperandi(-56,true));
+        jakolasku.setOperandi2(new KokonaisLukuOperandi(7,false));
             assertEquals(-8, jakolasku.laske());
     }
     
     @Test
-    public void toimiikoOsamaarassaNollaTarkistus() {
-        jakolasku.setOperandi1(-8);
-        jakolasku.setOperandi2(0);
-            assertEquals(false, jakolasku.operanditOvatKelvolliset());
-    }
-    
-    @Test
     public void toimiikoOsamaaraTekstinaNegInt() {
-        jakolasku.setOperandi1(8);
-        jakolasku.setOperandi2(-7);
+        jakolasku.setOperandi1(new KokonaisLukuOperandi(-56,true));
+        jakolasku.setOperandi2(new KokonaisLukuOperandi(-7,false));
             assertEquals("-56 / (-7)", jakolasku.tekstina());
     }
     

@@ -15,6 +15,9 @@ import static org.junit.Assert.*;
  */
 public class TehtavaTest {
 
+    Laskutoimitustehdas vakioLaskutoimitustehdas;
+
+
     KokonaislukuArpoja arpoja;
     Laskutoimitustehdas laskutoimitustehdas;
     Laskutoimitus jakolasku;
@@ -33,13 +36,14 @@ public class TehtavaTest {
 
     @Before
     public void setUp() {
-        laskutoimitustehdas = new Laskutoimitustehdas();
-        arpoja = new KokonaislukuArpoja();
+        this.arpoja = new KokonaislukuArpoja();
+        laskutoimitustehdas = new Laskutoimitustehdas(arpoja);
+        vakioLaskutoimitustehdas =new Laskutoimitustehdas(new TestiArpojaVakioilla(4,7));
 
         try {
-        jakolasku = laskutoimitustehdas.uusiLaskutoimitus("j", arpoja);
+        jakolasku = laskutoimitustehdas.uusiLaskutoimitus("j");
         
-        jakolaskuVakioArpojalla = laskutoimitustehdas.uusiLaskutoimitus("j", new TestiArpojaVakioilla(4, 7));
+        jakolaskuVakioArpojalla = vakioLaskutoimitustehdas.uusiLaskutoimitus("j");
         } catch (Exception exception) {// EXCEPTION 
             System.out.println("Väärä laskutoimitustyyppi");// EXCEPTION
         }
@@ -51,8 +55,8 @@ public class TehtavaTest {
 
     @Test
     public void toimiikoJakolaskuTehtavanLuominen() {
-        jakolasku.setOperandi1(4);
-        jakolasku.setOperandi2(7);
+        jakolasku.setOperandi1(new KokonaisLukuOperandi(28,true));
+        jakolasku.setOperandi2(new KokonaisLukuOperandi(7,false));
         Tehtava jakolaskuTehtava = new Tehtava(jakolasku);
         assertEquals("Laske: 28 / 7", jakolaskuTehtava.tekstina());
     }

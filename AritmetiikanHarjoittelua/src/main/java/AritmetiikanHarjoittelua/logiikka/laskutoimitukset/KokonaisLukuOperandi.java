@@ -4,17 +4,19 @@ package AritmetiikanHarjoittelua.logiikka.laskutoimitukset;
  *
  * @author Hannu
  */
-public class LukuOperandi implements Operandi {
+public class KokonaisLukuOperandi implements Operandi {
 
     private int arvo;
     private String merkkijono;
     private boolean onkoLukuoperandi;
+    private boolean ensimmainenOperandi;
     private String laskutoimitustyyppi;
 
-    public LukuOperandi(int luku) {
+    public KokonaisLukuOperandi(int luku, boolean ensimmainenOperandi) {
         this.arvo = luku;
         this.merkkijono = Integer.toString(luku);
         this.onkoLukuoperandi = true;
+        this.ensimmainenOperandi = ensimmainenOperandi;
         this.laskutoimitustyyppi = "eiLaskutoimitus";
     }
 
@@ -25,7 +27,7 @@ public class LukuOperandi implements Operandi {
 
     @Override
     public String getMerkkijono() {
-        if (this.arvo < 0) {
+        if (this.arvo < 0 && !this.ensimmainenOperandi) {
             this.merkkijono = "(" + this.merkkijono + ")";
         }
         return this.merkkijono;

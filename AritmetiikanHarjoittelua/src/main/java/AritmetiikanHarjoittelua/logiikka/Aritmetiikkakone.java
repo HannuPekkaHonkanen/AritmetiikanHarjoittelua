@@ -11,17 +11,11 @@ import java.util.ArrayList;
  */
 public class Aritmetiikkakone {
 
-//    29.5.2014 tämä luokka vain käyttää luokkaa tehtävä mutta
-//    on tarpeen jos/kun ohjelmaa laajennetaan luokilla Harjoittelu ja Koe
-//    tekstikayttoliittymaa varten
     private Tehtava tehtava;
     private ArrayList<AritmetiikanHarjoitus> harjoitukset;
     private AritmetiikanHarjoitus aktiivinenHarjoitus;
-//    private Tehtava[] tehtavat;
-//    private String[] tulokset;
     private Laskutoimitustehdas laskutoimitustehdas;
     private KokonaislukuArpoja arpoja;
-    private boolean test;
 
     public Aritmetiikkakone() {
         this.arpoja = new KokonaislukuArpoja();
