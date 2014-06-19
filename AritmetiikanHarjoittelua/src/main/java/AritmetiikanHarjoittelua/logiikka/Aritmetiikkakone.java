@@ -24,8 +24,8 @@ public class Aritmetiikkakone {
     private boolean test;
 
     public Aritmetiikkakone() {
-        this.laskutoimitustehdas = new Laskutoimitustehdas();
         this.arpoja = new KokonaislukuArpoja();
+        this.laskutoimitustehdas = new Laskutoimitustehdas(this.arpoja);
         this.harjoitukset = new ArrayList<AritmetiikanHarjoitus>();
     }
 
@@ -34,7 +34,7 @@ public class Aritmetiikkakone {
      * Laskutoimitustehdas-oliolta.
      */
     public void luoTehtava(String tyyppi) throws LaskToimTyypEiLoydyException {
-        this.tehtava = new Tehtava(this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi, this.arpoja));
+        this.tehtava = new Tehtava(this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi));
     }
 
     public void luoHarjoitus(String tyyppi, int lkm) throws LaskToimTyypEiLoydyException {

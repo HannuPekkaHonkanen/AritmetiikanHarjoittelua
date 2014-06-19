@@ -1,8 +1,5 @@
 package AritmetiikanHarjoittelua.logiikka;
 
-//import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil;
-import java.util.ArrayList;
-
 /**
  *
  * @author Hannu
@@ -17,7 +14,7 @@ public class AritmetiikanHarjoitus {
     public AritmetiikanHarjoitus(String tyyppi, int lkm, Laskutoimitustehdas tehdas, KokonaislukuArpoja arpoja) throws LaskToimTyypEiLoydyException {
         this.tehtavat = new Tehtava[lkm];
         for (int i = 0; i < lkm; i++) {
-            this.tehtavat[i] = new Tehtava(tehdas.uusiLaskutoimitus(tyyppi, arpoja));
+            this.tehtavat[i] = new Tehtava(tehdas.uusiLaskutoimitus(tyyppi));
         }
 
         this.vastaukset = new String[lkm];

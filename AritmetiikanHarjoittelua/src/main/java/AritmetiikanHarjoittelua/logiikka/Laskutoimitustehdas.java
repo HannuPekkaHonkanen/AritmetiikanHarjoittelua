@@ -7,60 +7,63 @@ import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.*;
  */
 public class Laskutoimitustehdas {
 
-    private Laskutoimitus paaLaskutoimitus;
     private Arpoja arpoja;
 //    private int arvottuLuku = 0;
 
-//    public Laskutoimitus uusiLaskutoimitus(String tyyppi, Arpoja arpoja) {
-// EXCEPTION    
-    public Laskutoimitus uusiLaskutoimitus(String tyyppi, Arpoja arpoja) throws LaskToimTyypEiLoydyException {
+    public Laskutoimitustehdas(Arpoja arpoja) {
         this.arpoja = arpoja;
+    }
+
+//    public Laskutoimitus uusiLaskutoimitus(String tyyppi) {
+// EXCEPTION    
+    public Laskutoimitus uusiLaskutoimitus(String tyyppi) throws LaskToimTyypEiLoydyException {
+        Laskutoimitus laskutoimitus;
 //        y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku/a=arvo tyyppi/m=moniosainen tehtävä
-        this.paaLaskutoimitus = new Laskutoimitus();
+        laskutoimitus = new Laskutoimitus();
         switch (tyyppi) {
             case "y":
-                this.paaLaskutoimitus = new Summa();
+                laskutoimitus = new Summa();
                 break;
             case "v":
-                this.paaLaskutoimitus = new Erotus();
+                laskutoimitus = new Erotus();
                 break;
             case "k":
-                this.paaLaskutoimitus = new Tulo();
+                laskutoimitus = new Tulo();
                 break;
             case "j":
-                this.paaLaskutoimitus = new Osamaara();
+                laskutoimitus = new Osamaara();
                 break;
             case "a":
 //                arvottuLuku = this.arpoja.kokonaisluku(1, 4);
 //                System.out.println(arvottuLuku);
                 switch (this.arpoja.kokonaisluku(1, 4)) {
                     case 1:
-                        this.paaLaskutoimitus = new Summa();
+                        laskutoimitus = new Summa();
                         break;
                     case 2:
-                        this.paaLaskutoimitus = new Erotus();
+                        laskutoimitus = new Erotus();
                         break;
                     case 3:
-                        this.paaLaskutoimitus = new Tulo();
+                        laskutoimitus = new Tulo();
                         break;
                     case 4:
-                        this.paaLaskutoimitus = new Osamaara();
+                        laskutoimitus = new Osamaara();
                         break;
                     default:
                         throw new LaskToimTyypEiLoydyException();
                 }
                 break;
             case "m":
-                this.paaLaskutoimitus = this.uusiLaskutoimitus("a", arpoja);
-                this.paaLaskutoimitus.setPeruslaskutoimitus(false);
+                laskutoimitus = this.uusiLaskutoimitus("a");
+                laskutoimitus.setPeruslaskutoimitus(false);
                 break;
             default:
                 throw new LaskToimTyypEiLoydyException();
         }
 
-        asetaOperandit();
+        asetaOperandit(laskutoimitus);
 
-        return this.paaLaskutoimitus;
+        return laskutoimitus;
     }
 
 //    public Laskutoimitus uusiAlilaskutoimitus() throws LaskToimTyypEiLoydyException {
@@ -85,38 +88,37 @@ public class Laskutoimitustehdas {
 //
 //        return this.paaLaskutoimitus;
 //    }
-
-    private void asetaOperandit() throws LaskToimTyypEiLoydyException {
+    private void asetaOperandit(Laskutoimitus laskutoimitus) throws LaskToimTyypEiLoydyException {
 
         int arvottuLuku1 = this.arpoja.kokonaisluku(-10, 10);
         int arvottuLuku2 = this.arpoja.kokonaisluku(-10, 10);
 
-        if (this.paaLaskutoimitus.onPeruslaskutoimitus()) {
+        if (laskutoimitus.onPeruslaskutoimitus()) {
 
             // jakaja ei saa olla nolla            
-            if (this.paaLaskutoimitus.getTyyppi().equals("j") && arvottuLuku2 == 0) {
+            if (laskutoimitus.getTyyppi().equals("j") && arvottuLuku2 == 0) {
                 arvottuLuku2 = 1;
             }
-            this.paaLaskutoimitus.setOperandi2(new LukuOperandi(arvottuLuku2));
+            laskutoimitus.setOperandi2(new LukuOperandi(arvottuLuku2));
 
-            this.paaLaskutoimitus.setOperandi1(new LukuOperandi(arvottuLuku1 * arvottuLuku2));
+            laskutoimitus.setOperandi1(new LukuOperandi(arvottuLuku1 * arvottuLuku2));
 
-        } else if (!this.paaLaskutoimitus.onPeruslaskutoimitus()) {
+        } else if (!laskutoimitus.onPeruslaskutoimitus()) {
 
-            Operandi operandi1 = new LaskutoimitusOperandi(this.uusiLaskutoimitus("a", this.arpoja));
-            Operandi operandi2 = new LaskutoimitusOperandi(this.uusiLaskutoimitus("a", this.arpoja));
+            Operandi operandi1 = new LaskutoimitusOperandi(this.uusiLaskutoimitus("a"), laskutoimitus.getTyyppi());
+            Operandi operandi2 = new LaskutoimitusOperandi(this.uusiLaskutoimitus("a"), laskutoimitus.getTyyppi());
 
-            if (this.paaLaskutoimitus.getTyyppi().equals("j")) {
+            if (laskutoimitus.getTyyppi().equals("j")) {
                 // jakaja ei saa olla nolla
                 while (operandi2.getArvo() == 0) {
-                    operandi2 = new LaskutoimitusOperandi(this.uusiLaskutoimitus("a", this.arpoja));
+                    operandi2 = new LaskutoimitusOperandi(this.uusiLaskutoimitus("a"), laskutoimitus.getTyyppi());
                 }
                 // yksinkertaistetaan hieman: jakolaskussa operandi1 on aina LukuOperandi
                 operandi1 = new LukuOperandi(operandi2.getArvo() * arvottuLuku1);
             }
 
-            this.paaLaskutoimitus.setOperandi1(operandi1);
-            this.paaLaskutoimitus.setOperandi2(operandi2);
+            laskutoimitus.setOperandi1(operandi1);
+            laskutoimitus.setOperandi2(operandi2);
 
         } else {
             throw new LaskToimTyypEiLoydyException();

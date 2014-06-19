@@ -93,7 +93,11 @@ public class Gui extends javax.swing.JFrame {
             }
         });
         tehtavaTaulukko.setToolTipText("Klikkaa Vastaus-kenttää, anna vastaus esim. 2 tai -4 ja paina enter. Tuplaklikkaamalla pääset muuttamaan vastausta.");
+        tehtavaTaulukko.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tehtavaTaulukko);
+        tehtavaTaulukko.getColumnModel().getColumn(0).setPreferredWidth(200);
+        tehtavaTaulukko.getColumnModel().getColumn(1).setPreferredWidth(50);
+        tehtavaTaulukko.getColumnModel().getColumn(2).setPreferredWidth(125);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,17 +106,15 @@ public class Gui extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(uusiTehtavaNappi))
+                        .addComponent(uusiTehtavaNappi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tarkistaVastausNappi)
-                        .addGap(38, 38, 38))))
+                        .addComponent(tarkistaVastausNappi))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +127,7 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(tarkistaVastausNappi))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tehtavatyyppiAlasvetovalikko, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
