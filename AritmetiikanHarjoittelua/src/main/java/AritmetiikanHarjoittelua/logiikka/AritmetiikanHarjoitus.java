@@ -5,6 +5,7 @@ package AritmetiikanHarjoittelua.logiikka;
  * @author Hannu
  */
 public class AritmetiikanHarjoitus {
+//    testing
 
     private Tehtava[] tehtavat;
     private String[] vastaukset;
