@@ -55,8 +55,8 @@ public class TehtavaTest {
 
     @Test
     public void toimiikoJakolaskuTehtavanLuominen() {
-        jakolasku.setOperandi1(new KokonaisLukuOperandi(28,true));
-        jakolasku.setOperandi2(new KokonaisLukuOperandi(7,false));
+        jakolasku.setOperandi1(new KokonaisLukuOperandi(28));
+        jakolasku.setOperandi2(new KokonaisLukuOperandi(7));
         Tehtava jakolaskuTehtava = new Tehtava(jakolasku);
         assertEquals("Laske: 28 / 7", jakolaskuTehtava.tekstina());
     }

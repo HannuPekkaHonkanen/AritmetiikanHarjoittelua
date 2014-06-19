@@ -51,14 +51,6 @@ public class LaskutoimitusOperandi implements Operandi {
                 return this.merkkijono;
         }
 
-
-//        if (this.paalaskutoimitustyyppi.equals("j")) {
-//            return "(" + this.merkkijono + ")";
-//        }
-//        if (this.laskutoimitustyyppi.equals("y") || this.laskutoimitustyyppi.equals("v") || this.paalaskutoimitustyyppi.equals("j")) {
-//            return "(" + this.merkkijono + ")";
-//        }
-//        return this.merkkijono;
     }
 
     @Override

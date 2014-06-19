@@ -9,14 +9,12 @@ public class KokonaisLukuOperandi implements Operandi {
     private int arvo;
     private String merkkijono;
     private boolean onKokonaisLukuoperandi;
-    private boolean ensimmainenOperandi;
     private String laskutoimitustyyppi;
 
-    public KokonaisLukuOperandi(int luku, boolean ensimmainenOperandi) {
+    public KokonaisLukuOperandi(int luku) {
         this.arvo = luku;
         this.merkkijono = Integer.toString(luku);
         this.onKokonaisLukuoperandi = true;
-        this.ensimmainenOperandi = ensimmainenOperandi;
         this.laskutoimitustyyppi = "eiLaskutoimitus";
     }
 
@@ -27,7 +25,7 @@ public class KokonaisLukuOperandi implements Operandi {
 
     @Override
     public String getMerkkijono() {
-        if (this.arvo < 0 && !this.ensimmainenOperandi) {
+        if (this.arvo < 0 ) {
             this.merkkijono = "(" + this.merkkijono + ")";
         }
         return this.merkkijono;

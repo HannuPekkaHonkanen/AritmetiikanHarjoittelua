@@ -74,13 +74,17 @@ public class Laskutoimitustehdas {
 
         if (laskutoimitus.onPeruslaskutoimitus()) {
 
+            laskutoimitus.setOperandi1(new KokonaisLukuOperandi(arvottuLuku1));
+
             // jakaja ei saa olla nolla            
             if (laskutoimitus.getTyyppi().equals("j") && arvottuLuku2 == 0) {
                 arvottuLuku2 = 1;
             }
-            laskutoimitus.setOperandi2(new KokonaisLukuOperandi(arvottuLuku2, false));
+            laskutoimitus.setOperandi2(new KokonaisLukuOperandi(arvottuLuku2));
 
-            laskutoimitus.setOperandi1(new KokonaisLukuOperandi(arvottuLuku1 * arvottuLuku2,true));
+            if (laskutoimitus.getTyyppi().equals("j")) {
+                laskutoimitus.setOperandi1(new KokonaisLukuOperandi(arvottuLuku1 * arvottuLuku2));
+            }
 
         } else if (!laskutoimitus.onPeruslaskutoimitus()) {
 
@@ -93,7 +97,7 @@ public class Laskutoimitustehdas {
                     operandi2 = new LaskutoimitusOperandi(this.uusiLaskutoimitus("a"), laskutoimitus.getTyyppi());
                 }
                 // yksinkertaistetaan hieman: jakolaskussa operandi1 on aina LukuOperandi
-                operandi1 = new KokonaisLukuOperandi(operandi2.getArvo() * arvottuLuku1, true);
+                operandi1 = new KokonaisLukuOperandi(operandi2.getArvo() * arvottuLuku1);
             }
 
             laskutoimitus.setOperandi1(operandi1);
@@ -103,16 +107,4 @@ public class Laskutoimitustehdas {
             throw new LaskToimTyypEiLoydyException();
         }
     }
-//    POISTA
-//    public void arvoLuvutTestNolla() {
-////        TESTI
-//        Arpoja arpoja = new Arpoja();
-//
-//        int luku1 = arpoja.kokonaisluku();
-////        int luku2 = arpoja.kokonaisluku();
-//        int luku2 = 0;
-//
-//        this.laskutoimitus.setLuku1(luku1);
-//        this.laskutoimitus.setLuku2(luku2);
-//    }
 }
