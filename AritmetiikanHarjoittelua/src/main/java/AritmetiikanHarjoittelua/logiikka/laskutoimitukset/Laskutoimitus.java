@@ -9,11 +9,11 @@ public class Laskutoimitus {
 
     private Operandi operandi1;
     private Operandi operandi2;
-    private boolean peruslaskutoimitus;
+    private boolean onPeruslaskutoimitus;
     private String tyyppi;
 
     public Laskutoimitus() {
-        this.peruslaskutoimitus = true;
+        this.onPeruslaskutoimitus = true;
     }
 
     public String getTyyppi() {
@@ -32,17 +32,18 @@ public class Laskutoimitus {
         this.operandi2 = operandi;
     }
 
-    public void setPeruslaskutoimitus(boolean totuusarvo) {
-        this.peruslaskutoimitus = totuusarvo;
+    public void setOnPeruslaskutoimitus(boolean totuusarvo) {
+        this.onPeruslaskutoimitus = totuusarvo;
     }
-
-    public Operandi getOperandi1() {
-        return this.operandi1;
-    }
-
-    public Operandi getOperandi2() {
-        return this.operandi2;
-    }
+    
+//    ei kaytossa
+//    public Operandi getOperandi1() {
+//        return this.operandi1;
+//    }
+//
+//    public Operandi getOperandi2() {
+//        return this.operandi2;
+//    }
 
     public int getOperandi1Arvo() {
         return this.operandi1.getArvo();
@@ -61,13 +62,14 @@ public class Laskutoimitus {
     }
 
     public boolean onPeruslaskutoimitus() {
-        return this.peruslaskutoimitus;
+        return this.onPeruslaskutoimitus;
     }
 
 //    public boolean operanditOvatKelvolliset() {
 ////        luokassa Osamaara tälle tehdään override
 //        return true;
 //    }
+    
     public String tekstina() {
 //       tälle tehdään override eri laskutoimituksissa summa/erotus/tulo/osamaara
         return "laskutoimitus tekstinä";

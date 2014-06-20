@@ -10,11 +10,11 @@ public interface Operandi {
 
     public String getMerkkijono();
 
-    public void setArvo(int luku);
-
-    public void setMerkkijono(String merkkijono);
-
-    public boolean onLuku();
-
-    public String getLaskutoimitustyyppi();
+//    public void setArvo(int luku);
+//
+//    public void setMerkkijono(String merkkijono);
+//
+//    public boolean onLuku();
+//
+//    public String getLaskutoimitustyyppi();
 }

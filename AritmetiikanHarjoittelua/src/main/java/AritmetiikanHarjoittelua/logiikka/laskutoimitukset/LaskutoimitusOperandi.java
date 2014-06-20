@@ -53,22 +53,22 @@ public class LaskutoimitusOperandi implements Operandi {
 
     }
 
-    @Override
-    public void setArvo(int luku) {
-        this.arvo = luku;
-    }
-
-    @Override
-    public void setMerkkijono(String merkkijono) {
-        this.merkkijono = merkkijono;
-    }
-
-    @Override
-    public boolean onLuku() {
-        return this.onkoLukuoperandi;
-    }
-
-    public String getLaskutoimitustyyppi() {
-        return this.laskutoimitustyyppi;
-    }
+//    @Override
+//    public void setArvo(int luku) {
+//        this.arvo = luku;
+//    }
+//
+//    @Override
+//    public void setMerkkijono(String merkkijono) {
+//        this.merkkijono = merkkijono;
+//    }
+//
+//    @Override
+//    public boolean onLuku() {
+//        return this.onkoLukuoperandi;
+//    }
+//
+//    public String getLaskutoimitustyyppi() {
+//        return this.laskutoimitustyyppi;
+//    }
 }

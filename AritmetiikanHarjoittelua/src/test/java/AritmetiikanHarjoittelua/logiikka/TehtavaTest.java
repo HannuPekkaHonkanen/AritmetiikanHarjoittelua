@@ -66,4 +66,21 @@ public class TehtavaTest {
         Tehtava jakolaskuTehtava = new Tehtava(jakolaskuVakioArpojalla);
         assertEquals("Laske: 28 / 7", jakolaskuTehtava.tekstina());
     }
+
+    @Test
+    public void toimiikoJakolaskuTehtavanTarkistaminen() {
+        jakolasku.setOperandi1(new KokonaisLukuOperandi(-35));
+        jakolasku.setOperandi2(new KokonaisLukuOperandi(7));
+        Tehtava jakolaskuTehtava = new Tehtava(jakolasku);
+        assertEquals(true, jakolaskuTehtava.onOikein("-5"));
+    }
+
+    @Test
+    public void toimiikoJakolaskuTehtavanTarkistaminen2() {
+        jakolasku.setOperandi1(new KokonaisLukuOperandi(-35));
+        jakolasku.setOperandi2(new KokonaisLukuOperandi(7));
+        Tehtava jakolaskuTehtava = new Tehtava(jakolasku);
+        assertEquals(false, jakolaskuTehtava.onOikein("5"));
+    }
+
 }

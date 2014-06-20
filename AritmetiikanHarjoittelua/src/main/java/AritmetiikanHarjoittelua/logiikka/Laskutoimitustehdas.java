@@ -56,7 +56,7 @@ public class Laskutoimitustehdas {
                 break;
             case "m":
                 laskutoimitus = this.uusiLaskutoimitus("a");
-                laskutoimitus.setPeruslaskutoimitus(false);
+                laskutoimitus.setOnPeruslaskutoimitus(false);
                 break;
             default:
                 throw new LaskToimTyypEiLoydyException();

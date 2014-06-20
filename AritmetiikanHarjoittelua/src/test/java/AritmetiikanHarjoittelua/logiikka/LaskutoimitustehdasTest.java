@@ -22,6 +22,8 @@ public class LaskutoimitustehdasTest {
     Laskutoimitus miinuslasku;
     Laskutoimitus kertolasku;
     Laskutoimitus jakolasku;
+    Laskutoimitus jokinLasku;
+    Laskutoimitus jokinMoniLasku;
     Laskutoimitus miinuslaskuVakioArpojalla;
     Laskutoimitustehdas LaskutoimitusOperandiTehdas;
     Laskutoimitus lasku;
@@ -50,6 +52,8 @@ public class LaskutoimitustehdasTest {
             miinuslasku = laskutoimitustehdas.uusiLaskutoimitus("v");
             kertolasku = laskutoimitustehdas.uusiLaskutoimitus("k");
             jakolasku = laskutoimitustehdas.uusiLaskutoimitus("j");
+            jokinLasku = laskutoimitustehdas.uusiLaskutoimitus("a");
+            jokinMoniLasku = laskutoimitustehdas.uusiLaskutoimitus("m");
 
             miinuslaskuVakioArpojalla = vakioLaskutoimitustehdas.uusiLaskutoimitus("v");
         } catch (Exception exception) {// EXCEPTION 
@@ -94,22 +98,124 @@ public class LaskutoimitustehdasTest {
         jakolasku.setOperandi2(new KokonaisLukuOperandi(7));
         assertEquals("28 / 7", jakolasku.tekstina());
     }
-    
-        @Test
-    public void summaSUMMAsummaTekstina() throws LaskToimTyypEiLoydyException {
+
+    @Test
+    public void summaSUMMAsummaLaskeminen() throws LaskToimTyypEiLoydyException {
 
         lasku = new Summa();
-        lasku.setPeruslaskutoimitus(false);
+        lasku.setOnPeruslaskutoimitus(false);
 
         LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-3, -7));
         lasku1 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("y");
-        lasku.setOperandi1(new LaskutoimitusOperandi(lasku1, lasku1.getTyyppi()));
+        lasku.setOperandi1(new LaskutoimitusOperandi(lasku1, lasku.getTyyppi()));
 
         LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-2, -5));
         lasku2 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("y");
-        lasku.setOperandi2(new LaskutoimitusOperandi(lasku2, lasku2.getTyyppi()));
+        lasku.setOperandi2(new LaskutoimitusOperandi(lasku2, lasku.getTyyppi()));
+
+        assertEquals(-17, lasku.laske());
+    }
+    
+    @Test
+    public void summaSUMMAsummaTekstina() throws LaskToimTyypEiLoydyException {
+
+        lasku = new Summa();
+        lasku.setOnPeruslaskutoimitus(false);
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-3, -7));
+        lasku1 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("y");
+        lasku.setOperandi1(new LaskutoimitusOperandi(lasku1, lasku.getTyyppi()));
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-2, -5));
+        lasku2 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("y");
+        lasku.setOperandi2(new LaskutoimitusOperandi(lasku2, lasku.getTyyppi()));
 
         assertEquals("(-3) + (-7) + (-2) + (-5)", lasku.tekstina());
     }
 
+    @Test
+    public void summaEROTUStuloLaskeminen() throws LaskToimTyypEiLoydyException {
+
+        lasku = new Erotus();
+        lasku.setOnPeruslaskutoimitus(false);
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(3, -7));
+        lasku1 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("y");
+        lasku.setOperandi1(new LaskutoimitusOperandi(lasku1, lasku.getTyyppi()));
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-2, 5));
+        lasku2 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("k");
+        lasku.setOperandi2(new LaskutoimitusOperandi(lasku2, lasku.getTyyppi()));
+
+        assertEquals(6, lasku.laske());
+    }
+
+    @Test
+    public void summaEROTUStuloTekstina() throws LaskToimTyypEiLoydyException {
+
+        lasku = new Erotus();
+        lasku.setOnPeruslaskutoimitus(false);
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(3, -7));
+        lasku1 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("y");
+        lasku.setOperandi1(new LaskutoimitusOperandi(lasku1, lasku.getTyyppi()));
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-2, 5));
+        lasku2 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("k");
+        lasku.setOperandi2(new LaskutoimitusOperandi(lasku2, lasku.getTyyppi()));
+
+        assertEquals("3 + (-7) - (-2) x 5", lasku.tekstina());
+    }
+    
+    @Test
+    public void summaTULOtuloTekstina() throws LaskToimTyypEiLoydyException {
+
+        lasku = new Tulo();
+        lasku.setOnPeruslaskutoimitus(false);
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-3, -7));
+        lasku1 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("y");
+        lasku.setOperandi1(new LaskutoimitusOperandi(lasku1, lasku.getTyyppi()));
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-2, -5));
+        lasku2 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("k");
+        lasku.setOperandi2(new LaskutoimitusOperandi(lasku2, lasku.getTyyppi()));
+        
+        assertEquals("((-3) + (-7)) x (-2) x (-5)", lasku.tekstina());
+    }
+    
+    @Test
+    public void osamaaraTULOerotusTekstina() throws LaskToimTyypEiLoydyException {
+
+        lasku = new Tulo();
+        lasku.setOnPeruslaskutoimitus(false);
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-3, -7));
+        lasku1 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("j");
+        lasku.setOperandi1(new LaskutoimitusOperandi(lasku1, lasku.getTyyppi()));
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-2, -5));
+        lasku2 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("v");
+        lasku.setOperandi2(new LaskutoimitusOperandi(lasku2, lasku.getTyyppi()));
+        
+        assertEquals("21 / (-7) x ((-2) - (-5))", lasku.tekstina());
+    }
+    
+    @Test
+    public void osamaaraOSAMAARAerotusTekstina() throws LaskToimTyypEiLoydyException {
+
+        lasku = new Osamaara();
+        lasku.setOnPeruslaskutoimitus(false);
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-3, -7));
+        lasku1 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("j");
+        lasku.setOperandi1(new LaskutoimitusOperandi(lasku1, lasku.getTyyppi()));
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-2, -5));
+        lasku2 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("v");
+        lasku.setOperandi2(new LaskutoimitusOperandi(lasku2, lasku.getTyyppi()));
+        
+        assertEquals("(21 / (-7)) / ((-2) - (-5))", lasku.tekstina());
+    }
+    
 }
