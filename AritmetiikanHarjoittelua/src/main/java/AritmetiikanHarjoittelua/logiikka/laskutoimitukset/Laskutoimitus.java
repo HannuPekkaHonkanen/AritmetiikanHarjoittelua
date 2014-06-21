@@ -36,15 +36,6 @@ public class Laskutoimitus {
         this.onPeruslaskutoimitus = totuusarvo;
     }
     
-//    ei kaytossa
-//    public Operandi getOperandi1() {
-//        return this.operandi1;
-//    }
-//
-//    public Operandi getOperandi2() {
-//        return this.operandi2;
-//    }
-
     public int getOperandi1Arvo() {
         return this.operandi1.getArvo();
     }

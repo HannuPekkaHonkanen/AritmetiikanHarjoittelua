@@ -1,1 +1,0 @@
-D:\Hannun_tiedot\opinnot\2014_kesa\JavaLabra\AritmetiikanHarjoittelua\AritmetiikanHarjoittelua\target>java -jar AritmetiikanHarjoittelua-1.0-SNAPSHOT.jar
