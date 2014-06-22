@@ -1216,5 +1216,38 @@
         </dia:composite>
       </dia:attribute>
     </dia:object>
+    <dia:object type="Standard - Box" version="0" id="O21">
+      <dia:attribute name="obj_pos">
+        <dia:point val="39.0288,7.40659"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="38.9788,7.35659;76.1245,16.8097"/>
+      </dia:attribute>
+      <dia:attribute name="elem_corner">
+        <dia:point val="39.0288,7.40659"/>
+      </dia:attribute>
+      <dia:attribute name="elem_width">
+        <dia:real val="37.045677737690887"/>
+      </dia:attribute>
+      <dia:attribute name="elem_height">
+        <dia:real val="9.3531166565457227"/>
+      </dia:attribute>
+      <dia:attribute name="show_background">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+    </dia:object>
+    <dia:object type="Standard - PolyLine" version="0" id="O22">
+      <dia:attribute name="obj_pos">
+        <dia:point val="28.0091,8.79503"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="27.9527,6.72135;42.6289,8.85144"/>
+      </dia:attribute>
+      <dia:attribute name="poly_points">
+        <dia:point val="28.0091,8.79503"/>
+        <dia:point val="42.5838,6.77087"/>
+        <dia:point val="42.3586,7.24509"/>
+      </dia:attribute>
+    </dia:object>
   </dia:layer>
 </dia:diagram>
