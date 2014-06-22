@@ -31,6 +31,10 @@ public class Aritmetiikkakone {
         this.tehtava = new Tehtava(this.laskutoimitustehdas.uusiLaskutoimitus(tyyppi));
     }
 
+    /**
+     * Metodi lisää aktiivisen harjoituksen harjoituslistaan ja
+     * asettaa sitten luomansa uuden harjoituksen aktiiviseksi harjoitukseksi.
+     */
     public void luoHarjoitus(String tyyppi, int lkm) throws LaskToimTyypEiLoydyException {
         if (this.aktiivinenHarjoitus != null) {
             AritmetiikanHarjoitus uusiHarjoitus = new AritmetiikanHarjoitus(tyyppi, lkm, this.laskutoimitustehdas, this.arpoja);
@@ -41,16 +45,6 @@ public class Aritmetiikkakone {
         }
     }
 
-//    public void tarkistaTehtavat(String[] vastaukset, int lkm)  {
-//        this.tulokset=new String[lkm];
-//        for (int i = 0; i < lkm; i++) {
-//            if (this.tehtavat[i].onOikein(vastaukset[i])){
-//                this.tulokset[i]="Oikein!";
-//            }else{
-//                this.tulokset[i]="Väärin. Muuta vastausta!";
-//            }
-//        }
-//    }
     public AritmetiikanHarjoitus getAktiivinenHarjoitus() {
         return this.aktiivinenHarjoitus;
     }
@@ -59,29 +53,27 @@ public class Aritmetiikkakone {
         return this.harjoitukset;
     }
 
+    /**
+     * Metodi lisää aktiivisen harjoituksen harjoituslistaan ennen ohjelman
+     * suorituksen lopettamista.
+     */
     public void lopetus(int lkm) {
         if (this.aktiivinenHarjoitus != null) {
             this.harjoitukset.add(this.aktiivinenHarjoitus);
         }
-//        (POISTA TEST) LAAJENNUSIDEA tietoja voisi tallentaa tekstitiedostoon tai jopa tietokantaan
-        for (AritmetiikanHarjoitus harjoitus : this.harjoitukset) {
-            for (int i = 0; i < lkm; i++) {
-                System.out.print(harjoitus.getTehtavat()[i].tekstina());
-                System.out.print(" Vastaus: " + harjoitus.getVastaukset()[i]);
-                System.out.println(" Tulos: " + harjoitus.getTulokset()[i]);
-            }
-        }
+//      LAAJENNUSIDEA tietoja voisi tallentaa tekstitiedostoon tai tietokantaan
+//        for (AritmetiikanHarjoitus harjoitus : this.harjoitukset) {
+//            for (int i = 0; i < lkm; i++) {
+//                System.out.print(harjoitus.getTehtavat()[i].tekstina());
+//                System.out.print(" Vastaus: " + harjoitus.getVastaukset()[i]);
+//                System.out.println(" Tulos: " + harjoitus.getTulokset()[i]);
+//            }
+//        }
     }
 
     //    tekstikayttoliittymaa varten
     public Tehtava getTehtava() {
         return this.tehtava;
     }
-//    public Tehtava[] getTehtavat() {
-//        return this.tehtavat;
-//    }
-//
-//    public String[] getTulokset() {
-//        return this.tulokset;
-//    }
+
 }

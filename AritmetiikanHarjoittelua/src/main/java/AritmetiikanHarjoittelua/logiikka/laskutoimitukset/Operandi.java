@@ -1,8 +1,8 @@
 package AritmetiikanHarjoittelua.logiikka.laskutoimitukset;
 
 /**
- *
- * @author Hannu
+ * Rajapinta laskutoimituksen operandeja varten.
+ * Operandit voivat olla kokonaislukuoperandeja tai laskutoimitusoperandeja.
  */
 public interface Operandi {
 

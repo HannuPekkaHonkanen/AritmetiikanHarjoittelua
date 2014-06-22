@@ -21,12 +21,16 @@ public class Tehtava {
         return "Laske: " + this.laskutoimitus.tekstina();
     }
 
-    private String oikeaVastaus() {
+/**
+ * Metodi palauttaa tehtävän oikean vastauksen tekstinä.
+ */
+    public String oikeaVastaus() {
         return Integer.toString(this.laskutoimitus.laske());
-//        POISTA (<- tägi) mahdollinen laajennus
-//        return Double.toString(this.laskutoimitus.laske());
     }
 
+/**
+ * Metodi tarkistaa tehtävän laskutoimitukseen annetun vastauksen.
+ */
     public boolean onOikein(String vastaus) {
         if (this.oikeaVastaus().equals(vastaus)) {
             return true;

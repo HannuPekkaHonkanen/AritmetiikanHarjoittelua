@@ -7,10 +7,6 @@ import AritmetiikanHarjoittelua.logiikka.Arpoja;
  */
 public class Osamaara extends Laskutoimitus {
 
-//    private Operandi jaettava;
-//    private Arpoja arpoja;
-//    private Operandi jakaja;
-
     public Osamaara() {
         super();
         this.setTyyppi("j");

@@ -61,11 +61,17 @@ public class Laskutoimitus {
 //        return true;
 //    }
     
+/**
+ * Metodi muodostaa laskutoimituksen  tekstinä.
+ */
     public String tekstina() {
 //       tälle tehdään override eri laskutoimituksissa summa/erotus/tulo/osamaara
         return "laskutoimitus tekstinä";
     }
 
+/**
+ * Metodi palauttaa laskutoimituksen arvon kokonaislukuna.
+ */
     public int laske() {
 //       tälle tehdään override eri laskutoimituksissa summa/erotus/tulo/osamaara
         return 999999;

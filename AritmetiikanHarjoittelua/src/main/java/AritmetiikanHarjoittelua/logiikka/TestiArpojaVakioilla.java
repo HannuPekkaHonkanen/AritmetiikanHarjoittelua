@@ -3,7 +3,8 @@ package AritmetiikanHarjoittelua.logiikka;
 import java.util.Random;
 
 /**
- * Luokka arpoo kokonaislukuja.
+ * Luokka on testaamista varten. Tämän luokan konstruktorissa annetaan
+ * vakiot, jotka palautetaan.
  */
 public class TestiArpojaVakioilla implements Arpoja {
 
@@ -18,7 +19,7 @@ public class TestiArpojaVakioilla implements Arpoja {
     }
 
     /**
-     * Metodi palauttaa kokonaisluvun väliltä min...max.
+     * Metodi palauttaa konstruktorille annetut kokonaislukuvakiot.
      */
     @Override
     public int kokonaisluku(int min, int max) {

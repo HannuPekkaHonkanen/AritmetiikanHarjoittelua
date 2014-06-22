@@ -1,8 +1,7 @@
 package AritmetiikanHarjoittelua.logiikka;
 
 /**
- *
- * @author Hannu
+ * Luokka sisältää määrätyn määrän tehtäviä.
  */
 public class AritmetiikanHarjoitus {
 
@@ -11,7 +10,6 @@ public class AritmetiikanHarjoitus {
     private String[] tulokset;
     private int lkm;
 
-//EXCEPTION vai ei???
     public AritmetiikanHarjoitus(String tyyppi, int lkm, Laskutoimitustehdas tehdas, KokonaislukuArpoja arpoja) throws LaskToimTyypEiLoydyException {
         this.lkm=lkm;
         this.tehtavat = new Tehtava[this.lkm];
@@ -24,10 +22,11 @@ public class AritmetiikanHarjoitus {
 
     }
 
+/**
+ * Metodi hoitaa harjoituksen tehtäviin annettujen vastausten tarkistamisen.
+ */
     public void tarkistaTehtavat() {
-//        this.vastaukset = vastaukset;
         for (int i = 0; i < this.lkm; i++) {
-//            this.vastaukset[i] = vastaukset[i];
             if (this.tehtavat[i].onOikein(this.vastaukset[i])) {
                 this.tulokset[i] = "Oikein!";
             } else {
@@ -51,7 +50,5 @@ public class AritmetiikanHarjoitus {
     public void setVastaus (int i, String vastaus){
         this.vastaukset[i]=vastaus;
     }
-//    public String toString(){
-//        return "";
-//    }
+
 }

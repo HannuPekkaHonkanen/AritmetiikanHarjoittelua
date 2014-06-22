@@ -8,14 +8,14 @@ import AritmetiikanHarjoittelua.logiikka.laskutoimitukset.*;
 public class Laskutoimitustehdas {
 
     private Arpoja arpoja;
-//    private int arvottuLuku = 0;
 
     public Laskutoimitustehdas(Arpoja arpoja) {
         this.arpoja = arpoja;
     }
 
-//    public Laskutoimitus uusiLaskutoimitus(String tyyppi) {
-// EXCEPTION    
+/**
+ * Metodi palauttaa uuden Laskutoimitus-luokan ilmentymän.
+ */
     public Laskutoimitus uusiLaskutoimitus(String tyyppi) throws LaskToimTyypEiLoydyException {
         Laskutoimitus laskutoimitus;
 //        y=yhteenlasku/v=vähennyslasku/k=kertolasku/j=jakolasku/a=arvo tyyppi/m=moniosainen tehtävä
@@ -35,8 +35,6 @@ public class Laskutoimitustehdas {
                 laskutoimitus = new Osamaara();
                 break;
             case "a":
-//                arvottuLuku = this.arpoja.kokonaisluku(1, 4);
-//                System.out.println(arvottuLuku);
                 switch (this.arpoja.kokonaisluku(1, 4)) {
                     case 1:
                         laskutoimitus = new Summa();
@@ -67,6 +65,9 @@ public class Laskutoimitustehdas {
         return laskutoimitus;
     }
 
+/**
+ * Metodi asettaa luotavan laskutoimituksen operandit.
+ */
     private void asetaOperandit(Laskutoimitus laskutoimitus) throws LaskToimTyypEiLoydyException {
 
         int arvottuLuku1 = this.arpoja.kokonaisluku(-10, 10);
@@ -81,6 +82,9 @@ public class Laskutoimitustehdas {
         }
     }
 
+/**
+ * Metodi luo kokonaislukuoperandit.
+ */
     private void asetaKokonaisLukuOperandit(Laskutoimitus laskutoimitus, int luku1, int luku2) throws LaskToimTyypEiLoydyException {
 
         Operandi operandi1 = new KokonaisLukuOperandi(luku1);
@@ -101,6 +105,9 @@ public class Laskutoimitustehdas {
         laskutoimitus.setOperandi2(operandi2);
     }
 
+/**
+ * Metodi luo laskutoimitusoperandit.
+ */
     private void asetaLaskutoimitusOperandit(Laskutoimitus paaLaskutoimitus, int luku1) throws LaskToimTyypEiLoydyException {
 
         Operandi operandi1 = new LaskutoimitusOperandi(this.uusiLaskutoimitus("a"), paaLaskutoimitus.getTyyppi());

@@ -1,8 +1,7 @@
 package AritmetiikanHarjoittelua.logiikka.laskutoimitukset;
 
 /**
- *
- * @author Hannu
+ * Luokka toteuttaa rajapinnan Operandi. Luokan avulla voidaan luoda moniosaisia laskutoimituksia.
  */
 public class LaskutoimitusOperandi implements Operandi {
 
@@ -31,7 +30,18 @@ public class LaskutoimitusOperandi implements Operandi {
             case "y":
                 return this.merkkijono;
             case "v":
-                return this.merkkijono;
+                switch (this.laskutoimitustyyppi) {
+                    case "y":
+                        return "(" + this.merkkijono + ")";
+                    case "v":
+                        return "(" + this.merkkijono + ")";
+                    case "k":
+                        return this.merkkijono;
+                    case "j":
+                        return this.merkkijono;
+                    default:
+                        return this.merkkijono;
+                }
             case "k":
                 switch (this.laskutoimitustyyppi) {
                     case "y":
@@ -53,22 +63,4 @@ public class LaskutoimitusOperandi implements Operandi {
 
     }
 
-//    @Override
-//    public void setArvo(int luku) {
-//        this.arvo = luku;
-//    }
-//
-//    @Override
-//    public void setMerkkijono(String merkkijono) {
-//        this.merkkijono = merkkijono;
-//    }
-//
-//    @Override
-//    public boolean onLuku() {
-//        return this.onkoLukuoperandi;
-//    }
-//
-//    public String getLaskutoimitustyyppi() {
-//        return this.laskutoimitustyyppi;
-//    }
 }

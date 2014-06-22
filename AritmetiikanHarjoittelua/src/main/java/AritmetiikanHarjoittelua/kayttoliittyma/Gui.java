@@ -20,7 +20,6 @@ public class Gui extends javax.swing.JFrame {
     public Gui(Aritmetiikkakone kone) {
         initComponents();
         this.kone = kone;
-//        ks. kommentit metodissa tehtavatyyppiAlasvetovalikkoActionPerformed
         String tyyppiString = (String) tehtavatyyppiAlasvetovalikko.getSelectedItem();
         char tyyppiMerkki = tyyppiString.charAt(0);
         this.tehtavaTyyppi = String.valueOf(tyyppiMerkki);
@@ -140,6 +139,9 @@ public class Gui extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Metodi kutsuu Aritmetiikkakoneen luoHarjoitusLuokka-metodia.
+     */
     private void uusiHarjoitusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uusiHarjoitusActionPerformed
         try {
             this.kone.luoHarjoitus(this.tehtavaTyyppi, tehtavaLkm);
@@ -149,41 +151,61 @@ public class Gui extends javax.swing.JFrame {
                 tehtavaTaulukko.setValueAt("", i, 2);
             }
         } catch (Exception exception) {// EXCEPTION 
-            JOptionPane.showMessageDialog(rootPane, "Laskutoimitusten luonti ei onnistunut. Ehkä valitsit laskutoimitustyypin huonosti. Yritä uudelleen!");
+            JOptionPane.showMessageDialog(rootPane, "Laskutoimitusten luonti ei onnistunut. Ole hyvä ja ota yhteyttä järjestelmän toimittajaan.");
         }
     }//GEN-LAST:event_uusiHarjoitusActionPerformed
 
+    /**
+     * Metodi hoitaa aktiivisen harjoituksen tehtävien tarkistamisen.
+     */
     private void tarkistaVastauksetNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarkistaVastauksetNappiActionPerformed
-        if (this.kone.getAktiivinenHarjoitus() != null) {
-            for (int i = 0; i < tehtavaLkm; i++) {
-                this.kone.getAktiivinenHarjoitus().setVastaus(i, tehtavaTaulukko.getValueAt(i, 1).toString());
+        try {
+            if (this.kone.getAktiivinenHarjoitus() != null) {
+                for (int i = 0; i < tehtavaLkm; i++) {
+                    this.kone.getAktiivinenHarjoitus().setVastaus(i, tehtavaTaulukko.getValueAt(i, 1).toString());
+                }
+                this.kone.getAktiivinenHarjoitus().tarkistaTehtavat();
+                for (int i = 0; i < tehtavaLkm; i++) {
+                    tehtavaTaulukko.setValueAt(this.kone.getAktiivinenHarjoitus().getTulokset()[i], i, 2);
+                }
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Luo ensin harjoitus!");
             }
-            this.kone.getAktiivinenHarjoitus().tarkistaTehtavat();
-            for (int i = 0; i < tehtavaLkm; i++) {
-                tehtavaTaulukko.setValueAt(this.kone.getAktiivinenHarjoitus().getTulokset()[i], i, 2);
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Luo ensin harjoitus!");
+        } catch (Exception exception) {// EXCEPTION 
+            JOptionPane.showMessageDialog(rootPane, "Tehtävien tarkistaminen ei onnistunut. Ole hyvä ja tarkista että vastaukset ovat kokonaislukuja. Jos virhe toistuu, ota yhteyttä järjestelmän toimittajaan.");
         }
-
     }//GEN-LAST:event_tarkistaVastauksetNappiActionPerformed
 
+    /**
+     * Metodi on tehtavatyyppiAlasvetovalikon käsittelijä.
+     */
     private void tehtavatyyppiAlasvetovalikkoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tehtavatyyppiAlasvetovalikkoActionPerformed
 //        hieman hankalan nakoista koodia mutta nain txt kayttoliittyman voi
 //        pitaa ennallaan ja alasvetovalikossa puolestaan voi kayttaa skandinaavisia merkkeja
-        String tyyppiString = (String) tehtavatyyppiAlasvetovalikko.getSelectedItem();
-        char tyyppiMerkki = tyyppiString.charAt(0);
-        this.tehtavaTyyppi = String.valueOf(tyyppiMerkki);
+        try {
+            String tyyppiString = (String) tehtavatyyppiAlasvetovalikko.getSelectedItem();
+            char tyyppiMerkki = tyyppiString.charAt(0);
+            this.tehtavaTyyppi = String.valueOf(tyyppiMerkki);
+        } catch (Exception exception) {// EXCEPTION 
+            JOptionPane.showMessageDialog(rootPane, "Tehtävätyypin asettaminen ei onnistunut. Ole hyvä ja ota yhteyttä järjestelmän toimittajaan.");
+        }
     }//GEN-LAST:event_tehtavatyyppiAlasvetovalikkoActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        this.kone.lopetus(tehtavaLkm);
+        try {
+            this.kone.lopetus(tehtavaLkm);
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(rootPane, "Ohjelman sulkeminen johti virhetilanteeseen. Ole hyvä ja käynnistä ohjelma uudestaan, jos haluat jatkaa.");
+        }
     }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+//    public static void main(String args[]){
+    public static void main(String args[]) throws Exception {
+
+
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -215,6 +237,7 @@ public class Gui extends javax.swing.JFrame {
                 new Gui(new Aritmetiikkakone()).setVisible(true);
             }
         });
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

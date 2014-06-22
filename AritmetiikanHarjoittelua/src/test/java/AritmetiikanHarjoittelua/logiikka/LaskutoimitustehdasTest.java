@@ -134,6 +134,40 @@ public class LaskutoimitustehdasTest {
     }
 
     @Test
+    public void erotusEROTUSerotus() throws LaskToimTyypEiLoydyException {
+
+        lasku = new Erotus();
+        lasku.setOnPeruslaskutoimitus(false);
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-3, -1));
+        lasku1 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("v");
+        lasku.setOperandi1(new LaskutoimitusOperandi(lasku1, lasku.getTyyppi()));
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-9, 8));
+        lasku2 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("v");
+        lasku.setOperandi2(new LaskutoimitusOperandi(lasku2, lasku.getTyyppi()));
+
+        assertEquals(15, lasku.laske());
+    }
+    
+    @Test
+    public void erotusEROTUSerotusTekstina() throws LaskToimTyypEiLoydyException {
+
+        lasku = new Erotus();
+        lasku.setOnPeruslaskutoimitus(false);
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-3, -1));
+        lasku1 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("v");
+        lasku.setOperandi1(new LaskutoimitusOperandi(lasku1, lasku.getTyyppi()));
+
+        LaskutoimitusOperandiTehdas = new Laskutoimitustehdas(new TestiArpojaVakioilla(-9, 8));
+        lasku2 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("v");
+        lasku.setOperandi2(new LaskutoimitusOperandi(lasku2, lasku.getTyyppi()));
+
+        assertEquals("((-3) - (-1)) - ((-9) - 8)", lasku.tekstina());
+    }
+
+    @Test
     public void summaEROTUStuloLaskeminen() throws LaskToimTyypEiLoydyException {
 
         lasku = new Erotus();
@@ -164,7 +198,7 @@ public class LaskutoimitustehdasTest {
         lasku2 = LaskutoimitusOperandiTehdas.uusiLaskutoimitus("k");
         lasku.setOperandi2(new LaskutoimitusOperandi(lasku2, lasku.getTyyppi()));
 
-        assertEquals("3 + (-7) - (-2) x 5", lasku.tekstina());
+        assertEquals("(3 + (-7)) - (-2) x 5", lasku.tekstina());
     }
     
     @Test
